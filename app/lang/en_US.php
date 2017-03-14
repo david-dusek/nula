@@ -1,4 +1,9 @@
 <?php
 return [
-  'test' => 'English Test',
+  'homepageTitle' => 'Homepage',
+  'projectsTitle' => 'Projects',
+  'offerTitle' => 'We offer',
+  'aboutUsTitle' => 'About Us',
+  'contactTitle' => 'Contact',
+  'faqTitle' => 'FAQ',
 ];

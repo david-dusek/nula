@@ -10,7 +10,7 @@ class Home extends \Nula\Controller\Base {
    * @param array $args
    * @return \Slim\Http\Response
    */
-  public function homepage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
+  public function actionHomepage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
     return $this->createTwigI18nResponse($request, $response, $args, 'home/homepage.twig');
   }
 

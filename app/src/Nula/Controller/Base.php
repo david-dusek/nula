@@ -34,6 +34,7 @@ class Base {
                                             array $routerArgs, string $template, array $templateParameters = []): \Psr\Http\Message\ResponseInterface {
     $language = $this->getLanguageFromRouterArgs($routerArgs);
     $view = $this->viewFactory->createTwigI18nView($request, $this->router, $language);
+    $templateParameters['lang'] = $language;
 
     return $view->render($response, $template, $templateParameters);
   }

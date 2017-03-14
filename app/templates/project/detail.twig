@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block title %}Citadela{% endblock %}
+{% block head %}
+  {{ parent() }}
+{% endblock %}
+{% block content %}
+  <a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans }}</a>
+  <h1>Citadela</h1>
+{% endblock %}
+

@@ -8,7 +8,7 @@ class Application {
    * @var \Slim\App
    */
   private $slimApplication;
-  
+
   /**
    * @var \Interop\Container\ContainerInterface
    */
@@ -24,19 +24,25 @@ class Application {
 
   public function run() {
     $this->registerRoutes();
-    $this->registerViewFactory();        
+    $this->registerViewFactory();
     $this->slimApplication->run();
   }
-  
-  
+
   private function registerViewFactory() {
     $this->slimApplication->getContainer()['viewFactory'] = new \Nula\View\Factory($this->container->get('settings')['twig']['cache']);
   }
-  
+
   private function registerRoutes() {
-    $router = $this->container->get('router'); /* @var $router \Slim\Router */        
-    $router->map(['get'], '/{lang:[a-y]{2}}', \Nula\Controller\Home::class . ':homepage');
-    $router->map(['get'], '/', \Nula\Controller\Home::class . ':homepage');
+    $router = $this->container->get('router'); /* @var $router \Slim\Router */
+    $router->map(['get'], '/', \Nula\Controller\Home::class . ':actionHomepage');
+    $router->map(['get'], '/{lang:[a-z]{2}}', \Nula\Controller\Home::class . ':actionHomepage')->setName('homepage');
+    $router->map(['get'], '/{lang:[a-z]{2}}/projekty', \Nula\Controller\Project::class . ':actionList')->setName('projects');
+    $router->map(['get'], '/{lang:[a-z]{2}}/projekt/{rewrite:[a-z-]+}',
+            \Nula\Controller\Project::class . ':actionDetail')->setName('projectDetail');
+    $router->map(['get'], '/{lang:[a-z]{2}}/nabizime', \Nula\Controller\About::class . ':actionOffer')->setName('offer');
+    $router->map(['get'], '/{lang:[a-z]{2}}/o-nas', \Nula\Controller\About::class . ':actionAboutUs')->setName('aboutUs');
+    $router->map(['get'], '/{lang:[a-z]{2}}/kontakt', \Nula\Controller\About::class . ':actionContact')->setName('contact');
+    $router->map(['get'], '/{lang:[a-z]{2}}/faq', \Nula\Controller\Help::class . ':actionFaq')->setName('faq');
   }
 
 }
