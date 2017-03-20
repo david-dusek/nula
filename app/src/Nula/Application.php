@@ -24,12 +24,18 @@ class Application {
 
   public function run() {
     $this->registerRoutes();
+    $this->registerLanguagesManager();
     $this->registerViewFactory();
     $this->slimApplication->run();
   }
 
+  private function registerLanguagesManager() {
+    $this->container['languagesManager'] = new \Nula\I18n\LanguagesManager();
+  }
+
   private function registerViewFactory() {
-    $this->slimApplication->getContainer()['viewFactory'] = new \Nula\View\Factory($this->container->get('settings')['twig']['cache']);
+    $this->container['viewFactory'] = new \Nula\View\Factory($this->container->get('languagesManager'),
+            $this->container->get('settings')['twig']['cache']);
   }
 
   private function registerRoutes() {

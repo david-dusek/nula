@@ -6,13 +6,17 @@
     {% endblock %}
   </head>
   <body>
+    <div id="language-switch">
+      {{ languageSwitchParameters.currentAbbreviation }}&nbsp;/&nbsp;<a href="{{ languageSwitchParameters.alternativeUrl }}">{{ languageSwitchParameters.alternativeAbbreviation }}</a>
+    </div>
+
     <ul>
-    <li><a href="{{ path_for('homepage', {'lang': lang }) }}">{{ 'homepageTitle'|trans }}</a></li>
-    <li><a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans }}</a></li>
-    <li><a href="{{ path_for('offer', {'lang': lang }) }}">{{ 'offerTitle'|trans }}</a></li>
-    <li><a href="{{ path_for('aboutUs', {'lang': lang }) }}">{{ 'aboutUsTitle'|trans }}</a></li>
-    <li><a href="{{ path_for('faq', {'lang': lang }) }}">{{ 'faqTitle'|trans }}</a></li>
-    <li><a href="{{ path_for('contact', {'lang': lang }) }}">{{ 'contactTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('homepage', {'lang': lang }) }}">{{ 'homepageTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('offer', {'lang': lang }) }}">{{ 'offerTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('aboutUs', {'lang': lang }) }}">{{ 'aboutUsTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('faq', {'lang': lang }) }}">{{ 'faqTitle'|trans }}</a></li>
+      <li><a href="{{ path_for('contact', {'lang': lang }) }}">{{ 'contactTitle'|trans }}</a></li>
     </ul>
     <div id="content">
     {% block content %}{% endblock %}
