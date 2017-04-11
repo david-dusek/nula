@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% block head %}
+    {% block head %}      
       <title>{% block title %}{% endblock %} - Nula</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">      
+      <link href="/css/languages.min.css" rel="stylesheet">      
+      <link href="/css/main.css" rel="stylesheet">      
     {% endblock %}
   </head>
   <body>
-    <div id="language-switch">
-      {{ languageSwitchParameters.currentAbbreviation }}&nbsp;/&nbsp;<a href="{{ languageSwitchParameters.alternativeUrl }}">{{ languageSwitchParameters.alternativeAbbreviation }}</a>
+    {% include 'components/navigation.twig' %}    
+    <div id="content" class="jumbotron">
+      {% block content %}{% endblock %}
+    </div>
+  <div id="footer">
+      {% block footer %}
+        &copy; Nula {{ "now"|date("Y") }}
+      {% endblock %}
     </div>
 
-    <ul>
-      <li><a href="{{ path_for('homepage', {'lang': lang }) }}">{{ 'homepageTitle'|trans }}</a></li>
-      <li><a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans }}</a></li>
-      <li><a href="{{ path_for('offer', {'lang': lang }) }}">{{ 'offerTitle'|trans }}</a></li>
-      <li><a href="{{ path_for('aboutUs', {'lang': lang }) }}">{{ 'aboutUsTitle'|trans }}</a></li>
-      <li><a href="{{ path_for('faq', {'lang': lang }) }}">{{ 'faqTitle'|trans }}</a></li>
-      <li><a href="{{ path_for('contact', {'lang': lang }) }}">{{ 'contactTitle'|trans }}</a></li>
-    </ul>
-    <div id="content">
-    {% block content %}{% endblock %}
-  </div>
-  <div id="footer">
-    {% block footer %}
-      &copy; Nula {{ "now"|date("Y") }}
-    {% endblock %}
-  </div>
-</body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
 </html>
