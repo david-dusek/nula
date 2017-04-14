@@ -37,3 +37,11 @@ body {
 .navbar {
   border: none;
 }
+
+.navbar-collapse {
+  border: none;
+}
+
+.navbar-brand {
+  margin-top: -10px;
+}
