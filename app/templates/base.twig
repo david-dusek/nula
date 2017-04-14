@@ -14,7 +14,7 @@
     {% endblock %}
   </head>
   <body>
-    {% include 'components/navigation.twig' %}    
+    {% include 'components/navigation.twig' with { 'showHeaderLogo' : true } %}    
     <div id="content" class="jumbotron">
       {% block content %}{% endblock %}
     </div>

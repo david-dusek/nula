@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">NULA</a>
+      {% if showHeaderLogo == true %}<a class="navbar-brand" href="#">NULA</a>{% endif %}
       
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,8 +35,6 @@
           {% include 'components/languageSwitcher.twig' %}
         </li>
       </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
+    </div>    
+  </div>  
 </nav>
