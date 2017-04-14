@@ -11,7 +11,7 @@ class Project extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'project/list.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'project/list.twig', ['activeLink' => 'projects']);
   }
 
   /**
@@ -21,7 +21,7 @@ class Project extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface\
    */
   public function actionDetail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'project/detail.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'project/detail.twig', ['activeLink' => 'projects']);
   }
 
 }

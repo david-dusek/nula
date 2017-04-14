@@ -11,7 +11,7 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionOffer(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/offer.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/offer.twig', ['activeLink' => 'offer']);
   }
 
   /**
@@ -21,7 +21,7 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionContact(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/contact.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/contact.twig', ['activeLink' => 'contact']);
   }
 
   /**
@@ -31,7 +31,7 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionAboutUs(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/aboutUs.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/aboutUs.twig', ['activeLink' => 'aboutUs']);
   }
 
 }

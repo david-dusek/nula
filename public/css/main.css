@@ -1,10 +1,11 @@
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 300;  
 }
 
 body {
     margin-top: 50px;
+      color: #000;  
 }
 
 @media (max-width: 767px) {
@@ -18,18 +19,31 @@ body {
 
 #footer {  
   font-size: 13px;
-  color: #999;  
+  color: #000;  
 }
 
 #footer a {  
-  color: #999;
+  color: #000;
 }
 
 #footer #social-links {
   font-size: 20px;
 }
 
+.active-link {
+  text-decoration: underline;
+}
+
 /* BOOTSTRAP fixes */
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #000;
+}
+
+
 .navbar-default {
   background-color: #fff;
 }

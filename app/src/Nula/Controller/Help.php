@@ -11,7 +11,7 @@ class Help extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionFAQ(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'help/faq.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'help/faq.twig', ['activeLink' => 'faq']);
   }
 
 }
