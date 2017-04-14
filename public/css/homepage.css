@@ -16,15 +16,14 @@ body {
     -o-background-size: cover;
 }
 
-.homepage-content {
-  padding-top: 100px;  
+.homepage-content {  
+  padding-top: 200px;  
   font-size: 50px;
 }
 
 .homepage-content img {
+  width: 100%;
+  max-width: 600px;
   border: solid 1px #fff;
-}
-
-.homepage-content p {
-  margin-top: 30px;
+  margin-bottom: 30px;
 }
