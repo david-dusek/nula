@@ -28,3 +28,12 @@ body {
 #footer #social-links {
   font-size: 20px;
 }
+
+/* BOOTSTRAP fixes */
+.navbar-default {
+  background-color: #fff;
+}
+
+.navbar {
+  border: none;
+}
