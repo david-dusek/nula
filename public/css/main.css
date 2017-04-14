@@ -1,0 +1,30 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
+
+body {
+    margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+    #footer .text-right { 
+      text-align:center 
+    }
+    #footer .text-left { 
+      text-align:center 
+    }
+}
+
+#footer {  
+  font-size: 13px;
+  color: #999;  
+}
+
+#footer a {  
+  color: #999;
+}
+
+#footer #social-links {
+  font-size: 20px;
+}

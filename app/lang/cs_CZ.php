@@ -6,4 +6,5 @@ return [
   'aboutUsTitle' => 'O nás',
   'contactTitle' => 'Kontakt',
   'faqTitle' => 'FAQ',
+  'pageCreatedBy' => 'webovou prezentaci vytvořil',
 ];

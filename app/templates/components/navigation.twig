@@ -9,27 +9,27 @@
         <span class="icon-bar"></span>
       </button>
       {% if showHeaderLogo == true %}<a class="navbar-brand" href="#">NULA</a>{% endif %}
-      
+        
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="{{ path_for('homepage', {'lang': lang }) }}">{{ 'homepageTitle'|trans }}</a>
+          <a href="{{ path_for('homepage', {'lang': lang }) }}">{{ 'homepageTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans }}</a>
+          <a href="{{ path_for('projects', {'lang': lang }) }}">{{ 'projectsTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('offer', {'lang': lang }) }}">{{ 'offerTitle'|trans }}</a>
+          <a href="{{ path_for('offer', {'lang': lang }) }}">{{ 'offerTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('aboutUs', {'lang': lang }) }}">{{ 'aboutUsTitle'|trans }}</a>
+          <a href="{{ path_for('aboutUs', {'lang': lang }) }}">{{ 'aboutUsTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('faq', {'lang': lang }) }}">{{ 'faqTitle'|trans }}</a>
+          <a href="{{ path_for('faq', {'lang': lang }) }}">{{ 'faqTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('contact', {'lang': lang }) }}">{{ 'contactTitle'|trans }}</a>
+          <a href="{{ path_for('contact', {'lang': lang }) }}">{{ 'contactTitle'|trans|upper }}</a>
         </li>        
         <li>
           {% include 'components/languageSwitcher.twig' %}

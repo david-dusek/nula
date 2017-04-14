@@ -5,7 +5,7 @@
   {{ parent() }}
 {% endblock %}
 {% block content %}
-  <h1>{{ 'projectsTitle'|trans }}</h1>
+  <h1>{{ 'projectsTitle'|trans }}</h1>  
   <a href="{{ path_for('projectDetail', {'lang': lang, 'rewrite': 'citadela' }) }}">Detail Citadela</a>
 {% endblock %}
 
