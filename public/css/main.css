@@ -4,7 +4,7 @@ body {
 }
 
 body {
-    margin-top: 50px;
+    margin-top: 110px;
       color: #000;  
 }
 
@@ -50,12 +50,21 @@ body {
 
 .navbar {
   border: none;
+  margin-bottom: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .navbar-collapse {
   border: none;
 }
 
-.navbar-brand {
-  margin-top: -10px;
+.navbar-default .navbar-brand {
+  color: #000;
+  margin-top: -3px;
+  font-size: 20px;  
+} 
+
+.navbar-default .navbar-brand strong {
+  font-weight: 400;
 }

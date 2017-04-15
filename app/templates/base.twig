@@ -10,7 +10,6 @@
       <meta name="author" content="">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel='stylesheet' id='redux-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Roboto%3A100%2C300%2C400%2C500%2C700%2C900%2C100italic%2C300italic%2C400italic%2C500italic%2C700italic%2C900italic%7COpen+Sans&#038;subset=latin&#038;ver=3.9.17' type='text/css' media='all' />
-      <link href="/css/languages.min.css" rel="stylesheet">
       <link href="/css/font-awesome.min.css" rel="stylesheet">
       <link href="/css/main.css" rel="stylesheet">
     {% endblock %}
@@ -24,11 +23,16 @@
     {% block footer %}
       <div class="row">
         <div class="col-sm-8 col-xs-12 text-left">
-          &copy; Nula {{ "now"|date("Y") }} - {{ 'pageCreatedBy'|trans }}: <a href="https://www.linkedin.com/in/david-du%C5%A1ek-30026a71/" target="_blank">David Dušek</a>
+          &copy; NULA ARCHITEKTI {{ "now"|date("Y") }}&nbsp;&nbsp;
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;<a href="mailto:info@nula-arkitekti.cz" target="_blank">info@nula-arkitekti.cz</a>&nbsp;&nbsp;
+          <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+420 789 456 126
         </div>
         <div id="social-links" class="col-sm-4 col-xs-12 text-right">
+          <a href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          &nbsp;
+          <a href="#" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+          &nbsp;
           <a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </div>
       </div>
     {% endblock %}

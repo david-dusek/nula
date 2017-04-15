@@ -6,5 +6,4 @@ return [
   'aboutUsTitle' => 'About Us',
   'contactTitle' => 'Contact',
   'faqTitle' => 'FAQ',
-  'pageCreatedBy' => 'web presentation created by',
 ];
