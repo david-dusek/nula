@@ -9,16 +9,33 @@ body {
 }
 
 .full {
-    background: url('http://placehold.it/1920x1080') no-repeat center center fixed;
+    background: url('/images/main.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
 
+.homepage-content h1 {
+  font-size: 60px;
+  font-weight: 100;
+}
+
+@media (max-width: 767px) {
+  .homepage-content h1 {
+    font-size: 40px;
+  }
+  
+  .homepage-content {
+    font-size: 20px;
+  }
+  
+}
+
 .homepage-content {  
-  padding-top: 200px;  
-  font-size: 50px;
+  padding-top: 14%;  
+  font-weight: 100;
+  font-size: 40px;
 }
 
 .homepage-content img {
