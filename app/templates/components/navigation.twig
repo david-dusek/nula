@@ -28,10 +28,10 @@
           <a href="{{ path_for('projects', {'lang': lang }) }}"{% if activeLink == 'projects' %} class="active-link" {% endif %}>{{ 'projectsTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('offer', {'lang': lang }) }}"{% if activeLink == 'offer' %} class="active-link" {% endif %}>{{ 'offerTitle'|trans|upper }}</a>
+          <a href="{{ path_for('aboutUs', {'lang': lang }) }}"{% if activeLink == 'aboutUs' %} class="active-link" {% endif %}>{{ 'aboutUsTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('aboutUs', {'lang': lang }) }}"{% if activeLink == 'aboutUs' %} class="active-link" {% endif %}>{{ 'aboutUsTitle'|trans|upper }}</a>
+          <a href="{{ path_for('offer', {'lang': lang }) }}"{% if activeLink == 'offer' %} class="active-link" {% endif %}>{{ 'offerTitle'|trans|upper }}</a>
         </li>
         <li>
           <a href="{{ path_for('faq', {'lang': lang }) }}"{% if activeLink == 'faq' %} class="active-link" {% endif %}>{{ 'faqTitle'|trans|upper }}</a>
