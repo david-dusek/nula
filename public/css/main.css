@@ -31,6 +31,10 @@ p {
   color: #000;  
 }
 
+#footer .fa {  
+  padding: 0 5px 0 15px;
+}
+
 #footer a {  
   color: #000;
 }
