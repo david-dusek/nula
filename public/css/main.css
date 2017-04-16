@@ -81,6 +81,47 @@ strong {
 }
 
 
+/* PROJECTS */
+.projects-list {
+  padding: 0 15px;
+}
+
+.project-card {
+  padding: 0; 
+  position: relative;
+}
+
+.project-card-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000;
+}
+
+.project-card:hover .project-card-overlay {
+  opacity: 0.75;
+}
+
+.project-card a {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 400; 
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
 /* ABOUT US */
 
 .about-us-block h3 {
