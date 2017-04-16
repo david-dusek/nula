@@ -15,9 +15,13 @@
     {% endblock %}
   </head>
   <body>
-    {% include 'components/navigation.twig' with { 'showHeaderLogo' : true } %}
-    <div id="content" class="container">
-    {% block content %}{% endblock %}
+    <div id="content-wrapper">
+      <div id="content-all" class="clear-top">
+        {% include 'components/navigation.twig' with { 'showHeaderLogo' : true } %}
+        <div id="content" class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
   </div>
   <div id="footer" class="container">
     {% block footer %}
