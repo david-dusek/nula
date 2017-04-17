@@ -100,7 +100,7 @@ strong {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .5s ease;
+  transition: 1s ease;
   background-color: #000;
 }
 
