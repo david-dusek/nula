@@ -1,10 +1,36 @@
 {% extends "base.twig" %}
 
-{% block title %}{{ 'faqTitle'|trans }}'{% endblock %}
+{% block title %}{{ 'faqTitle'|trans }}{% endblock %}
 {% block head %}
   {{ parent() }}
 {% endblock %}
 {% block content %}
-  <h1>{{ 'faqTitle'|trans }}</h1>
+  <div class="row">
+    <a data-toggle="collapse" href="#question-1" aria-expanded="false" aria-controls="question-1">KDY A PROČ NÁS KONTAKTOVAT?</a>
+    <div id="question-1" class="collapse">
+      <p>
+        Váháte s koupí bytu, domu, pozemku? Potřebujete někoho, kdo Vás upozorní na možná rizika, zhodnotí potenciál místa a navrhne pro Vás vhodné využití? Potřebujete změnit Váš interier? Zdědili jste nemovitost a zvažujete možnosti? Chcete stavět? Rozjíždíte vlastní podnik a řešíte prostory?
+      </p>
+      <p>
+        Jsme tu pro Vás. Nabízíme služby od konzultace až po dohled nad realizací.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <a data-toggle="collapse" href="#question-2" aria-expanded="false" aria-controls="question-2">JAK POSTUPUJEME?</a>
+    <div id="question-2" class="collapse">
+      <p>
+        1	Kontaktujete nás prostřednictvím emailu s Vašimi požadavky, ideálně přiložíte podklady(půdorysy, fotky nebo video stávajícího stavu)
+        <br>
+        2	K odpovědi na Vaši poptávku přiložíme nezávaznou orientační cenovou nabídku.
+        <br>
+        3	Následně domluvíme úvodní schůzku, kde probereme Vaše představy a zvážíme možnosti, projdeme cenovou nabídku a postup spolupráce.
+        <br>
+        4	Po odsouhlasení cenové nabídky zašleme časový harmonogram spolu se zálohovou fakturou
+        <br>
+        5	Termín zahájení práce na projektu může být v rozmezí několika týdnů dle aktuální vytíženosti.
+        <br>
+      </p>
+    </div>
+  </div>
 {% endblock %}
-
