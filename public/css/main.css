@@ -16,6 +16,12 @@ body {
   }
 }
 
+h2 {
+  font-size: 2em;
+  font-weight: 300;
+  margin-top: 0;
+}
+
 h3 {
   font-size: 1em;
   font-weight: 300;
@@ -119,6 +125,29 @@ strong {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+
+/* PROJECT */
+.project-image-thumbnail {
+  padding: 0;
+}
+
+.project-data p {
+  text-align: justify;
+  margin-top: 1.5em;
+}
+
+.project-detail {
+  padding-left: 15px;
+}
+
+.project-detail table th {
+  font-weight: 400;
+}
+
+.project-detail table td {
+  padding-left: 2em;
 }
 
 
