@@ -16,10 +16,15 @@ body {
   }
 }
 
-h2 {
+h1 {
   font-size: 2em;
   font-weight: 300;
   margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 300;
 }
 
 h3 {
@@ -37,6 +42,14 @@ a:hover, a:focus {
 
 strong {
   font-weight: 400;
+}
+
+table th {
+  font-weight: 400;
+}
+
+table td {
+  padding-left: 2em;
 }
 
 /* GENERAL */
@@ -84,6 +97,24 @@ strong {
 #footer #social-links .fa {
   font-size: 1.5em;
   padding: 0 0.3em; 
+}
+
+@media (max-width: 767px) {
+  #footer {
+    margin-top: -7.5em;  /* in absolute value same as content-all padding bottom */
+  }
+
+  #footer .text-right { 
+    text-align:center 
+  }
+
+  #footer .text-left { 
+    text-align:center 
+  }
+
+  #footer #social-links {
+    padding-top: 1em; 
+  }
 }
 
 
@@ -142,14 +173,6 @@ strong {
   padding-left: 15px;
 }
 
-.project-detail table th {
-  font-weight: 400;
-}
-
-.project-detail table td {
-  padding-left: 2em;
-}
-
 
 /* ABOUT US */
 
@@ -167,21 +190,23 @@ strong {
   padding: 0 9px;
 }
 
+
+/* OFFER */
+.offer-section {
+  min-height: 350px;
+}
+
+.offer-section table th {
+  width: 15em;
+}
+
+.offer-section table tr {
+  padding-bottom: 0.5em;
+}
+
 @media (max-width: 767px) {
-  #footer {
-    margin-top: -7.5em;  /* in absolute value same as content-all padding bottom */
-  }
-
-  #footer .text-right { 
-    text-align:center 
-  }
-
-  #footer .text-left { 
-    text-align:center 
-  }
-
-  #footer #social-links {
-    padding-top: 1em; 
+  .offer-section {
+    min-height: 0;
   }
 }
 
