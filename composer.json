@@ -6,7 +6,8 @@
         "slim/slim": "^3.7",
         "slim/twig-view": "^2.2",
         "symfony/twig-bridge": "^3.2",
-        "symfony/translation": "^3.2"
+        "symfony/translation": "^3.2",
+        "dg/ftp-deployment": "^2.7"
     },
     "autoload": {
         "psr-4": {"Nula\\": "app/src/Nula"}
