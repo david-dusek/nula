@@ -10,8 +10,8 @@ class About extends \Nula\Controller\Base {
    * @param array $args
    * @return \Psr\Http\Message\ResponseInterface
    */
-  public function actionOffer(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/offer.twig', ['activeLink' => 'offer']);
+  public function actionWhatWeDo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/whatWeDo.twig', ['activeLink' => 'whatWeDo']);
   }
 
   /**

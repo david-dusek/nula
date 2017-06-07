@@ -52,10 +52,17 @@ table td {
   padding-left: 2em;
 }
 
+/* LANGUAGE SWITCHER */
+#language-switcher {
+  font-size: 0.6em;
+  line-height: 1.1em;
+  display: block;
+}
+
 /* GENERAL */
 
 .active-link {
-  text-decoration: underline;
+  font-weight: 600;
 }
 
 #content-wrapper {
@@ -213,6 +220,8 @@ table td {
 
 /* BOOTSTRAP */
 .navbar {
+  font-family: Montserrat;
+  font-size: 1.2em;
   border: none;
   margin-bottom: 0;
   padding-top: 2.5em;
@@ -245,7 +254,8 @@ table td {
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .navbar-default .navbar-brand {
