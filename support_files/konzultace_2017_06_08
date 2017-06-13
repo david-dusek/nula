@@ -1,0 +1,53 @@
+- layout
+    - texty
+      - Roboto, 400, 14px
+    - nadpisy 
+      - kapitalky, font Montserrat, 300, 1.1em
+    - rozsirit defaultni nastaveni sirky layoutu boostrapu pro FULL HD (okraje cca 3cm)
+    - znak plus minus cervene
+    - zarovnani obsahu FAQ, kontakty a detail projektu stejne  
+    - menu
+      - pozadi na celou sirku 
+      - logo uplne vlevo
+      - menu uplne vpravo
+      - ENG / CZ, 0.6em
+      - 60px vyska
+      - kapitalky, font Montserrat, 300, 1.1em
+      - focus/hover a cervene
+      - polozky menu na spodni lince, podle navrhu
+    - paticka
+      - Montserrat, 300, 0.9em
+      - tmave seda vcetne ikon
+      - sirka dle aktualniho stavu
+      - obsah nechat jen odstranit linkedin
+
+- uvodka
+  - viz navrh (bez paticky)
+  - menu nema pozadi a logo 
+
+- projekty
+  - viz navrh
+
+- detail projektu
+  - rozdili oproti stavajicimu stavu
+  - info o projektu v textech final
+  - info o projektu stejne jako info v kontaktu viz navrh
+  - text vlevo
+  - galerie vpravo
+
+- atelier 
+  - viz navrh
+  - fotky budou na celou sirku (fixni vyska, sirka zaleza za roh)
+  - na uzkem monitoru stejna fotka a informace pod tim
+
+- kontakt
+  - viz navrh
+  - inputy seda jako paticka
+  - titly Montserrat
+  - ??? odeslat kopii na svuj e-mail
+ 
+- FAQ
+  - viz navrh
+  - odkazy a nadpisy jako napdpisy vyse
+  - na klik zobrazit odpovidajici text vpravo
+  - pridat odrazky (plus minus)
