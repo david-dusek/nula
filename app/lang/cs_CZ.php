@@ -2,8 +2,7 @@
 return [
   'homepageTitle' => 'Úvod',
   'projectsTitle' => 'Projekty',
-  'whatWeDoTitle' => 'Co děláme',
-  'aboutUsTitle' => 'O nás',
+  'atelierTitle' => 'Ateliér',
   'faqTitle' => 'FAQ',
   'contactTitle' => 'Kontakt',
 ];

@@ -6,8 +6,8 @@ class LanguagesManager {
 
   const LANG_CS = 'cs';
   const LANG_EN = 'en';
-  const LANG_CS_ABBREVIATION = 'CZ';
-  const LANG_EN_ABBREVIATION = 'ENG';
+  const LANG_CS_ABBREVIATION = 'cz';
+  const LANG_EN_ABBREVIATION = 'eng';
   const LANG_KEY = 'lang';
 
   /**

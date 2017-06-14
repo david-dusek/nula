@@ -1,40 +1,8 @@
-<!DOCTYPE html>
-<html class="full">
-  <head>
-    <title>{{ 'homepageTitle'|trans }} - Nula</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto:300" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/homepage.css" rel="stylesheet">
-  </head>
-  <body>
-    {% include 'components/navigation.twig' with { 'showHeaderLogo' : false } %}
+{% extends "base.twig" %}
 
-    <div class="container homepage-content text-center">
-      <h1>
-        <svg height="100" width="60">
-        <line x1="0" y1="0" x2="0" y2="100" style="stroke:black;stroke-width:8" />
-        <line x1="0" y1="100" x2="60" y2="100" style="stroke:black;stroke-width:8" />
-        <line x1="60" y1="100" x2="60" y2="60" style="stroke:black;stroke-width:8" />
-        <line x1="60" y1="60" x2="0" y2="0" style="stroke:black;stroke-width:4" />
-        Sorry, your browser does not support inline SVG.
-        </svg>
-        &nbsp;
-        <strong>NULA</strong> ARCHITEKTI
-      </h1>
-      <p>
-        <span>ZAČNĚTĚ OD NULY</span>
-      </p>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% block title %}{{ 'homepageTitle'|trans }}{% endblock %}
+{% block head %}
+  {{ parent() }}
+{% endblock %}
+{% block content %}
+{% endblock %}

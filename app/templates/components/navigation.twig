@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -10,7 +9,7 @@
       </button>
       {% if showHeaderLogo == true %}
         <a class="navbar-brand" href="{{ path_for('homepage', {'lang': lang }) }}">
-          &#177;&nbsp;NULA
+          <img src="/images/logo-black.svg" alt="Logo PLUS MINUS NULA">
         </a>
       {% endif %}
     </div>
@@ -20,10 +19,7 @@
           <a href="{{ path_for('projects', {'lang': lang }) }}"{% if activeLink == 'projects' %} class="active-link" {% endif %}>{{ 'projectsTitle'|trans|upper }}</a>
         </li>
         <li>
-          <a href="{{ path_for('whatWeDo', {'lang': lang }) }}"{% if activeLink == 'whatWeDo' %} class="active-link" {% endif %}>{{ 'whatWeDoTitle'|trans|upper }}</a>
-        </li>
-        <li>
-          <a href="{{ path_for('aboutUs', {'lang': lang }) }}"{% if activeLink == 'aboutUs' %} class="active-link" {% endif %}>{{ 'aboutUsTitle'|trans|upper }}</a>
+          <a href="{{ path_for('atelier', {'lang': lang }) }}"{% if activeLink == 'atelier' %} class="active-link" {% endif %}>{{ 'atelierTitle'|trans|upper }}</a>
         </li>
         <li>
           <a href="{{ path_for('contact', {'lang': lang }) }}"{% if activeLink == 'contact' %} class="active-link" {% endif %}>{{ 'contactTitle'|trans|upper }}</a>

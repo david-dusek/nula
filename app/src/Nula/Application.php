@@ -46,7 +46,7 @@ class Application {
     $router->map(['get'], '/{lang:[a-z]{2}}/projekt/{rewrite:[a-z-]+}',
             \Nula\Controller\Project::class . ':actionDetail')->setName('projectDetail');
     $router->map(['get'], '/{lang:[a-z]{2}}/co-delame', \Nula\Controller\About::class . ':actionWhatWeDo')->setName('whatWeDo');
-    $router->map(['get'], '/{lang:[a-z]{2}}/o-nas', \Nula\Controller\About::class . ':actionAboutUs')->setName('aboutUs');
+    $router->map(['get'], '/{lang:[a-z]{2}}/o-nas', \Nula\Controller\About::class . ':actionAtelier')->setName('atelier');
     $router->map(['get'], '/{lang:[a-z]{2}}/kontakt', \Nula\Controller\About::class . ':actionContact')->setName('contact');
     $router->map(['get'], '/{lang:[a-z]{2}}/faq', \Nula\Controller\Help::class . ':actionFaq')->setName('faq');
   }

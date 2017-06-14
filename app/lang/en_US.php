@@ -2,8 +2,7 @@
 return [
   'homepageTitle' => 'Homepage',
   'projectsTitle' => 'Projects',
-  'whatWeDoTitle' => 'What we do',
-  'aboutUsTitle' => 'About Us',
+  'atelierTitle' => 'Atelier',
   'faqTitle' => 'FAQ',
   'contactTitle' => 'Contact',
 ];

@@ -1,7 +1,7 @@
 - layout
     - texty
       - Roboto, 400, 14px
-    - nadpisy 
+    - nadpisy
       - kapitalky, font Montserrat, 300, 1.1em
     - rozsirit defaultni nastaveni sirky layoutu boostrapu pro FULL HD (okraje cca 3cm)
     - znak plus minus cervene

@@ -3,17 +3,6 @@
 namespace Nula\Controller;
 
 class About extends \Nula\Controller\Base {
-
-  /**
-   * @param \Slim\Http\Request $request
-   * @param \Slim\Http\Response $response
-   * @param array $args
-   * @return \Psr\Http\Message\ResponseInterface
-   */
-  public function actionWhatWeDo(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/whatWeDo.twig', ['activeLink' => 'whatWeDo']);
-  }
-
   /**
    * @param \Slim\Http\Request $request
    * @param \Slim\Http\Response $response
@@ -30,8 +19,8 @@ class About extends \Nula\Controller\Base {
    * @param array $args
    * @return \Psr\Http\Message\ResponseInterface
    */
-  public function actionAboutUs(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/aboutUs.twig', ['activeLink' => 'aboutUs']);
+  public function actionAtelier(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/atelier.twig', ['activeLink' => 'atelier']);
   }
 
 }
