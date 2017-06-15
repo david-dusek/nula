@@ -39,6 +39,13 @@ table td {
   padding-left: 2em;
 }
 
+.full {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /* LANGUAGE SWITCHER */
 #language-switcher {  
   font-size: 0.6em;
@@ -186,7 +193,7 @@ table td {
   margin-top: 18px;
   padding: 0;
 }
-  
+
 .navbar-brand>img {
   width: 180px;
   border: none;
