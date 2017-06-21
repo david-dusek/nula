@@ -1,10 +1,99 @@
 {% extends "base.twig" %}
 
-{% block title %}{{ 'faqTitle'|trans }}{% endblock %}
+{% block title %}{{ 'titulekFAQ'|trans }}{% endblock %}
 {% block head %}
   {{ parent() }}
 {% endblock %}
 {% block content %}
   <div id="content" class="container">
+    <div class="row row-filling-big">
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqCimZacit" data-toggle="collapse">{{ 'faqCimZacit'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqCimZacit" class="collapse">
+          <ul>
+            <li>{{ 'faqCimZacitKontakt'|trans|raw }}</li>
+            <li>{{ 'faqCimZacitUvodniSchuzka'|trans|raw }}</li>
+            <li>{{ 'faqCimZacitKontaktCenovaNabidka'|trans|raw }}</li>
+            <li>{{ 'faqCimZacitKontaktTerminZahajeni'|trans|raw }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqStavba" data-toggle="collapse">{{ 'faqStavba'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqStavba" class="collapse">
+          <ul>
+            <li>{{ 'faqStavbaKonzultace'|trans|raw }}</li>
+            <li>{{ 'faqStavbaZamereni'|trans|raw }}</li>
+            <li>{{ 'faqStavbaStudie'|trans|raw }}</li>
+            <li>{{ 'faqStavbaDokumentaceTechnicka'|trans|raw }}</li>
+            <li>{{ 'faqStavbaVyjadreniAStanoviska'|trans|raw }}</li>
+            <li>{{ 'faqStavbaUrady'|trans|raw }}</li>
+            <li>{{ 'faqStavbaDokumentaceRealizace'|trans|raw }}</li>
+            <li>{{ 'faqStavbaDozor'|trans|raw }}</li>
+            <li>{{ 'faqStavbaSpoluprace'|trans|raw }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqInterier" data-toggle="collapse">{{ 'faqInterier'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqInterier" class="collapse">
+          <ul>
+            <li>{{ 'faqInterierKonzultace'|trans|raw }}</li>
+            <li>{{ 'faqInterierZamereni'|trans|raw }}</li>
+            <li>{{ 'faqInterierStudie'|trans|raw }}</li>
+            <li>{{ 'faqInterierPodklady'|trans|raw }}</li>
+            <li>{{ 'faqInterierVyberPrvku'|trans|raw }}</li>
+            <li>{{ 'faqInterierDozor'|trans|raw }}</li>
+            <li>{{ 'faqInterierSpoluprace'|trans|raw }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqDesign" data-toggle="collapse">{{ 'faqDesign'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqDesign" class="collapse">
+          <ul>
+            <li>{{ 'faqDesignNabytek'|trans|raw }}</li>
+            <li>{{ 'faqDesignInstalaceDekorace'|trans|raw }}</li>
+            <li>{{ 'faqDesignGrafickyDesign'|trans|raw }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqRealizace" data-toggle="collapse">{{ 'faqRealizace'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqRealizace" class="collapse">
+          <p>{{ 'faqRealizaceText'|trans }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content">
+      <div class="col-sm-4 col-xs-12 faq-button">
+        <a href="#faqCas" data-toggle="collapse">{{ 'faqCas'|trans|upper }}</a>
+      </div>
+      <div class="col-sm-8 col-xs-12">
+        <div id="faqCas" class="collapse">
+          <p>{{ 'faqCasText'|trans }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}
