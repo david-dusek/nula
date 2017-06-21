@@ -11,7 +11,7 @@ class Home extends \Nula\Controller\Base {
    * @return \Slim\Http\Response
    */
   public function actionHomepage(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'home/homepage.twig');
+    return $this->createTwigI18nResponse($request, $response, $args, 'home/homepage.twig', ['activeLink' => 'homepage']);
   }
 
 }

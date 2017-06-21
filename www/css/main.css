@@ -59,18 +59,12 @@ table td {
   color: #ca1b2a;
 }
 
-#content-wrapper {
-  min-height: 100%;
-}
-
-#content-all {  
-  padding-bottom: 5em; /* in absolute value same as footer margin top */
-}
-
-@media (max-width: 767px) {
-  #content-all {  
-    padding-bottom: 7.5em; /* in absolute value same as footer margin top */
-  }
+#homepage-content {
+  height: 100%;
+  background: url(/images/logo-black.svg);
+  background-size: 30% auto;
+  background-repeat: no-repeat;
+  background-position: center 40%;
 }
 
 /* FOOTER */
@@ -84,8 +78,7 @@ table td {
   position: relative;
   clear:both;
   padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  margin-top: -5em;  /* in absolute value same as content-all padding bottom */
+  padding-bottom: 1.5em;  
 }
 
 #footer a { 
@@ -181,7 +174,7 @@ table td {
 
 
 /* BOOTSTRAP */
-.navbar {
+.navbar {  
   font-family: Montserrat;
   font-weight: 300;
   font-size: 1.1em;
@@ -209,7 +202,7 @@ table td {
 }
 
 .navbar-default {
-  background-color: #aaa;
+  background-color: #fff;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
