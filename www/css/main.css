@@ -185,12 +185,16 @@ table td {
 
 
 /* FAQ */
-.faq-questions a {
+.faq-desktop-questions a {
   display: block;
-  margin-bottom: 0.4em;
+  margin-bottom: 1.4em;
+}
+.faq-mobile-questions a {
+  display: block;
+  margin-bottom: 0.5em;
 }
 
-.faq-questions a:hover, .faq-questions a:focus {
+.faq-desktop-questions a:hover, .faq-desktop-questions a:focus, .faq-mobile-questions a:focus {
   color: #ca1b2a;
   text-decoration: none;
 }

@@ -8,21 +8,30 @@
   <div id="content" class="container">
     <div class="row row-filling-big">
     </div>
-    <div class="row faq-content">
-      <div class="col-sm-5 faq-questions">
-        <a href="#faq-cim-zacit-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqCimZacit'|trans|upper }}</a>
-        <br>
-        <a href="#faq-dtavba-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqStavba'|trans|upper }}</a>
-        <br>
-        <a href="#faq-interier-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqInterier'|trans|upper }}</a>
-        <br>
-        <a href="#faq-design-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqDesign'|trans|upper }}</a>
-        <br>
-        <a href="#faq-realizace-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqRealizace'|trans|upper }}</a>
-        <br>
-        <a href="#faq-cas-desktop" data-toggle="collapse" data-parent="#faq-desktop-answers">{{ 'faqCas'|trans|upper }}</a>
+
+    {# DESKTOP VERSION #}
+    <div class="row faq-content hidden-xs">
+      <div class="col-sm-5 faq-desktop-questions">
+        <div>
+          <a href="#faq-cim-zacit-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqCimZacit'|trans|upper }}</a>
+        </div>
+        <div>
+          <a href="#faq-stavba-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqStavba'|trans|upper }}</a>
+        </div>
+        <div>
+          <a href="#faq-interier-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqInterier'|trans|upper }}</a>
+        </div>
+        <div>
+          <a href="#faq-design-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqDesign'|trans|upper }}</a>
+        </div>
+        <div>
+          <a href="#faq-realizace-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqRealizace'|trans|upper }}</a>
+        </div>
+        <div>
+          <a href="#faq-cas-desktop" data-toggle="collapse" data-parent=".faq-desktop-answers">{{ 'faqCas'|trans|upper }}</a>
+        </div>
       </div>
-      <div id="faq-desktop-answers" class="col-sm-7 faq-answers">
+      <div class="faq-desktop-answers col-sm-7 faq-answers">
         <div class="panel">
           <div id="faq-cim-zacit-desktop" class="panel-collapse collapse">
             <ul>
@@ -34,7 +43,7 @@
           </div>
         </div>
         <div class="panel">
-          <div id="faq-dtavba-desktop" class="panel-collapse collapse">
+          <div id="faq-stavba-desktop" class="panel-collapse collapse">
             <ul>
               <li>{{ 'faqStavbaKonzultace'|trans|raw }}</li>
               <li>{{ 'faqStavbaZamereni'|trans|raw }}</li>
@@ -77,6 +86,108 @@
         </div>
         <div class="panel">
           <div id="faq-cas-desktop" class="panel-collapse collapse">
+            <p>{{ 'faqCasText'|trans }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {# MOBILE VERSION #}
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-cim-zacit-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqCimZacit'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-cim-zacit-mobile" class="panel-collapse collapse">
+            <ul>
+              <li>{{ 'faqCimZacitKontakt'|trans|raw }}</li>
+              <li>{{ 'faqCimZacitUvodniSchuzka'|trans|raw }}</li>
+              <li>{{ 'faqCimZacitKontaktCenovaNabidka'|trans|raw }}</li>
+              <li>{{ 'faqCimZacitKontaktTerminZahajeni'|trans|raw }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-dtavba-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqStavba'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-dtavba-mobile" class="panel-collapse collapse">
+            <ul>
+              <li>{{ 'faqStavbaKonzultace'|trans|raw }}</li>
+              <li>{{ 'faqStavbaZamereni'|trans|raw }}</li>
+              <li>{{ 'faqStavbaStudie'|trans|raw }}</li>
+              <li>{{ 'faqStavbaDokumentaceTechnicka'|trans|raw }}</li>
+              <li>{{ 'faqStavbaVyjadreniAStanoviska'|trans|raw }}</li>
+              <li>{{ 'faqStavbaUrady'|trans|raw }}</li>
+              <li>{{ 'faqStavbaDokumentaceRealizace'|trans|raw }}</li>
+              <li>{{ 'faqStavbaDozor'|trans|raw }}</li>
+              <li>{{ 'faqStavbaSpoluprace'|trans|raw }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-interier-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqInterier'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-interier-mobile" class="panel-collapse collapse">
+            <ul>
+              <li>{{ 'faqInterierKonzultace'|trans|raw }}</li>
+              <li>{{ 'faqInterierZamereni'|trans|raw }}</li>
+              <li>{{ 'faqInterierStudie'|trans|raw }}</li>
+              <li>{{ 'faqInterierPodklady'|trans|raw }}</li>
+              <li>{{ 'faqInterierVyberPrvku'|trans|raw }}</li>
+              <li>{{ 'faqInterierDozor'|trans|raw }}</li>
+              <li>{{ 'faqInterierSpoluprace'|trans|raw }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-design-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqDesign'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-design-mobile" class="panel-collapse collapse">
+            <ul>
+              <li>{{ 'faqDesignNabytek'|trans|raw }}</li>
+              <li>{{ 'faqDesignInstalaceDekorace'|trans|raw }}</li>
+              <li>{{ 'faqDesignGrafickyDesign'|trans|raw }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-realizace-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqRealizace'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-realizace-mobile" class="panel-collapse collapse">
+            <p>{{ 'faqRealizaceText'|trans }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row faq-content visible-xs">
+      <div class="col-xs-12 faq-mobile-questions">
+        <a href="#faq-cas-mobile" data-toggle="collapse" data-parent=".faq-mobile-answers">{{ 'faqCas'|trans|upper }}</a>
+      </div>
+      <div class="col-xs-12 faq-mobile-answers faq-answers">
+        <div class="panel">
+          <div id="faq-cas-mobile" class="panel-collapse collapse">
             <p>{{ 'faqCasText'|trans }}</p>
           </div>
         </div>
