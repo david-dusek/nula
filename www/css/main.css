@@ -185,9 +185,22 @@ table td {
 
 
 /* FAQ */
-.faq-button a:hover, .faq-button a:focus {
+.faq-questions a {
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+.faq-questions a:hover, .faq-questions a:focus {
   color: #ca1b2a;
   text-decoration: none;
+}
+
+.faq-answers .panel {
+  text-align: justify;
+  margin-bottom: 0px;
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .faq-content li {
