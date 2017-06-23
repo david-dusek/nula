@@ -110,6 +110,12 @@ ul li:before {
   padding-top: 41px;
 }
 
+@media (max-width: 917px) {  
+  #language-switcher {
+    padding-top: 12px;
+  }
+}
+
 /* FOOTER */
 #footer {  
   font-family: Montserrat;
@@ -271,12 +277,7 @@ ul li:before {
 .navbar-brand {
   margin-top: 23px;
   padding: 0;
-}
-
-@media (max-width: 917px) {   
-  .navbar-brand {
-    padding-left: 2em;
-  }
+  padding-left: 15px;
 }
 
 .navbar-brand>img {
@@ -291,6 +292,11 @@ ul li:before {
 
 .navbar-collapse {
   border: none;
+  background-color: #fff;
+}
+
+.navbar-header {
+  margin-bottom: -23px;
 }
 
 .navbar-default {
@@ -320,13 +326,22 @@ ul li:before {
   color: #ca1b2a;
 }
 
-.navbar-default .in {
-  border: none;
-  margin-top: -18px;
+.navbar-default .in, .navbar-default .collapsing {
+  text-align: center;
+  margin-top: 18px;
+  float: left;
+  width: 100%;
+  margin-left: 0px;
+  margin-bottom: 15px;
+  border-bottom: #666 1px solid;  
 }
 
-.navbar-default .in .navbar-nav > li > a {
-  padding: 15px 15px;
+.navbar-default .in .navbar-nav > li > a, .navbar-default .collapsing .navbar-nav > li > a {
+  padding: 10px 10px;
+}
+
+.navbar-default .in .navbar-nav > li > a, .navbar-default .collapsing .navbar-nav > li > a {
+  padding: 10px 10px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
