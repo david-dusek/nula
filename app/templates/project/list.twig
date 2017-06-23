@@ -1,11 +1,8 @@
-{% extends "base.twig" %}
+{% extends "base-content.twig" %}
 
 {% block title %}{{ 'titulekProjekty'|trans }}{% endblock %}
-{% block head %}
-  {{ parent() }}
-{% endblock %}
 {% block content %}
-  <div id="content" class="container">
+  <div class="container">
     <div class="row projects-list">
       <div class="col-xs-4 col-sm-3 project-card">
         <img class="img-responsive project-card-image" src="/images/projects/citadela/1_thumbnail.jpg" alt="projekt Citadela Mefisto">

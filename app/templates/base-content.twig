@@ -1,8 +1,18 @@
-{% if homepageLayout == false %}
+{% extends "base.twig" %}
+
+{% block body %}
+  <div id="content-wrapper">
+    <div id="content-including-navigation">
+      {% include 'components/navigation.twig' %}
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  {# FOOTER #}
   <div id="footer" class="container">
     <div class="row">
       <div class="col-sm-8 col-xs-12 text-left">
-        &copy; NULA ARCHITEKTI {{ "now"|date("Y") }}
+        &copy; PLUSMINUSNULA {{ "now"|date("Y") }}
         <span>
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
           <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a>
@@ -19,4 +29,4 @@
       </div>
     </div>
   </div>
-{% endif %}
+{% endblock %}

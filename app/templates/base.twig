@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% block head %}
-      <title>{% block title %}{% endblock %} - Nula</title>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Webová prezentace ateliéru PLUS MINUS NULA">
-      <meta name="author" content="David Dušek">
-      <link href="/css/bootstrap.min.css" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto:300" rel="stylesheet">
-      <link href="/css/font-awesome.min.css" rel="stylesheet">
-      <link href="/css/main.css" rel="stylesheet">
-    {% endblock %}
+    <title>{% block title %}{% endblock %} - Nula</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Webová prezentace ateliéru PLUS MINUS NULA">
+    <meta name="author" content="David Dušek">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto:300" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
   </head>
   <body>
-    {% set homepageLayout = activeLink == 'homepage' %}
-    {% include 'components/navigation.twig' %}
-  {% block content %}{% endblock %}
-  {% include 'components/footer.twig' %}
+  {% block body %}{% endblock %}
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="/js/bootstrap.min.js"></script>
 </body>

@@ -40,23 +40,15 @@ table td {
   padding-left: 2em;
 }
 
-#content ul {
+ul {
   list-style-type: none;
 }
 
-#content ul li:before {
+ul li:before {
   color:#ca1b2a;
   content: '\00b1';
   position: absolute;
   margin-left: -20px;
-}
-
-/* LANGUAGE SWITCHER */
-#language-switcher {  
-  font-size: 0.6em;
-  line-height: 1.1em;
-  display: block;
-  padding-top: 41px;
 }
 
 /* GENERAL */
@@ -67,6 +59,7 @@ table td {
 .row-filling-big { 
   height: 5em;
 }
+
 
 @media (max-width: 917px) {   
   .row-filling-big {
@@ -82,8 +75,42 @@ table td {
   background-position: center 40%;
 }
 
-/* FOOTER */
+#content-wrapper {
+  min-height: 100%;
+}
 
+#content-including-navigation {
+  overflow: auto;
+  padding-bottom: 45px; /* stejna hodnota jako margin top u #footer */
+}
+
+@media (max-width: 917px) {  
+  #content-including-navigation {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 504px) {  
+  #content-including-navigation {
+    padding-bottom: 87px;
+  }
+}
+
+@media (max-width: 346px) {  
+  #content-including-navigation {
+    padding-bottom: 105px;
+  }
+}
+
+/* LANGUAGE SWITCHER */
+#language-switcher {  
+  font-size: 0.6em;
+  line-height: 1.1em;
+  display: block;
+  padding-top: 41px;
+}
+
+/* FOOTER */
 #footer {  
   font-family: Montserrat;
   font-weight: 300;
@@ -92,8 +119,9 @@ table td {
   line-height: 1.5em;  
   position: relative;
   clear:both;
-  padding-top: 2em;
-  padding-bottom: 1.5em;  
+  padding-top: 20px;
+  padding-bottom: 5px;  
+  margin-top: -45px; /* stejna hodnota jako padding bottom u #content-including-navigation */
 }
 
 #footer a { 
@@ -109,11 +137,15 @@ table td {
 }
 
 #footer #social-links .fa {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding: 0 0.3em; 
 }
 
 @media (max-width: 917px) {  
+  #footer {
+    margin-top: -70px;
+  }
+  
   #footer .text-right { 
     text-align:center 
   }
@@ -123,7 +155,23 @@ table td {
   }
 
   #footer #social-links {
-    padding-top: 2em; 
+    padding-top: 0.5em; 
+  }
+
+  #footer #social-links .fa {
+    padding: 0 0.3em; 
+  }
+}
+
+@media (max-width: 504px) {  
+  #footer {
+    margin-top: -87px;
+  }
+}
+
+@media (max-width: 346px) {  
+  #footer {
+    margin-top: -105px;
   }
 }
 
@@ -251,6 +299,10 @@ table td {
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
   background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li:before {
+  content: '';
 }
 
 .navbar-default .navbar-nav > li > a {
