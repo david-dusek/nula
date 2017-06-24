@@ -49,5 +49,7 @@ return [
   'kontaktEmailovaAdresa' => 'email',
   'kontakOdeslat' => 'poslat',
   'kontaktPovinnaPolozka' => 'Zadejte honotu povinné položky',
-  'kontaktChybnyEmail' => 'Zadejte e-mailovou adresu včetně @',
+  'kontaktChybnyEmail' => 'Zadejte e-mailovou adresu osahující @',
+  'kontaktEmailUspesneOdeslan' => '<strong>Zpráva byla odeslána.</strong><br><br> Kopie zprávy byla odeslána na zadanou e-maiilovou adresu. Děkujeme za Váš zájem. Brzy se ozveme.',
+  'kontaktOdeslaniEmailuSelhalo' => '<strong>Odeslání zprávy selhalo.</strong><br><br> Omlouváme se, ale někde se stala chyba. Zkuste to znovu nebo nás kontaktujte jiným způsobem.',
 ];

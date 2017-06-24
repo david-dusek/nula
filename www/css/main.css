@@ -425,5 +425,8 @@ p {
 .btn-contact-email-sent:hover, .btn-contact-email-sent:focus, .btn-contact-email-sent:active {
   color: #ca1b2a;
   background-image: url(/images/zero-black-red.svg);
+}
 
+.alert {
+  border-radius: 0px;
 }

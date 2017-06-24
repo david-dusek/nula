@@ -31,31 +31,43 @@
         {{ 'kontaktPusobnostPLusMinusBezHranic'|trans|raw }}
       </p>
     </div>
+
     <div class="col-sm-7">
-      <form class="form-horizontal" data-toggle="validator" role="form" action="{{ path_for('contactEmail', {'lang': lang }) }}" method="POST">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon">{{'kontaktCeleJmeno'|trans|upper }}</span>
-            <input type="text" class="form-control" required id="fullname" data-error="{{'kontaktPovinnaPolozka'|trans }}">
-            <div class="help-block with-errors"></div>
-          </div>
+      {% if showMessageOk %}
+        <div class="row alert alert-success">
+          {{ 'kontaktEmailUspesneOdeslan'|trans|raw }}
         </div>
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon">{{'kontaktTextEmailu'|trans|upper }}</span>
-            <textarea class="form-control" required id="email-body" rows="5" data-error="{{'kontaktPovinnaPolozka'|trans }}"></textarea>
-            <div class="help-block with-errors"></div>
+      {% else %}
+        {% if showMessageError %}
+          <div class="row alert alert-danger">
+            {{ 'kontaktOdeslaniEmailuSelhalo'|trans|raw }}
           </div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon">{{'kontaktEmailovaAdresa'|trans|upper }}</span>
-            <input type="email" class="form-control" required id="email-to" data-error="{{'kontaktChybnyEmail'|trans }}">
-            <div class="help-block with-errors"></div>
+        {% endif %}
+        <form class="form-horizontal" data-toggle="validator" role="form" action="{{ path_for('contactEmail', {'lang': lang }) }}" method="POST">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">{{ 'kontaktCeleJmeno'|trans|upper }}</span>
+              <input type="text" class="form-control" required id="fullname" name="fullname" data-error="{{ 'kontaktPovinnaPolozka'|trans }}">
+              <div class="help-block with-errors"></div>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-contact-email-sent">{{'kontakOdeslat'|trans|upper }}</button>
-      </form>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">{{ 'kontaktTextEmailu'|trans|upper }}</span>
+              <textarea class="form-control" required id="email-body" name="email-body" rows="5" data-error="{{ 'kontaktPovinnaPolozka'|trans }}"></textarea>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">{{ 'kontaktEmailovaAdresa'|trans|upper }}</span>
+              <input type="email" class="form-control" required id="email-from" name="email-from" data-error="{{ 'kontaktChybnyEmail'|trans }}">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-contact-email-sent">{{ 'kontakOdeslat'|trans|upper }}</button>
+        </form>
+      {% endif %}
     </div>
 
   </div>
