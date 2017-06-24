@@ -40,8 +40,8 @@ class About extends \Nula\Controller\Base {
     } else {
       try {
         $emailTo = 'info@plusminusnula.cz';
-        $subject = "Poptávka od $fullname";
-        $body = "Jméno: $fullname \n\nText e-mailu: $emailBody";
+        $subject = "Zpráva z kontaktního formuláře od $fullname";
+        $body = "Jméno: $fullname \n\nText e-mailu:\n$emailBody";
         $headers = "MIME-Version: 1.0\r\n"
                 . "Content-type: text/plain; charset=UTF-8\r\n"
                 . "From: \"$fullname\" <$emailFrom>\r\n"
