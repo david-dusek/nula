@@ -14,9 +14,6 @@ body {
 h1 {
   font-family: Montserrat;
   font-weight: 300;
-}
-
-h1 {
   font-size: 1.1em;
 }
 
@@ -73,6 +70,18 @@ ul li:before {
   background-size: 30% auto;
   background-repeat: no-repeat;
   background-position: center 40%;
+}
+
+@media (max-width: 917px) {   
+  #homepage-content {
+    background-size: 50% auto;
+  }
+}
+
+@media (max-width: 504px) {   
+  #homepage-content {
+    background-size: 75% auto;
+  }
 }
 
 #content-wrapper {
