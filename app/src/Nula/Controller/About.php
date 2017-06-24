@@ -3,6 +3,11 @@
 namespace Nula\Controller;
 
 class About extends \Nula\Controller\Base {
+
+  const EMAIL_SENT_STATUS_KEY = 'email-sent-status';
+  const EMAIL_SENT_STATUS_OK = 'ok';
+  const EMAIL_SENT_STATUS_ERROR = 'error';
+
   /**
    * @param \Slim\Http\Request $request
    * @param \Slim\Http\Response $response
@@ -10,7 +15,13 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionContact(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/contact.twig', ['activeLink' => 'contact']);
+    $templateParameters = [
+      'activeLink' => 'contact',
+      'showMessageOk' => isset($args[self::EMAIL_SENT_STATUS_KEY]) && $args[self::EMAIL_SENT_STATUS_KEY] === self::EMAIL_SENT_STATUS_OK,
+      'showMessageError' => isset($args[self::EMAIL_SENT_STATUS_KEY]) && $args[self::EMAIL_SENT_STATUS_KEY] === self::EMAIL_SENT_STATUS_ERROR,
+    ];
+
+    return $this->createTwigI18nResponse($request, $response, $args, 'about/contact.twig', $templateParameters);
   }
 
   /**
@@ -20,6 +31,28 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionContactEmail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
+    $fullname = $request->getParam('fullname');
+    $emailBody = $request->getParam('email-body');
+    $emailFrom = $request->getParam('email-from');
+
+    if (!isset($fullname) || !isset($emailBody) || !isset($emailFrom)) {
+      $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
+    } else {
+      try {
+        $emailTo = 'info@plusminusnula.cz';
+        $subject = "Poptávka od $fullname";
+        $body = "Jméno: $fullname \n\nText e-mailu: $emailBody";
+        $headers = "From: \"$fullname\" <$emailFrom>"
+                . "\r\nReply-To: $emailFrom"
+                . "\r\nCc: $emailFrom";
+        $args[self::EMAIL_SENT_STATUS_KEY] = \mail($emailTo, $subject, $body, $headers) ?
+                $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_OK :
+                $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
+      } catch (\Exception $exception) {
+        $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
+      }
+    }
+
     return $response->withRedirect($this->router->pathFor('contact', $args));
   }
 
