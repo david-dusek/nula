@@ -42,9 +42,11 @@ class About extends \Nula\Controller\Base {
         $emailTo = 'info@plusminusnula.cz';
         $subject = "Poptávka od $fullname";
         $body = "Jméno: $fullname \n\nText e-mailu: $emailBody";
-        $headers = "From: \"$fullname\" <$emailFrom>"
-                . "\r\nReply-To: $emailFrom"
-                . "\r\nCc: $emailFrom";
+        $headers = "MIME-Version: 1.0\r\n"
+                . "Content-type: text/html; charset=UTF-8\r\n"
+                . "From: \"$fullname\" <$emailFrom>\r\n"
+                . "Reply-To: $emailFrom\r\n"
+                . "Cc: $emailFrom\r\n";
         $args[self::EMAIL_SENT_STATUS_KEY] = \mail($emailTo, $subject, $body, $headers) ?
                 $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_OK :
                 $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
