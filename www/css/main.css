@@ -48,6 +48,10 @@ ul li:before {
   margin-left: -20px;
 }
 
+p {
+  margin-bottom: 15px;
+}
+
 /* GENERAL */
 .active-link {
   color: #ca1b2a;
@@ -57,6 +61,9 @@ ul li:before {
   height: 5em;
 }
 
+.color-text {
+  color: #ca1b2a;
+}
 
 @media (max-width: 917px) {   
   .row-filling-big {
@@ -160,7 +167,7 @@ ul li:before {
   #footer {
     margin-top: -70px;
   }
-  
+
   #footer .text-right { 
     text-align:center 
   }
@@ -274,7 +281,7 @@ ul li:before {
   margin-bottom: 1em;
 }
 
-/* BOOTSTRAP */
+/* BOOTSTRAP NAVBAR */
 .navbar {  
   font-family: Montserrat;
   font-weight: 300;
@@ -358,3 +365,65 @@ ul li:before {
 }
 
 
+/* BOOSTRAP FORMS */
+.input-group .with-errors {
+  padding-left: 12px;
+  font-size: 0.9em;
+  color: #ca1b2a;
+}
+
+.input-group .with-errors ul li:before {
+  content: '';
+}
+
+.form-group {
+  border: 1px solid #aaa;
+  margin-bottom: -1px;  
+}
+
+.input-group-addon {
+  font-size: 0.9em;
+  background-color: #fff;
+  border: none;
+  min-width: 6em;
+  color: #aaa;
+  text-align: left;
+  vertical-align: top;
+}
+
+.has-error .input-group-addon {
+  color: #ca1b2a;
+  background-color: #fff;
+}
+
+.form-control {
+  height: 39px;
+  padding-top: 17px;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-contact-email-sent {
+  background-image: url(/images/zero-black.svg);
+  width: 110px;
+  background-size: 97px;
+  background-position-y: -11px;
+  background-position-x: 37px;
+  height: 69px;
+  text-align: left;
+  font-weight: 600;
+  color: #000 ;
+  padding-top: 0;
+  background-color: transparent;
+  position: relative;
+  top: -49px;
+  left: 80%;
+  z-index: 10;
+}
+
+.btn-contact-email-sent:hover, .btn-contact-email-sent:focus, .btn-contact-email-sent:active {
+  color: #ca1b2a;
+  background-image: url(/images/zero-black-red.svg);
+
+}

@@ -42,4 +42,12 @@ return [
   
   'faqCas' => 'Kolik je třeba času?',
   'faqCasText' => 'Doba trvání je velmi individuální v závislosti na charakteru a velikosti projektu, často nezávisí jenom na nás, proto uvádíme příklady: TODO',
+  
+  'kontaktPusobnostPLusMinusBezHranic' => 'působnost <span class="color-text">&plusmn;</span> bez hranic',
+  'kontaktCeleJmeno' => 'jméno',
+  'kontaktTextEmailu' => 'zpráva',
+  'kontaktEmailovaAdresa' => 'email',
+  'kontakOdeslat' => 'poslat',
+  'kontaktPovinnaPolozka' => 'Zadejte honotu povinné položky',
+  'kontaktChybnyEmail' => 'Zadejte e-mailovou adresu včetně @',
 ];

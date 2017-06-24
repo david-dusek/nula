@@ -3,6 +3,60 @@
 {% block title %}{{ 'titulekKontakt'|trans }}{% endblock %}
 {% block content %}
   <div class="container">
+    <div class="row row-filling-big">
+    </div>
+    <div class="col-sm-5">
+      <p>
+        <span class="color-text">&plusmn;</span> NULA
+      </p>
+      <p>
+        Jakubské námestí 3&nbsp;&nbsp;
+        <a href="https://www.google.cz/maps/place/Jakubsk%C3%A9+n%C3%A1m.+644%2F3,+602+00+Brno-st%C5%99ed-Brno-m%C4%9Bsto/@49.1967971,16.605676,17z/data=!3m1!4b1!4m5!3m4!1s0x4712945a718ebf95:0xfd9923af035ea686!8m2!3d49.1967971!4d16.6078647?sa=X&ved=0ahUKEwj9lav7wNTUAhWNbFAKHb49Dr0Q8gEIJTAA" target="_blank">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </a>
+        <br/>
+        Brno
+        <br/>
+        602 00
+      </p>
+      <p>
+        +420 776 669 031
+      </p>
+      <p>
+        <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a>
+        <br>
+        <a href="http://www.plsusminusnula.cz">www.plsusminusnula.cz</a>
+      </p>
+      <p>
+        {{ 'kontaktPusobnostPLusMinusBezHranic'|trans|raw }}
+      </p>
+    </div>
+    <div class="col-sm-7">
+      <form class="form-horizontal" data-toggle="validator" role="form" action="{{ path_for('contactEmail', {'lang': lang }) }}" method="POST">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">{{'kontaktCeleJmeno'|trans|upper }}</span>
+            <input type="text" class="form-control" required id="fullname" data-error="{{'kontaktPovinnaPolozka'|trans }}">
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">{{'kontaktTextEmailu'|trans|upper }}</span>
+            <textarea class="form-control" required id="email-body" rows="5" data-error="{{'kontaktPovinnaPolozka'|trans }}"></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">{{'kontaktEmailovaAdresa'|trans|upper }}</span>
+            <input type="email" class="form-control" required id="email-to" data-error="{{'kontaktChybnyEmail'|trans }}">
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-contact-email-sent">{{'kontakOdeslat'|trans|upper }}</button>
+      </form>
+    </div>
+
   </div>
 {% endblock %}
-

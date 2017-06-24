@@ -19,6 +19,16 @@ class About extends \Nula\Controller\Base {
    * @param array $args
    * @return \Psr\Http\Message\ResponseInterface
    */
+  public function actionContactEmail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
+    return $response->withRedirect($this->router->pathFor('contact', $args));
+  }
+
+  /**
+   * @param \Slim\Http\Request $request
+   * @param \Slim\Http\Response $response
+   * @param array $args
+   * @return \Psr\Http\Message\ResponseInterface
+   */
   public function actionAtelier(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
     return $this->createTwigI18nResponse($request, $response, $args, 'about/atelier.twig', ['activeLink' => 'atelier']);
   }
