@@ -6,6 +6,15 @@ return [
   'titulekFAQ' => 'FAQ',
   'titulekKontakt' => 'Kontakt',
   
+  'projektTypologie' => 'typologie',
+  'projektMisto' => 'místo',
+  'projektAutori' => 'autoři',
+  'projektSpoluprace' => 'spolupráce',
+  'projektStudie' => 'studie',
+  'projektRealizace' => 'realizace',
+  'projektSoutez' => 'soutěž',
+  'projektPublikace' => 'publikace',
+  
   'faqCimZacit' => 'Čím začít?',
   'faqCimZacitKontakt' => '<strong>Kontaktujete nás</strong> přes kontaktní formulář nebo prostřednictvím emailu na <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> s Vašimi požadavky, ideálně spolu s podklady (půdorysy, fotky nebo video stávajícího stavu).',
   'faqCimZacitUvodniSchuzka' => 'V odpovědi na Vaši poptávku navrhneme <strong>datum úvodní schůzky</strong>, kde probereme Vaše představy a zvážíme možnosti. Společně projdeme rozsah a postup spolupráce.',
