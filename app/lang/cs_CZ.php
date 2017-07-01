@@ -1,9 +1,11 @@
 <?php
 return [
+  'jmenoAtelieru' => 'PLUS MÍNUS NULA',
+  
   'projektNazev' => 'Název',
   'titulekUvodka' => 'Úvod',
   'titulekProjekty' => 'Projekty',
-  'titulekAtelier' => 'Ateliér',
+  'titulekAtelier' => 'O nás',
   'titulekFAQ' => 'FAQ',
   'titulekKontakt' => 'Kontakt',
   
