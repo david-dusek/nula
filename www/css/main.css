@@ -207,28 +207,42 @@ p {
   margin-top: -20px;
 }
 
-.projects-list-square {
-  position: relative;
-  padding-bottom:100%;
-  text-align: center;
-}
-
-.project-list-title {
-  position: absolute;
+.project-list-image {
+  display: block;
   width: 100%;
+  height: auto;
+  filter: grayscale(100%) contrast(125%);
+}
+
+.project-list-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 100%;
-  display: inline-block;
-  vertical-align: middle;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s linear;
 }
 
-.projects-list-project1 {
-  background-image: url('/images/projects/citadela/1-thumbnail.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+.project-list-overlay:hover {
+  opacity: 1;  
+  mix-blend-mode: multiply;
+  background-color: #ca1b2a;
 }
 
-.projects-list-project1:hover {
-  background-image: url('/images/projects/citadela/1-thumbnail-red.jpg');
+.project-list-text {
+  width: 100%;  
+  text-align: center;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 /* PROJECT */
@@ -271,6 +285,12 @@ p {
 
 .faq-content li {
   margin-bottom: 1em;
+}
+
+/* BOOTSTRAP GENERAL */
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
 
 /* BOOTSTRAP NAVBAR */
@@ -434,16 +454,4 @@ p {
 
 .alert {
   border-radius: 0px;
-}
-
-/* BOOSTRAP IMAGES */
-.thumbnail {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.no-gutter > [class*='col-'] {
-  padding-right:0;
-  padding-left:0;
 }
