@@ -61,6 +61,10 @@ p {
   height: 5em;
 }
 
+.row-filling-small { 
+  height: 1em;
+}
+
 .color-text {
   color: #ca1b2a;
 }
@@ -200,44 +204,32 @@ p {
 
 /* PROJECTS */
 .projects-list {
-  padding: 0 15px;
+  margin-top: -20px;
 }
 
-.project-card {
-  padding: 0; 
+.projects-list-square {
   position: relative;
-}
-
-.project-card-overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 1s ease;
-  background-color: #000;
-}
-
-.project-card:hover .project-card-overlay {
-  opacity: 0.75;
-}
-
-.project-card a {
+  padding-bottom:100%;
   text-align: center;
-  color: white;
-  font-size: 1.5em;
-  font-weight: 300; 
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
+.project-list-title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.projects-list-project1 {
+  background-image: url('/images/projects/citadela/1-thumbnail.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.projects-list-project1:hover {
+  background-image: url('/images/projects/citadela/1-thumbnail-red.jpg');
+}
 
 /* PROJECT */
 .project-image-thumbnail {
@@ -290,6 +282,19 @@ p {
   height: 40px;
 }
 
+@media (max-width: 917px) {
+  .container>.navbar-header {
+    width: 100%;
+    float: left;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .navbar-default .navbar-toggle {
+    margin-left: 0;
+  }
+}
+
 .navbar-brand {
   margin-top: 23px;
   padding: 0;
@@ -308,7 +313,7 @@ p {
 
 .navbar-collapse {
   border: none;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .navbar-header {
@@ -316,7 +321,7 @@ p {
 }
 
 .navbar-default {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
@@ -429,4 +434,16 @@ p {
 
 .alert {
   border-radius: 0px;
+}
+
+/* BOOSTRAP IMAGES */
+.thumbnail {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
