@@ -250,6 +250,34 @@ p {
   border: 1px solid #ca1b2a;
 }
 
+
+/* KONTAKT */
+.contact-form {
+  text-align: right;
+}
+
+.btn-contact-email-sent {
+  background-image: url(/images/zero-black.svg);
+  width: 110px;
+  background-size: 97px;
+  background-position-y: -11px;
+  background-position-x: 37px;
+  height: 69px;
+  text-align: left;
+  font-weight: 600;
+  color: #000 ;
+  padding-top: 0;
+  background-color: transparent;
+  position: relative;
+  top: -49px;
+  z-index: 10;
+}
+
+.btn-contact-email-sent:hover, .btn-contact-email-sent:focus, .btn-contact-email-sent:active {
+  color: #ca1b2a;
+  background-image: url(/images/zero-black-red.svg);
+}
+
 /* FAQ */
 .faq-desktop-questions a {
   display: block;
@@ -392,8 +420,12 @@ p {
 }
 
 .form-group {
-  border: 1px solid #aaa;
+  border: 1px solid #000;
   margin-bottom: -1px;  
+}
+
+.input-group .with-errors{
+  text-align: left;
 }
 
 .input-group-addon {
@@ -401,7 +433,7 @@ p {
   background-color: #fff;
   border: none;
   min-width: 6em;
-  color: #aaa;
+  color: #000;
   text-align: left;
   vertical-align: top;
 }
@@ -417,29 +449,6 @@ p {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-}
-
-.btn-contact-email-sent {
-  background-image: url(/images/zero-black.svg);
-  width: 110px;
-  background-size: 97px;
-  background-position-y: -11px;
-  background-position-x: 37px;
-  height: 69px;
-  text-align: left;
-  font-weight: 600;
-  color: #000 ;
-  padding-top: 0;
-  background-color: transparent;
-  position: relative;
-  top: -49px;
-  left: 80%;
-  z-index: 10;
-}
-
-.btn-contact-email-sent:hover, .btn-contact-email-sent:focus, .btn-contact-email-sent:active {
-  color: #ca1b2a;
-  background-image: url(/images/zero-black-red.svg);
 }
 
 .alert {

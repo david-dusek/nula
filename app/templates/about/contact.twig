@@ -43,7 +43,7 @@
             {{ 'kontaktOdeslaniEmailuSelhalo'|trans|raw }}
           </div>
         {% endif %}
-        <form class="form-horizontal" data-toggle="validator" role="form" action="{{ path_for('contactEmail', {'lang': lang }) }}" method="POST">
+        <form class="form-horizontal contact-form" data-toggle="validator" role="form" action="{{ path_for('contactEmail', {'lang': lang }) }}" method="POST">
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon">{{ 'kontaktCeleJmeno'|trans|upper }}</span>
@@ -54,7 +54,7 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon">{{ 'kontaktTextEmailu'|trans|upper }}</span>
-              <textarea class="form-control" required id="email-body" name="email-body" rows="5" data-error="{{ 'kontaktPovinnaPolozka'|trans }}"></textarea>
+              <textarea class="form-control" required id="email-body" name="email-body" rows="10" data-error="{{ 'kontaktPovinnaPolozka'|trans }}"></textarea>
               <div class="help-block with-errors"></div>
             </div>
           </div>
