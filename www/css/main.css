@@ -211,7 +211,7 @@ p {
   display: block;
   width: 100%;
   height: auto;
-  filter: grayscale(100%) contrast(125%);
+  filter: grayscale(100%) contrast(50%) brightness(140%);
 }
 
 .project-list-overlay {
