@@ -30,11 +30,11 @@ strong {
 }
 
 table th {
-  font-weight: 600;
+  font-weight: 300;
 }
 
 table td {
-  padding-left: 2em;
+  padding-left: 4em;
 }
 
 ul {
@@ -246,7 +246,9 @@ p {
 }
 
 /* PROJECT */
-
+.project-detail-thumbnails a.active-thumbnail {
+  border: 1px solid #ca1b2a;
+}
 
 /* FAQ */
 .faq-desktop-questions a {
@@ -297,7 +299,7 @@ p {
     margin-right: 0;
     margin-left: 0;
   }
-  
+
   .navbar-default .navbar-toggle {
     margin-left: 0;
   }
@@ -442,4 +444,21 @@ p {
 
 .alert {
   border-radius: 0px;
+}
+
+
+/* BOOTSRAP IMAGES */
+.thumbnail {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
 }

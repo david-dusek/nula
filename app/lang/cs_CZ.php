@@ -1,5 +1,6 @@
 <?php
 return [
+  'projektNazev' => 'Název',
   'titulekUvodka' => 'Úvod',
   'titulekProjekty' => 'Projekty',
   'titulekAtelier' => 'Ateliér',
