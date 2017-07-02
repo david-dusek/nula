@@ -250,6 +250,34 @@ p {
   border: 1px solid #ca1b2a;
 }
 
+/* ATELIER */
+.atelier-info {
+  text-align: justify;
+}
+
+.atelier-cv-desktop {
+  color: #fff;
+  font-size: 0.85em;
+  height: 460px;
+  background: url('/images/atelier_background.jpg') no-repeat center top;
+}
+
+.atelier-cv-desktop:hover {
+  background-image: url('/images/atelier_background_red.jpg');
+}
+
+.atelier-cv-desktop:hover .atelier-cv-text-desktop {
+  display: block;
+}
+
+.atelier-cv-desktop a {
+  color: #fff;
+}
+
+.atelier-cv-text-desktop {
+  display: none;
+  padding-top: 46px;
+}
 
 /* KONTAKT */
 .contact-form {
