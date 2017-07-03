@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 body {
@@ -259,8 +259,7 @@ p {
   color: #fff;
   font-size: 0.85em;
   height: 460px;
-  background: url('/images/atelier_background.jpg') no-repeat center top;
-  margin-top: -20px; 
+  background: url('/images/atelier_background.jpg') no-repeat center top; 
 }
 
 .atelier-cv-desktop:hover {
@@ -280,16 +279,25 @@ p {
   padding-top: 65px;
 }
 
-.atelier-cv-col {  
+.atelier-cv-desktop-col {  
   width: 340px;
 }
 
-.atelier-cv-lena {
+.atelier-cv-desktop-lena {
   float: left;
 }
 
-.atelier-cv-tereza {
+.atelier-cv-desktop-tereza {
   float: right;
+}
+
+.atelier-container-under-navbar {
+  margin-top: -20px; 
+}
+
+.atelier-image-desktop {
+  height: 460px;
+  background: url('/images/atelier_background_mobile.jpg') no-repeat right top; 
 }
 
 /* KONTAKT */
@@ -442,6 +450,14 @@ p {
 
 .navbar-default .in .navbar-nav > li > a, .navbar-default .collapsing .navbar-nav > li > a {
   padding: 10px 10px;
+}
+
+.navbar-default .in {
+  background-color: #fff;
+}
+
+.navbar-default .collapsing {
+  background-color: #fff;
 }
 
 .navbar-default .navbar-toggle .icon-bar {

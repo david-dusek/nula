@@ -2,115 +2,32 @@
 
 {% block title %}{{ 'titulekAtelier'|trans }}{% endblock %}
 {% block content %}
-  <div class="container-fluid atelier-cv-desktop">
+  <div class="hidden-xs container-fluid atelier-cv-desktop atelier-container-under-navbar">
     <div class="container atelier-cv-text-desktop">
-      <div class="atelier-cv-tereza atelier-cv-col">
-        <div class="row">
-          <div class="col-sm-12">
-            <h1>Ing. arch. TEREZA HÁTLOVÁ</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p>
-              <a href="mailto:hatlova@plusminusnula.cz" target="_blank">hatlova@plusminusnula.cz</a>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p>
-              * Hradec Králové
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2006 - 2012</div>
-          <div class="col-sm-9">{{ 'atelierFaVut'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2008 - 2009</div>
-          <div class="col-sm-9">{{ 'atelierBolton'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2011 - 2017</div>
-          <div class="col-sm-9">{{ 'atelierRaw'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2011</div>
-          <div class="col-sm-9">{{ 'atelierTerezkaTugendhat'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2013 - 2015</div>
-          <div class="col-sm-9">{{ 'atelierTerezkaMunz'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2016</div>
-          <div class="col-sm-9">{{ 'atelierTerezka10Domu'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2017</div>
-          <div class="col-sm-9">{{ 'atelierTerezkaTerminalJihlava'|trans }}</div>
-        </div>
+      <div class="atelier-cv-desktop-tereza atelier-cv-desktop-col">
+        {% include "components/atelier-cv-tereza.twig" %}
       </div>
-      <div class="atelier-cv-lena atelier-cv-col">
-        <div class="row">
-          <div class="col-sm-12">
-            <h1>Ing. arch. LENA TRPĚLKOVÁ</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p>
-              <a href="mailto:trpelkova@plusminusnula.cz" target="_blank">trpelkova@plusminusnula.cz</a>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p>
-              * Brno
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2008 - 2015</div>
-          <div class="col-sm-9">{{ 'atelierFaVut'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2013 - 2014</div>
-          <div class="col-sm-9">{{ 'atelierLisbon'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2014</div>
-          <div class="col-sm-9">{{ 'atelierFarris'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2015 - 2017</div>
-          <div class="col-sm-9">{{ 'atelierBrandstetr'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2015</div>
-          <div class="col-sm-9">{{ 'atelierLenaKlasterCheb'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2013</div>
-          <div class="col-sm-9">{{ 'atelierLenaSoucastnyDum'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2013</div>
-          <div class="col-sm-9">{{ 'atelierLenaDumNaMiru'|trans }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">2013</div>
-          <div class="col-sm-9">{{ 'atelierLenaGalerieArchitekturyADesignu'|trans }}</div>
-        </div>
+      <div class="atelier-cv-desktop-lena atelier-cv-desktop-col">
+        {% include "components/atelier-cv-lena.twig" %}
       </div>
     </div>
   </div>
-  <div class="container atelier-info">
+
+  <div class="visible-xs container-fluid atelier-image-desktop atelier-container-under-navbar">
+  </div>
+  <div class="visible-xs container">
+    {% include "components/atelier-cv-lena.twig" %}
+  </div>
+  <div class="visible-xs container">
+    {% include "components/atelier-cv-tereza.twig" %}
+  </div>
+
+  <div class="hidden-xs container">
     <div class="row row-filling-big">
     </div>
+  </div>
+
+  <div class="container atelier-info">
     <div class="row">
       <div class="col-sm-4">
         <h1>{{ 'atelierCoDelameNadpis'|trans|upper }}</h1>
