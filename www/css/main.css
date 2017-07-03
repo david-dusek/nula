@@ -260,6 +260,7 @@ p {
   font-size: 0.85em;
   height: 460px;
   background: url('/images/atelier_background.jpg') no-repeat center top;
+  margin-top: -20px; 
 }
 
 .atelier-cv-desktop:hover {
