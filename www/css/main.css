@@ -277,7 +277,19 @@ p {
 
 .atelier-cv-text-desktop {
   display: none;
-  padding-top: 46px;
+  padding-top: 65px;
+}
+
+.atelier-cv-col {  
+  width: 340px;
+}
+
+.atelier-cv-lena {
+  float: left;
+}
+
+.atelier-cv-tereza {
+  float: right;
 }
 
 /* KONTAKT */
