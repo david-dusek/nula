@@ -7,7 +7,7 @@ class Project implements \Nula\NullObject {
   /**
    * @var bool
    */
-  private $isNull;
+  private $isNull = false;
 
   /**
    * @var string
@@ -17,7 +17,7 @@ class Project implements \Nula\NullObject {
   /**
    * @var string
    */
-  private $mainImagePath;
+  private $mainImagePublicSourceName;
 
   /**
    * @var string
@@ -81,12 +81,12 @@ class Project implements \Nula\NullObject {
     $this->rewrite = $rewrite;
   }
 
-  public function getMainImagePath(): string {
-    return $this->mainImagePath;
+  public function getMainImagePublicSourceName(): string {
+    return $this->mainImagePublicSourceName;
   }
 
-  public function setMainImagePath(string $mainImagePath) {
-    $this->mainImagePath = $mainImagePath;
+  public function setMainImagePublicSourceName(string $mainImagePublicSourceName) {
+    $this->mainImagePublicSourceName = $mainImagePublicSourceName;
   }
 
   public function getName(): string {

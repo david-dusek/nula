@@ -11,7 +11,14 @@ class Project extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'project/list.twig', ['activeLink' => 'projects']);
+    $projectProvider = $this->getService('projectProvider');
+    $projects = $projectProvider->getProjectsDesc();    
+
+    $templateData = [
+      'activeLink' => 'projects', 
+      'projects' => $projects,
+      ];
+    return $this->createTwigI18nResponse($request, $response, $args, 'project/list.twig', $templateData);
   }
 
   /**
