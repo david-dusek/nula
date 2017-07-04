@@ -3,6 +3,8 @@
 namespace Nula\Project;
 
 class Provider {
+  
+  const MAIN_PICTUTE_NAME = 'main.jpg';
 
   /**
    * @var \Symfony\Component\Finder\Finder
@@ -46,6 +48,7 @@ class Provider {
     $project = new \Nula\Project\Project();
     $this->mapRewrite($projectFolder, $project);
     $this->mapProjectInfo($projectFolder, $project);
+    $this->mapMainPicture($projectFolder, $project);
     
     return $project;
   }
@@ -106,6 +109,19 @@ class Provider {
     if (isset($info['Publikace'])) {
       $project->setPublication($info['Publikace']);
     }
+  }
+
+  private function mapMainPicture(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+    $mainPictureFilename = $projectFolder->getPathname() . '/' . self::MAIN_PICTUTE_NAME;
+    if (\is_file($mainPictureFilename) === false || \is_readable($mainPictureFilename) === false) {
+      $project->setNull(true);
+    }
+    
+    $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTUTE_NAME));
+  }
+  
+  private function createImagePublicSourceName(\SplFileInfo $projectFolder, string $pictureName): string {
+    return '/projects/' . $projectFolder->getFilename() . '/' . $pictureName;
   }
 
 }
