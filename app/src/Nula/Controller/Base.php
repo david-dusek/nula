@@ -18,6 +18,11 @@ class Base {
    * @var \Nula\I18n\LanguagesManager
    */
   private $languagesManager;
+  
+  /**
+   * @var \Interop\Container\ContainerInterface
+   */
+  private $container;
 
   /**
    * @param \Interop\Container\ContainerInterface $container
@@ -26,6 +31,15 @@ class Base {
     $this->router = $container->get('router');
     $this->viewFactory = $container->get('viewFactory');
     $this->languagesManager = $container->get('languagesManager');
+    $this->container = $container;
+  }
+  
+  /**
+   * @param string $serviceName
+   * @return mixed
+   */
+  protected function getService(string $serviceName) {
+    return $this->container->get($serviceName);
   }
 
   /**

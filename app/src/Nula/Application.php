@@ -26,6 +26,7 @@ class Application {
     $this->registerRoutes();
     $this->registerLanguagesManager();
     $this->registerViewFactory();
+    $this->registerProjectProvider();
     $this->slimApplication->run();
   }
 
@@ -36,6 +37,10 @@ class Application {
   private function registerViewFactory() {
     $this->container['viewFactory'] = new \Nula\View\Factory($this->container->get('languagesManager'),
             $this->container->get('settings')['twig']['cache']);
+  }
+  
+  private function registerProjectProvider() {
+    $this->container['projectProvider'] = new \Nula\Project\Provider(new \Symfony\Component\Finder\Finder());
   }
 
   private function registerRoutes() {
