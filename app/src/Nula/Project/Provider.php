@@ -5,6 +5,8 @@ namespace Nula\Project;
 class Provider {
 
   const MAIN_PICTUTE_NAME = 'main.jpg';
+  const IMAGE_TYPE_THUMBNAIL = 'thumbnail';
+  const IMAGE_TYPE_FULL = 'full';
 
   /**
    * @var \Symfony\Component\Finder\Finder
@@ -52,7 +54,7 @@ class Provider {
       $project = new \Nula\Project\Project();
       $project->setNull(true);
     }
-    
+
     return $project;
   }
 
@@ -65,6 +67,8 @@ class Provider {
     $this->mapRewrite($projectFolder, $project);
     $this->mapProjectInfo($projectFolder, $project);
     $this->mapMainPicture($projectFolder, $project);
+    $this->mapFullImages($projectFolder, $project);
+    $this->mapThumbnailImages($projectFolder, $project);
 
     return $project;
   }
@@ -135,9 +139,35 @@ class Provider {
 
     $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTUTE_NAME));
   }
+  
+  
+  private function mapFullImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+    $project->setFullImages($this->mapImages($projectFolder, self::IMAGE_TYPE_FULL));
+  }
+  
+  private function mapThumbnailImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+    $project->setThumbnailImages($this->mapImages($projectFolder, self::IMAGE_TYPE_THUMBNAIL));
+  }
 
-  private function createImagePublicSourceName(\SplFileInfo $projectFolder, string $pictureName): string {
-    return '/projects/' . $projectFolder->getFilename() . '/' . $pictureName;
+  private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {    
+    $imageDirectoryIterator = $this->filesystemFinder->in($projectFolder->getPathname())
+            ->files()
+            ->name('/^(\d+)-' . $imageType . '.jpg$/')
+            ->getIterator();
+    
+    $images = [];
+    foreach ($imageDirectoryIterator as $imageFile) {
+      $imageFilename = $imageFile->getFilename();
+      $order = \intval(\substr($imageFilename, 0, \strpos($imageFilename, '-')));
+      $images[$order] =  $this->createImagePublicSourceName($projectFolder, $imageFilename);
+    }
+    \ksort($images);
+    
+    return $images;
+  }
+
+  private function createImagePublicSourceName(\SplFileInfo $projectFolder, string $imageFilename): string {
+    return '/projects/' . $projectFolder->getFilename() . '/' . $imageFilename;
   }
 
 }

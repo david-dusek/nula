@@ -63,6 +63,16 @@ class Project implements \Nula\NullObject {
    * @var string
    */
   private $publication;
+  
+  /**
+   * @var string[]
+   */
+  private $fullImages = [];
+  
+  /**
+   * @var string[]
+   */
+  private $thumbnailImages = [];
 
   public function isNull(): bool {
     return $this->isNull;
@@ -159,6 +169,22 @@ class Project implements \Nula\NullObject {
 
   public function setPublication(string $publication) {
     $this->publication = $publication;
+  }
+
+  public function getFullImages(): array {
+    return $this->fullImages;
+  }
+  
+  public function setFullImages(array $fullImages) {
+    $this->fullImages = $fullImages;
+  }
+  
+  public function getThumbnailImages(): array {
+    return $this->thumbnailImages;
+  }
+  
+  public function setThumbnailImages(array $thumbnailImages) {
+    $this->thumbnailImages = $thumbnailImages;
   }
 
 }
