@@ -3,7 +3,7 @@
 namespace Nula\Project;
 
 class Provider {
-  
+
   const MAIN_PICTUTE_NAME = 'main.jpg';
 
   /**
@@ -22,7 +22,7 @@ class Provider {
    * @return \Nula\Project\Project[]
    */
   public function getProjectsDesc() {
-    $projectFolderNamePattern = '/(\d+)((-[a-z]+)+)/';
+    $projectFolderNamePattern = '/^(\d+)((-[a-z]+)+)$/';
     $projectDirectoryIterator = $this->filesystemFinder->in(__DIR__ . '/../../../../www/projects')
             ->directories()
             ->name($projectFolderNamePattern)
@@ -40,6 +40,22 @@ class Provider {
     return $projects;
   }
 
+  public function getProjectByRewrite(string $rewrite): \Nula\Project\Project {
+    $projectDirectoryIterator = $this->filesystemFinder->in(__DIR__ . '/../../../../www/projects')
+            ->directories()
+            ->name('/^(\d+)-' . $rewrite . '$/')
+            ->getIterator();
+    $projectDirectoryIterator->rewind();
+    if ($projectDirectoryIterator->valid()) {
+      $project = $this->projectFolderToObject($projectDirectoryIterator->current());
+    } else {
+      $project = new \Nula\Project\Project();
+      $project->setNull(true);
+    }
+    
+    return $project;
+  }
+
   /**
    * @param \SplFileInfo $projectFolder
    * @return \Nula\Project\Project
@@ -49,7 +65,7 @@ class Provider {
     $this->mapRewrite($projectFolder, $project);
     $this->mapProjectInfo($projectFolder, $project);
     $this->mapMainPicture($projectFolder, $project);
-    
+
     return $project;
   }
 
@@ -81,7 +97,7 @@ class Provider {
     } catch (ParseException $parseException) {
       printf("Unable to parse the YAML string: %s", $parseException->getMessage());
     }
-    
+
     if (isset($info['Název'])) {
       $project->setName($info['Název']);
     }
@@ -116,10 +132,10 @@ class Provider {
     if (\is_file($mainPictureFilename) === false || \is_readable($mainPictureFilename) === false) {
       $project->setNull(true);
     }
-    
+
     $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTUTE_NAME));
   }
-  
+
   private function createImagePublicSourceName(\SplFileInfo $projectFolder, string $pictureName): string {
     return '/projects/' . $projectFolder->getFilename() . '/' . $pictureName;
   }
