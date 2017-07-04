@@ -72,7 +72,7 @@ class Project implements \Nula\NullObject {
     $this->isNull = $isNull;
   }
 
-  public function getRewrite(): string {
+  public function getRewrite() {
 
     return $this->rewrite;
   }
@@ -81,7 +81,7 @@ class Project implements \Nula\NullObject {
     $this->rewrite = $rewrite;
   }
 
-  public function getMainImagePublicSourceName(): string {
+  public function getMainImagePublicSourceName() {
     return $this->mainImagePublicSourceName;
   }
 
@@ -89,7 +89,7 @@ class Project implements \Nula\NullObject {
     $this->mainImagePublicSourceName = $mainImagePublicSourceName;
   }
 
-  public function getName(): string {
+  public function getName() {
     return $this->name;
   }
 
@@ -97,7 +97,7 @@ class Project implements \Nula\NullObject {
     $this->name = $name;
   }
 
-  public function getTypology(): string {
+  public function getTypology() {
     return $this->typology;
   }
 
@@ -105,7 +105,7 @@ class Project implements \Nula\NullObject {
     $this->typology = $typology;
   }
 
-  public function getPlace(): string {
+  public function getPlace() {
     return $this->place;
   }
 
@@ -129,7 +129,7 @@ class Project implements \Nula\NullObject {
     $this->cooperation = $cooperation;
   }
 
-  public function getStudy(): string {
+  public function getStudy() {
     return $this->study;
   }
 
@@ -137,7 +137,7 @@ class Project implements \Nula\NullObject {
     $this->study = $study;
   }
 
-  public function getRealization(): string {
+  public function getRealization() {
     return $this->realization;
   }
 
@@ -145,7 +145,7 @@ class Project implements \Nula\NullObject {
     $this->realization = $realization;
   }
 
-  public function getCompetition(): string {
+  public function getCompetition() {
     return $this->competition;
   }
 
@@ -153,7 +153,7 @@ class Project implements \Nula\NullObject {
     $this->competition = $competition;
   }
 
-  public function getPublication(): string {
+  public function getPublication() {
     return $this->publication;
   }
 

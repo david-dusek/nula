@@ -9,42 +9,60 @@
       <div class="col-sm-4 project-data">
         <table>
           <tbody>
+            {% if project.getName() %}
             <tr>
               <th>{{ 'projektNazev'|trans|upper }}</th>
-              <td>Citadela Mefisto</td>
+              <td>{{ project.getName() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getTypology() %}
             <tr>
               <th>{{ 'projektTypologie'|trans|upper }}</th>
-              <td>Foo bar</td>
+              <td>{{ project.getTypology() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getPlace() %}
             <tr>
               <th>{{ 'projektMisto'|trans|upper }}</th>
-              <td>Brno, CZ</td>
+              <td>{{ project.getPlace() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getAuthors() is not empty %}
             <tr>
               <th>{{ 'projektAutori'|trans|upper }}</th>
-              <td>Tereza Hátlová</td>
+              <td>{{ project.getAuthors()|join(', ') }}</td>
             </tr>
+            {% endif %}
+            {% if project.getCooperation() is not empty %}
             <tr>
               <th>{{ 'projektSpoluprace'|trans|upper }}</th>
-              <td>Tereza Hátlová</td>
+              <td>{{ project.getCooperation()|join(', ') }}</td>
             </tr>
+            {% endif %}
+            {% if project.getStudy() %}
             <tr>
               <th>{{ 'projektStudie'|trans|upper }}</th>
-              <td>Ano</td>
+              <td>{{ project.getStudy() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getRealization() %}
             <tr>
               <th>{{ 'projektRealizace'|trans|upper }}</th>
-              <td>Ano</td>
+              <td>{{ project.getRealization() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getCompetition() %}
             <tr>
               <th>{{ 'projektSoutez'|trans|upper }}</th>
-              <td>Ano</td>
+              <td>{{ project.getCompetition() }}</td>
             </tr>
+            {% endif %}
+            {% if project.getPublication() %}
             <tr>
               <th>{{ 'projektPublikace'|trans|upper }}</th>
-              <td>Ano</td>
+              <td>{{ project.getPublication() }}</td>
             </tr>
+            {% endif %}
           </tbody>
         </table>
       </div>
