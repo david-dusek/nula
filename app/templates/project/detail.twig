@@ -74,8 +74,8 @@
                 <div class="col-sm-12" id="carousel-bounding-box">
                   <div class="carousel slide" id="project-detail-carousel">
                     <div class="carousel-inner" role="listbox">
-                      {% for imageOrderDesktop, imagePublicSourceNameDesktop in project.getFullImages() %}
-                      <div class="item {% if loop.first %}active{% endif %}" data-slide-number="{{ imageOrderDesktop }}">
+                      {% for imagePublicSourceNameDesktop in project.getFullImages() %}
+                      <div class="item {% if loop.first %}active{% endif %}" data-slide-number="{{ loop.index0 }}">
                         <img class="img-responsive" src="{{ imagePublicSourceNameDesktop }}">
                       </div>
                       {% endfor %}
@@ -95,9 +95,9 @@
           </div>
           <div class="col-sm-1" id="slider-thumbs">
             <div class="row no-gutter project-detail-thumbnails">
-              {% for imageThumbnailOrderDesktop, imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
+              {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
               <div class="col-sm-12">
-                <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}" id="carousel-selector-{{ imageThumbnailOrderDesktop }}"><img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}"></a>
+                <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}" id="carousel-selector-{{ loop.index0 }}"><img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}"></a>
               </div>
               {% endfor %}
             </div>
