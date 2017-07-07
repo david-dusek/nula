@@ -40,7 +40,7 @@ class Application {
   }
   
   private function registerProjectProvider() {
-    $this->container['projectProvider'] = new \Nula\Project\Provider(new \Symfony\Component\Finder\Finder());
+    $this->container['projectProvider'] = new \Nula\Project\Provider();
   }
 
   private function registerRoutes() {

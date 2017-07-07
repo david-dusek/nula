@@ -9,25 +9,13 @@ class Provider {
   const IMAGE_TYPE_FULL = 'full';
 
   /**
-   * @var \Symfony\Component\Finder\Finder
-   */
-  private $filesystemFinder;
-
-  /**
-   * @param \Symfony\Component\Finder\Finder $filesystemFinder
-   */
-  public function __construct(\Symfony\Component\Finder\Finder $filesystemFinder) {
-    $this->filesystemFinder = $filesystemFinder;
-  }
-
-  /**
    * @return \Nula\Project\Project[]
    */
   public function getProjectsDesc() {
-    $projectFolderNamePattern = '/^(\d+)((-[a-z]+)+)$/';
-    $projectDirectoryIterator = $this->filesystemFinder->in(__DIR__ . '/../../../../www/projects')
+    $filesystemIterator = new \Symfony\Component\Finder\Finder();    
+    $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
             ->directories()
-            ->name($projectFolderNamePattern)
+            ->name('/^(\d+)((-[a-z]+)+)$/')
             ->sortByName()
             ->getIterator();
 
@@ -43,7 +31,8 @@ class Provider {
   }
 
   public function getProjectByRewrite(string $rewrite): \Nula\Project\Project {
-    $projectDirectoryIterator = $this->filesystemFinder->in(__DIR__ . '/../../../../www/projects')
+    $filesystemIterator = new \Symfony\Component\Finder\Finder();
+    $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
             ->directories()
             ->name('/^(\d+)-' . $rewrite . '$/')
             ->getIterator();
@@ -149,8 +138,9 @@ class Provider {
     $project->setThumbnailImages($this->mapImages($projectFolder, self::IMAGE_TYPE_THUMBNAIL));
   }
 
-  private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {    
-    $imageDirectoryIterator = $this->filesystemFinder->in($projectFolder->getPathname())
+  private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {        
+    $filesystemIterator = new \Symfony\Component\Finder\Finder();
+    $imageDirectoryIterator = $filesystemIterator->in($projectFolder->getPathname())
             ->files()
             ->name('/^(\d+)-' . $imageType . '.jpg$/')
             ->getIterator();
