@@ -97,7 +97,10 @@
             <div class="row no-gutter project-detail-thumbnails">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
               <div class="col-sm-12">
-                <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}" id="carousel-selector-{{ loop.index0 }}"><img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}"></a>
+                <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}" id="carousel-selector-{{ loop.index0 }}">
+                  <img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}">
+                  <div></div>
+                </a>
               </div>
               {% endfor %}
             </div>

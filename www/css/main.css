@@ -246,8 +246,14 @@ p {
 }
 
 /* PROJECT */
-.project-detail-thumbnails a.active-thumbnail {
-  border: 1px solid #ca1b2a;
+.project-detail-thumbnails a.active-thumbnail > div {
+  mix-blend-mode: multiply;
+  background-color: #ca1b2a;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
 }
 
 /* ATELIER */
