@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 300;
   font-size: 14px;
   color: #000; 
@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-weight: 300;
   font-size: 1.1em;
 }
@@ -138,7 +138,7 @@ p {
 
 /* FOOTER */
 #footer {  
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-weight: 300;
   font-size: 0.9em;
   color: #666;
@@ -211,7 +211,7 @@ p {
   display: block;
   width: 100%;
   height: auto;
-  filter: grayscale(100%) contrast(50%) brightness(140%);
+  filter: grayscale(100%) contrast(30%) brightness(140%);
 }
 
 .project-list-overlay {
@@ -227,7 +227,7 @@ p {
 }
 
 .project-list-overlay:hover {
-  opacity: 1;  
+  opacity: 1;
   mix-blend-mode: multiply;
   background-color: #ca1b2a;
 }
@@ -235,7 +235,7 @@ p {
 .project-list-text {
   width: 100%;  
   text-align: center;
-  color: #000;
+  color: #fff;
   font-size: 1.5em;
   font-weight: 600;
   position: absolute;
@@ -254,6 +254,11 @@ p {
   height: 100%;
   width: 100%;
   opacity: 1;
+}
+
+.project-description {
+  margin-top: 20px;
+  text-align: justify;
 }
 
 /* ATELIER */
@@ -350,7 +355,7 @@ p {
 
 .faq-answers .panel {
   text-align: justify;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border: none;
   box-shadow: none;
   -webkit-box-shadow: none;

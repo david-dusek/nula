@@ -2,6 +2,8 @@
 
 namespace Nula\Project;
 
+use Symfony\Component\Yaml\Exception\ParseException;
+
 class Provider {
 
   const MAIN_PICTUTE_NAME = 'main.jpg';
@@ -85,6 +87,7 @@ class Provider {
       $project->setNull(true);
     }
 
+    $info = [];
     try {
       $info = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($filename));
     } catch (ParseException $parseException) {
@@ -117,6 +120,9 @@ class Provider {
     }
     if (isset($info['Publikace'])) {
       $project->setPublication($info['Publikace']);
+    }
+    if (isset($info['Popis'])) {
+      $project->setPopis($info['Popis']);
     }
   }
 

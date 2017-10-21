@@ -65,6 +65,12 @@
             {% endif %}
           </tbody>
         </table>
+
+        {% if project.getPopis() %}
+          <p class="project-description">
+              {{ project.getPopis|raw }}
+          </p>
+        {% endif %}
       </div>
       <div class="col-sm-8 project-images">
         <div class="row hidden-xs">
@@ -115,7 +121,9 @@
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
 
-      $('#project-detail-carousel').carousel({
+      var detailCarousel = $('#project-detail-carousel');
+
+      detailCarousel.carousel({
         interval: false
       });
 
@@ -131,7 +139,7 @@
         }
       });
       // When the carousel slides, auto update the text
-      $('#project-detail-carousel').on('slid.bs.carousel', function (e) {
+      detailCarousel.on('slid.bs.carousel', function () {
         var id = $('.item.active').data('slide-number');
         $('#carousel-text').html($('#slide-content-' + id).html());
         moveActiveThumbnail(id);
