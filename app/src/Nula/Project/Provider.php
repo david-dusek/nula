@@ -89,7 +89,7 @@ class Provider {
 
     $info = [];
     try {
-      $info = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($filename));
+      $info = \Symfony\Component\Yaml\Yaml::parse($this->getInfoFromFile($filename));
     } catch (ParseException $parseException) {
       printf("Unable to parse the YAML string: %s", $parseException->getMessage());
     }
@@ -124,6 +124,20 @@ class Provider {
     if (isset($info['Popis'])) {
       $project->setPopis($info['Popis']);
     }
+  }
+
+  private function getInfoFromFile(string $filename): string {
+    $originalFileContent = file_get_contents($filename);
+    if ($originalFileContent === false) {
+      throw new \Exception("Unable to read content of file $filename");
+    }
+
+    $fileContentWithoutBOM = preg_replace('/\x{FEFF}/u', '', $originalFileContent);
+    if (is_null($fileContentWithoutBOM)) {
+      throw new \Exception("Problem occured when replacing BOMs");
+    }
+
+    return $fileContentWithoutBOM;
   }
 
   private function mapMainPicture(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
