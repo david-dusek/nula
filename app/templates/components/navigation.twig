@@ -28,9 +28,15 @@
           <a href="{{ path_for('faq', {'lang': lang }) }}"{% if activeLink == 'faq' %} class="active-link" {% endif %}>{{ 'titulekFAQ'|trans|upper }}</a>
         </li>
         <li>
-          <a id="language-switcher" href="{{ languageSwitchParameters.alternativeUrl }}">
-            <span class="active-link">{{ languageSwitchParameters.currentAbbreviation|upper }}</span>&nbsp;/&nbsp;{{ languageSwitchParameters.alternativeAbbreviation|upper }}
-          </a>
+          <div class="language-switcher-links">
+            {% for locale in localeManager.getLocales(request) %}
+            {% if loop.first %}
+            {% else %}
+              &nbsp;/&nbsp;
+            {% endif %}
+            <a class="language-switcher-link{% if locale.isActive() %} active-link{% endif %}" href="{{ locale.getUrl() }}">{{ locale.getAbbreviation() }}</a>
+            {% endfor %}
+          </div>
         </li>
       </ul>
     </div>
