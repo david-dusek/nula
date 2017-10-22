@@ -11,8 +11,8 @@
               <img src="{{ project.getMainImagePublicSourceName() }}" alt="Projekt {{ project.getName() }}" class="img-responsive project-list-image">
               <div class="project-list-overlay">
                 <div class="project-list-text">
-                  {{ project.getName() }}
-                  <br><br>
+                  {{ project.getName()|upper }}
+                  <br>
                   {{ project.getTypology() }}
                 </div>
               </div>

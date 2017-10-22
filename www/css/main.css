@@ -243,7 +243,7 @@ p {
   text-align: center;
   color: #fff;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 300;
   position: absolute;
   top: 50%;
   left: 50%;  
@@ -379,7 +379,7 @@ p {
 
 /* BOOTSTRAP NAVBAR */
 .navbar {  
-  font-family: Montserrat;
+  font-family: Roboto;
   font-weight: 300;
   font-size: 1.1em;
   border: none;
@@ -439,7 +439,7 @@ p {
 .navbar-default .navbar-nav > li > a {
   color: #000;
   padding-top: 34px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -456,7 +456,7 @@ p {
   margin-top: 18px;
   float: left;
   width: 100%;
-  margin-left: 0px;
+  margin-left: 0;
   margin-bottom: 15px;
   border-bottom: #666 1px solid;  
 }
@@ -526,7 +526,7 @@ p {
 }
 
 .alert {
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 
