@@ -24,21 +24,21 @@ class Application {
 
   public function run() {
     $this->registerRoutes();
-    $this->registerLanguagesManager();
     $this->registerViewFactory();
+    $this->registerLanguagesManager();
     $this->registerProjectProvider();
     $this->slimApplication->run();
   }
 
-  private function registerLanguagesManager() {
-    $this->container['localeManager'] = new \Nula\I18n\LocaleManager($this->container->get('router'));
+  private function registerViewFactory() {
+    $this->container['viewFactory'] = new \Nula\View\Factory($this->container->get('settings')['twig']['cache']);
   }
 
-  private function registerViewFactory() {
-    $this->container['viewFactory'] = new \Nula\View\Factory($this->container->get('localeManager'),
-            $this->container->get('settings')['twig']['cache']);
+  private function registerLanguagesManager() {
+    $this->container['localeManager'] = new \Nula\I18n\LocaleManager($this->container->get('router'),
+      $this->container->get('viewFactory'));
   }
-  
+
   private function registerProjectProvider() {
     $this->container['projectProvider'] = new \Nula\Project\Provider();
   }

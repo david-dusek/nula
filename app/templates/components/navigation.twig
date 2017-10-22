@@ -29,12 +29,12 @@
         </li>
         <li>
           <div class="language-switcher-links">
-            {% for locale in localeManager.getLocales(request) %}
-            {% if loop.first %}
-            {% else %}
-              &nbsp;/&nbsp;
-            {% endif %}
-            <a class="language-switcher-link{% if locale.isActive() %} active-link{% endif %}" href="{{ locale.getUrl() }}">{{ locale.getAbbreviation() }}</a>
+            {% for locale in locales %}
+              {% if loop.first %}
+              {% else %}
+                &nbsp;/&nbsp;
+              {% endif %}
+                <a class="language-switcher-link{% if locale.isActive() %} active-link{% endif %}" href="{{ locale.getUrl() }}">{{ locale.getAbbreviation() }}</a>
             {% endfor %}
           </div>
         </li>

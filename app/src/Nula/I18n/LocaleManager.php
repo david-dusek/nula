@@ -18,30 +18,64 @@ class LocaleManager {
   private $router;
 
   /**
+   * @var \Nula\View\Factory
+   */
+  private $viewFactory;
+
+  /**
    * LocaleManager constructor.
    * @param \Slim\Router $router
    */
-  public function __construct(\Slim\Router $router)
+  public function __construct(\Slim\Router $router, \Nula\View\Factory $viewFactory)
   {
     $this->router = $router;
+    $this->viewFactory = $viewFactory;
   }
 
   /**
    * @param \Slim\Http\Request $request
+   * @param array $routeArguments
+   * @return \Slim\Views\Twig
+   * @throws \Exception
+   */
+  public function createLocalizedTwigView(\Slim\Http\Request $request, array $routeArguments): \Slim\Views\Twig {
+    $locale = $this->getLocaleCodeFromRouteArguments($routeArguments);
+    $translationExtension = $this->createTranslatorExstension($locale);
+    $view = $this->viewFactory->createTwigView($request, $this->router);
+    $view->addExtension($translationExtension);
+
+    return $view;
+  }
+
+  /**
+   * @param \Slim\Http\Request $request
+   * @param array $routeArguments
    * @return array
    */
-  public function getLocales(\Slim\Http\Request $request) {
+  public function getLocalizedTwigViewTemplateParameters(\Slim\Http\Request $request, array $routeArguments): array
+  {
+    return [
+      'lang' => $this->localeToRouteArgumentsFormat($this->getLocaleCodeFromRouteArguments($routeArguments)),
+      'locales' => $this->getLocales($request, $routeArguments),
+    ];
+  }
+
+  /**
+   * @param \Slim\Http\Request $request
+   * @param array $routeArguments
+   * @return array
+   */
+  private function getLocales(\Slim\Http\Request $request, array $routeArguments) {
     $route = $request->getAttribute('route'); /* @var $route \Slim\Route */
     $routeName = $route->getName() ?? 'homepage';
-    $routeArguments = $route->getArguments();
-    $localeFromRequest = $this->getLocaleCodeFromArray($routeArguments);
+    $currentLocale = $this->getLocaleCodeFromRouteArguments($routeArguments);
 
     $locales = [];
     foreach ($this->getSupportedLocales() as $locale) {
       $abbreviation = $this->localeToAbbreviation($locale);
-      $routeArguments[self::LOCALE_KEY] = $this->localeUnderscoreToDashFormat($locale);
+      $routeArguments[self::LOCALE_KEY] = $this->localeToRouteArgumentsFormat($locale);
       $localeUrl = $this->router->pathFor($routeName, $routeArguments);
-      $isActive = $localeFromRequest === $locale;
+      $isActive = $currentLocale === $locale;
       $locales[] = new Locale($abbreviation, $localeUrl, $isActive);
     }
 
@@ -49,12 +83,12 @@ class LocaleManager {
   }
 
   /**
-   * @param array $array
+   * @param array $routeArguments
    * @return string
    */
-  public function getLocaleCodeFromArray(array $array): string {
-    if (isset($array[self::LOCALE_KEY])) {
-      $localeCode = $this->localeDashToUnderscoreFormat($array[self::LOCALE_KEY]);
+  private function getLocaleCodeFromRouteArguments(array $routeArguments): string {
+    if (isset($routeArguments[self::LOCALE_KEY])) {
+      $localeCode = $this->localeToFilenameFormat($routeArguments[self::LOCALE_KEY]);
       $this->checkLocaleSupported($localeCode);
     } else {
       $localeCode = self::DEFAULT_LOCALE;
@@ -68,7 +102,7 @@ class LocaleManager {
    * @return \Symfony\Bridge\Twig\Extension\TranslationExtension
    * @throws \Exception
    */
-  public function createTranslatorExstension(string $locale): \Symfony\Bridge\Twig\Extension\TranslationExtension {
+  private function createTranslatorExstension(string $locale): \Symfony\Bridge\Twig\Extension\TranslationExtension {
     $this->checkLocaleSupported($locale);
     $translator = new \Symfony\Component\Translation\Translator($locale,
       new \Symfony\Component\Translation\MessageSelector());
@@ -132,7 +166,7 @@ class LocaleManager {
    * @param string $locale
    * @return string
    */
-  public function localeUnderscoreToDashFormat(string $locale): string {
+  public function localeToRouteArgumentsFormat(string $locale): string {
     return str_replace('_', '-', $locale);
   }
 
@@ -140,7 +174,7 @@ class LocaleManager {
    * @param string $locale
    * @return string
    */
-  private function localeDashToUnderscoreFormat(string $locale): string {
+  private function localeToFilenameFormat(string $locale): string {
     return str_replace('-', '_', $locale);
   }
 

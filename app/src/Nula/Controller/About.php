@@ -13,6 +13,7 @@ class About extends \Nula\Controller\Base {
    * @param \Slim\Http\Response $response
    * @param array $args
    * @return \Psr\Http\Message\ResponseInterface
+   * @throws \Exception
    */
   public function actionContact(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
     $templateParameters = [
@@ -21,7 +22,7 @@ class About extends \Nula\Controller\Base {
       'showMessageError' => isset($args[self::EMAIL_SENT_STATUS_KEY]) && $args[self::EMAIL_SENT_STATUS_KEY] === self::EMAIL_SENT_STATUS_ERROR,
     ];
 
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/contact.twig', $templateParameters);
+    return $this->createTwigLocalizedResponse($request, $response, $args, 'about/contact.twig', $templateParameters);
   }
 
   /**
@@ -65,7 +66,7 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionAtelier(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    return $this->createTwigI18nResponse($request, $response, $args, 'about/atelier.twig', ['activeLink' => 'atelier']);
+    return $this->createTwigLocalizedResponse($request, $response, $args, 'about/atelier.twig', ['activeLink' => 'atelier']);
   }
 
 }
