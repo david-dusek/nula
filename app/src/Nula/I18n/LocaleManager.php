@@ -26,8 +26,7 @@ class LocaleManager {
    * LocaleManager constructor.
    * @param \Slim\Router $router
    */
-  public function __construct(\Slim\Router $router, \Nula\View\Factory $viewFactory)
-  {
+  public function __construct(\Slim\Router $router, \Nula\View\Factory $viewFactory) {
     $this->router = $router;
     $this->viewFactory = $viewFactory;
   }
@@ -52,8 +51,7 @@ class LocaleManager {
    * @param array $routeArguments
    * @return array
    */
-  public function getLocalizedTwigViewTemplateParameters(\Slim\Http\Request $request, array $routeArguments): array
-  {
+  public function getLocalizedTwigViewTemplateParameters(\Slim\Http\Request $request, array $routeArguments): array {
     return [
       'lang' => $this->localeToRouteArgumentsFormat($this->getLocaleCodeFromRouteArguments($routeArguments)),
       'locales' => $this->getLocales($request, $routeArguments),
@@ -66,7 +64,8 @@ class LocaleManager {
    * @return array
    */
   private function getLocales(\Slim\Http\Request $request, array $routeArguments) {
-    $route = $request->getAttribute('route'); /* @var $route \Slim\Route */
+    $route = $request->getAttribute('route');
+    /* @var $route \Slim\Route */
     $routeName = $route->getName() ?? 'homepage';
     $currentLocale = $this->getLocaleCodeFromRouteArguments($routeArguments);
 
@@ -146,7 +145,8 @@ class LocaleManager {
     $languagesFilesIterator = new FilenameFilterIterator($languagesDirectoryIterator, ['/[a-z]{2}_[A-Z]{2}\.php/'], []);
 
     $supportedLocales = [];
-    foreach ($languagesFilesIterator as $item) { /* @var $item SplFileInfo */
+    foreach ($languagesFilesIterator as $item) {
+      /* @var $item SplFileInfo */
       $localeCode = $item->getBasename('.' . $item->getExtension());
       $supportedLocales[$localeCode] = $localeCode;
     }

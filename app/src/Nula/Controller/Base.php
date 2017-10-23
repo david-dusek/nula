@@ -13,7 +13,7 @@ class Base {
    * @var \Slim\Router
    */
   protected $router;
-  
+
   /**
    * @var \Interop\Container\ContainerInterface
    */

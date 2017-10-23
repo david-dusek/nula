@@ -14,12 +14,12 @@ class Provider {
    * @return \Nula\Project\Project[]
    */
   public function getProjectsDesc() {
-    $filesystemIterator = new \Symfony\Component\Finder\Finder();    
+    $filesystemIterator = new \Symfony\Component\Finder\Finder();
     $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
-            ->directories()
-            ->name('/^(\d+)((-[a-z]+)+)$/')
-            ->sortByName()
-            ->getIterator();
+      ->directories()
+      ->name('/^(\d+)((-[a-z]+)+)$/')
+      ->sortByName()
+      ->getIterator();
 
     $projects = [];
     foreach ($projectDirectoryIterator as $projectFolder) {
@@ -35,9 +35,9 @@ class Provider {
   public function getProjectByRewrite(string $rewrite): \Nula\Project\Project {
     $filesystemIterator = new \Symfony\Component\Finder\Finder();
     $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
-            ->directories()
-            ->name('/^(\d+)-' . $rewrite . '$/')
-            ->getIterator();
+      ->directories()
+      ->name('/^(\d+)-' . $rewrite . '$/')
+      ->getIterator();
     $projectDirectoryIterator->rewind();
     if ($projectDirectoryIterator->valid()) {
       $project = $this->projectFolderToObject($projectDirectoryIterator->current());
@@ -148,31 +148,31 @@ class Provider {
 
     $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTUTE_NAME));
   }
-  
-  
+
+
   private function mapFullImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
     $project->setFullImages($this->mapImages($projectFolder, self::IMAGE_TYPE_FULL));
   }
-  
+
   private function mapThumbnailImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
     $project->setThumbnailImages($this->mapImages($projectFolder, self::IMAGE_TYPE_THUMBNAIL));
   }
 
-  private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {        
+  private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {
     $filesystemIterator = new \Symfony\Component\Finder\Finder();
     $imageDirectoryIterator = $filesystemIterator->in($projectFolder->getPathname())
-            ->files()
-            ->name('/^(\d+)-' . $imageType . '.jpg$/')
-            ->getIterator();
-    
+      ->files()
+      ->name('/^(\d+)-' . $imageType . '.jpg$/')
+      ->getIterator();
+
     $images = [];
     foreach ($imageDirectoryIterator as $imageFile) {
       $imageFilename = $imageFile->getFilename();
       $order = \intval(\substr($imageFilename, 0, \strpos($imageFilename, '-')));
-      $images[$order] =  $this->createImagePublicSourceName($projectFolder, $imageFilename);
+      $images[$order] = $this->createImagePublicSourceName($projectFolder, $imageFilename);
     }
     \ksort($images);
-    
+
     return $images;
   }
 

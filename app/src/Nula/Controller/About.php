@@ -44,13 +44,13 @@ class About extends \Nula\Controller\Base {
         $subject = "Zpráva z kontaktního formuláře od $fullname";
         $body = "Jméno: $fullname \n\nText e-mailu:\n$emailBody";
         $headers = "MIME-Version: 1.0\r\n"
-                . "Content-type: text/plain; charset=UTF-8\r\n"
-                . "From: \"$fullname\" <$emailFrom>\r\n"
-                . "Reply-To: $emailFrom\r\n"
-                . "Cc: $emailFrom\r\n";
+          . "Content-type: text/plain; charset=UTF-8\r\n"
+          . "From: \"$fullname\" <$emailFrom>\r\n"
+          . "Reply-To: $emailFrom\r\n"
+          . "Cc: $emailFrom\r\n";
         $args[self::EMAIL_SENT_STATUS_KEY] = \mail($emailTo, $subject, $body, $headers) ?
-                $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_OK :
-                $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
+          $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_OK :
+          $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
       } catch (\Exception $exception) {
         $args[self::EMAIL_SENT_STATUS_KEY] = self::EMAIL_SENT_STATUS_ERROR;
       }

@@ -192,12 +192,11 @@ class Project implements \Nula\NullObject {
     $this->thumbnailImages = $thumbnailImages;
   }
 
-   public function getPopis() {
+  public function getPopis() {
     return $this->popis;
   }
 
-  public function setPopis(string $popis)
-  {
+  public function setPopis(string $popis) {
     $this->popis = $popis;
   }
 

@@ -34,7 +34,8 @@ class Project extends \Nula\Controller\Base {
    * @throws \Psr\Container\NotFoundExceptionInterface
    */
   public function actionDetail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    $projectProvider = $this->getService('projectProvider'); /* @var $project \Nula\Project\Project */
+    $projectProvider = $this->getService('projectProvider');
+    /* @var $project \Nula\Project\Project */
     $project = $projectProvider->getProjectByRewrite($args['rewrite']);
     if ($project->isNull()) {
       return new \Slim\Http\Response(404);
@@ -44,7 +45,7 @@ class Project extends \Nula\Controller\Base {
       'activeLink' => 'projects',
       'project' => $project,
     ];
-    
+
     return $this->createTwigLocalizedResponse($request, $response, $args, 'project/detail.twig', $templateData);
   }
 

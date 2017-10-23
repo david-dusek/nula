@@ -9,8 +9,7 @@
 namespace Nula\I18n;
 
 
-class Locale
-{
+class Locale {
 
   /**
    * @var string
@@ -42,24 +41,21 @@ class Locale
   /**
    * @return string
    */
-  public function getAbbreviation(): string
-  {
+  public function getAbbreviation(): string {
     return $this->abbreviation;
   }
 
   /**
    * @return bool
    */
-  public function isActive(): bool
-  {
+  public function isActive(): bool {
     return $this->isActive;
   }
 
   /**
    * @return string
    */
-  public function getUrl(): string
-  {
+  public function getUrl(): string {
     return $this->url;
   }
 
