@@ -92,6 +92,11 @@
             </div>
           </div>
           <div class="col-sm-1" id="slider-thumbs">
+            <div class="row no-gutter">
+              <button class="thumbnail-scroll thumbnail-scroll-down">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+              </button>
+            </div>
             <div class="row no-gutter project-detail-thumbnails">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
               <div class="col-sm-12">
@@ -101,6 +106,11 @@
                 </a>
               </div>
               {% endfor %}
+            </div>
+            <div class="row no-gutter">
+              <button class="thumbnail-scroll thumbnail-scroll-up">
+                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+              </button>
             </div>
           </div>
         </div>
