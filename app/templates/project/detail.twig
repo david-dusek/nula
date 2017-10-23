@@ -9,66 +9,66 @@
       <div class="col-sm-4 project-data">
         <table>
           <tbody>
-            {% if project.getName() %}
+          {% if project.getName() %}
             <tr>
               <th>{{ 'projektNazev'|trans|upper }}</th>
               <td>{{ project.getName() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getTypology() %}
+          {% endif %}
+          {% if project.getTypology() %}
             <tr>
               <th>{{ 'projektTypologie'|trans|upper }}</th>
               <td>{{ project.getTypology() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getPlace() %}
+          {% endif %}
+          {% if project.getPlace() %}
             <tr>
               <th>{{ 'projektMisto'|trans|upper }}</th>
               <td>{{ project.getPlace() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getAuthors() is not empty %}
+          {% endif %}
+          {% if project.getAuthors() is not empty %}
             <tr>
               <th>{{ 'projektAutori'|trans|upper }}</th>
               <td>{{ project.getAuthors()|join(', ') }}</td>
             </tr>
-            {% endif %}
-            {% if project.getCooperation() is not empty %}
+          {% endif %}
+          {% if project.getCooperation() is not empty %}
             <tr>
               <th>{{ 'projektSpoluprace'|trans|upper }}</th>
               <td>{{ project.getCooperation()|join(', ') }}</td>
             </tr>
-            {% endif %}
-            {% if project.getStudy() %}
+          {% endif %}
+          {% if project.getStudy() %}
             <tr>
               <th>{{ 'projektStudie'|trans|upper }}</th>
               <td>{{ project.getStudy() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getRealization() %}
+          {% endif %}
+          {% if project.getRealization() %}
             <tr>
               <th>{{ 'projektRealizace'|trans|upper }}</th>
               <td>{{ project.getRealization() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getCompetition() %}
+          {% endif %}
+          {% if project.getCompetition() %}
             <tr>
               <th>{{ 'projektSoutez'|trans|upper }}</th>
               <td>{{ project.getCompetition() }}</td>
             </tr>
-            {% endif %}
-            {% if project.getPublication() %}
+          {% endif %}
+          {% if project.getPublication() %}
             <tr>
               <th>{{ 'projektPublikace'|trans|upper }}</th>
               <td>{{ project.getPublication() }}</td>
             </tr>
-            {% endif %}
+          {% endif %}
           </tbody>
         </table>
 
         {% if project.getPopis() %}
           <p class="project-description">
-              {{ project.getPopis|raw }}
+            {{ project.getPopis|raw }}
           </p>
         {% endif %}
       </div>
@@ -81,9 +81,11 @@
                   <div class="carousel slide" id="project-detail-carousel">
                     <div class="carousel-inner" role="listbox">
                       {% for imagePublicSourceNameDesktop in project.getFullImages() %}
-                      <div class="item {% if loop.first %}active{% endif %}" data-slide-number="{{ loop.index0 }}">
-                        <img class="img-responsive" src="{{ imagePublicSourceNameDesktop }}">
-                      </div>
+                        <div class="item {% if loop.first %}active{% endif %}"
+                             data-slide-number="{{ loop.index0 }}">
+                          <img class="img-responsive"
+                               src="{{ imagePublicSourceNameDesktop }}">
+                        </div>
                       {% endfor %}
                     </div>
                   </div>
@@ -93,22 +95,23 @@
           </div>
           <div class="col-sm-1" id="slider-thumbs">
             <div class="row no-gutter">
-              <button class="thumbnail-scroll thumbnail-scroll-down">
+              <button id="thumbnail-scroll-up" class="thumbnail-scroll">
                 <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
               </button>
             </div>
             <div class="row no-gutter project-detail-thumbnails">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
-              <div class="col-sm-12">
-                <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}" id="carousel-selector-{{ loop.index0 }}">
-                  <img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}">
-                  <div></div>
-                </a>
-              </div>
+                <div class="col-sm-12">
+                  <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}"
+                     id="carousel-selector-{{ loop.index0 }}">
+                    <img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}">
+                    <div></div>
+                  </a>
+                </div>
               {% endfor %}
             </div>
             <div class="row no-gutter">
-              <button class="thumbnail-scroll thumbnail-scroll-up">
+              <button id="thumbnail-scroll-down" class="thumbnail-scroll">
                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
               </button>
             </div>
@@ -155,10 +158,50 @@
         moveActiveThumbnail(id);
       });
 
+      function changeCaruselDetail(id) {
+        $('.item').removeClass('active');
+        $('.item[data-slide-number=' + id + ']').addClass('active');
+        moveActiveThumbnail(id);
+      }
+
       function moveActiveThumbnail(id) {
         jQuery('a.active-thumbnail').removeClass('active-thumbnail');
         jQuery('#carousel-selector-' + id).addClass('active-thumbnail');
       }
+
+      // Vertical scroll
+      $('#thumbnail-scroll-down').click(function () {
+        jQuery("[id^='carousel-selector-']:not(.thumbnail-collapsed)").first().addClass('thumbnail-collapsed');
+      });
+
+      $('#thumbnail-scroll-up').click(function () {
+        jQuery("[id^='carousel-selector-'].thumbnail-collapsed").last().removeClass('thumbnail-collapsed');
+      });
+
+      $(document).keydown(function (event) {
+        var idSelector = jQuery("a.active-thumbnail").attr('id');
+        var id = parseInt(/-(\d+)$/.exec(idSelector)[1]);
+
+
+        switch (event.which) {
+          case 37: // left
+          case 38: // up
+            if (id <= 0) {
+              return;
+            }
+            changeCaruselDetail(--id);
+            break;
+
+          case 39: // right
+          case 40: // down
+            if (id >= jQuery(".thumbnail").length - 1) {
+              return;
+            }
+            changeCaruselDetail(++id);
+            break;
+
+        }
+      });
     });
   </script>
 {% endblock %}
