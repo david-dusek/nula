@@ -9,12 +9,11 @@
           <div class="col-xs-4 col-sm-3">
             <a href="{{ path_for('projectDetail', {'lang': lang, 'rewrite': project.getRewrite() }) }}">
               <img src="{{ project.getMainImagePublicSourceName() }}" alt="Projekt {{ project.getName() }}" class="img-responsive project-list-image">
-              <div class="project-list-overlay">
-                <div class="project-list-text">
-                  {{ project.getName()|upper }}
-                  <br>
-                  {{ project.getTypology() }}
-                </div>
+              <div class="project-list-overlay"></div>
+              <div class="project-list-text">
+                {{ project.getName()|upper }}
+                <br>
+                {{ project.getTypology() }}
               </div>
             </a>
           </div>
