@@ -354,26 +354,34 @@ p {
 }
 
 .btn-contact-email-sent {
-  background-image: url(/images/zero-black.svg);
-  width: 110px;
-  background-size: 97px;
-  background-position-y: -11px;
-  background-position-x: 37px;
-  height: 69px;
-  text-align: left;
-  font-weight: 600;
-  color: #000 ;
-  padding-top: 0;
-  background-color: transparent;
-  position: relative;
-  top: -49px;
-  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
+  height: 25px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #000;
 }
 
-.btn-contact-email-sent:hover, .btn-contact-email-sent:focus, .btn-contact-email-sent:active {
-  color: #ca1b2a;
-  background-image: url(/images/zero-black-red.svg);
+#contact-submit-box {
+  position: absolute;
+  bottom: 7px;
+  right: 6px;
+  z-index: 10;
+  font-size: 0.9em;
 }
+
+#contact-submit-box > div {
+  float: left;
+  margin-top: -3px;
+  margin-right: 10px;
+}
+
+#contact-submit-box button:hover {
+  color: #ca1b2a;
+  border-color: #ca1b2a;
+}
+
 
 /* FAQ */
 .faq-desktop-questions a {
