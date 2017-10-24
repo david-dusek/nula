@@ -555,6 +555,18 @@ p {
   background-color: #fff;
 }
 
+.has-error .form-control:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .form-control {
   height: 39px;
   padding-top: 17px;
