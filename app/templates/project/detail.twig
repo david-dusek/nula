@@ -30,7 +30,7 @@
           {% if project.getAuthors() is not empty %}
             <tr>
               <th>{{ 'projektAutori'|trans|upper }}</th>
-              <td>{{ project.getAuthors()|join(', ') }}</td>
+              <td>{{ project.getAuthors()|join('<br>')|raw }}</td>
             </tr>
           {% endif %}
           {% if project.getCooperation() is not empty %}
@@ -94,11 +94,6 @@
             </div>
           </div>
           <div class="col-sm-1" id="slider-thumbs">
-            <div class="row no-gutter">
-              <button id="thumbnail-scroll-up" class="thumbnail-scroll">
-                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-              </button>
-            </div>
             <div class="row no-gutter project-detail-thumbnails">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
                 <div class="col-sm-12">
@@ -110,15 +105,10 @@
                 </div>
               {% endfor %}
             </div>
-            <div class="row no-gutter">
-              <button id="thumbnail-scroll-down" class="thumbnail-scroll">
-                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-              </button>
-            </div>
           </div>
         </div>
         <br>
-        <div class="row visible-xs">
+        <div class="row visible-xs project-detail-mobile-images">
           {% for imagePublicSourceNameMobile in project.getFullImages() %}
             <div class="col-xs-12">
               <img class="img-responsive" src="{{ imagePublicSourceNameMobile }}">
@@ -178,6 +168,7 @@
         jQuery("[id^='carousel-selector-'].thumbnail-collapsed").last().removeClass('thumbnail-collapsed');
       });
 
+      // Moving images using arrows
       $(document).keydown(function (event) {
         var idSelector = jQuery("a.active-thumbnail").attr('id');
         var id = parseInt(/-(\d+)$/.exec(idSelector)[1]);
@@ -190,6 +181,7 @@
               return;
             }
             changeCaruselDetail(--id);
+            event.preventDefault();
             break;
 
           case 39: // right
@@ -198,8 +190,8 @@
               return;
             }
             changeCaruselDetail(++id);
+            event.preventDefault();
             break;
-
         }
       });
     });

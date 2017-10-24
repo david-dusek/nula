@@ -12,7 +12,6 @@ body {
 }
 
 h1 {
-  font-family: Montserrat, sans-serif;
   font-weight: 300;
   font-size: 1.1em;
 }
@@ -75,10 +74,14 @@ p {
   }
 }
 
+.no-padding-right {
+  padding-right: 0;
+}
+
 #homepage-content {
   height: 100%;
   background: url(/images/logo-black.svg);
-  background-size: 30% auto;
+  background-size: 24% auto;
   background-repeat: no-repeat;
   background-position: center 40%;
 }
@@ -143,8 +146,7 @@ p {
 }
 
 /* FOOTER */
-#footer {  
-  font-family: Montserrat, sans-serif;
+#footer {
   font-weight: 300;
   font-size: 0.9em;
   color: #666;
@@ -261,9 +263,8 @@ p {
 
 /* PROJECT */
 .project-detail-thumbnails {
-  height: 70vh;
+  height: 78vh;
   overflow: hidden;
-  background-color: #f5f5f5;
 }
 
 .project-detail-thumbnails a.active-thumbnail > div {
@@ -280,21 +281,6 @@ p {
   min-height: 0;
 }
 
-.thumbnail-scroll {
-  width: 100%;
-  height: 4vh;
-  border: none;
-  background-color: #f5f5f5;
-}
-
-.thumbnail-scroll:hover {
-  color: #ca1b2a;
-}
-
-.thumbnail {
-  transition: height 0.6s ease-out;
-}
-
 .thumbnail-collapsed {
   height: 0;
 }
@@ -302,6 +288,14 @@ p {
 .project-description {
   margin-top: 20px;
   text-align: justify;
+}
+
+.project-detail-mobile-images .img-responsive {
+  border-bottom: 1px solid #fff;
+}
+
+.project-data tr {
+  vertical-align: top;
 }
 
 /* ATELIER */
@@ -313,7 +307,7 @@ p {
   color: #fff;
   font-size: 0.85em;
   height: 460px;
-  background: url('/images/atelier_background.jpg') no-repeat center top; 
+  background: url('/images/atelier_background.jpg') no-repeat center top;
 }
 
 .atelier-cv-desktop:hover {
@@ -415,8 +409,7 @@ p {
 }
 
 /* BOOTSTRAP NAVBAR */
-.navbar {  
-  font-family: Roboto;
+.navbar {
   font-weight: 300;
   font-size: 1.1em;
   border: none;
@@ -595,4 +588,5 @@ p {
 
 .carousel-control.left, .carousel-control.right {
   background-image: none;
+  transition: height 0.6s ease-out;
 }
