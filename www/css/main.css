@@ -272,7 +272,8 @@ p {
   overflow: hidden;
 }
 
-.project-detail-thumbnails a.active-thumbnail > div {
+.project-detail-thumbnails a.active-thumbnail:before {
+  content: "";
   mix-blend-mode: multiply;
   background-color: #ca1b2a;
   position: absolute;
@@ -604,9 +605,6 @@ p {
 
 .carousel-inner > .item {
   text-align: center;
-  webkit-transition: none;
-  -o-transition: none;
-  transition: none;
 }
 
 
