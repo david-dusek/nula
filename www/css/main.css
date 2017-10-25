@@ -374,12 +374,12 @@ p {
   bottom: 7px;
   right: 6px;
   z-index: 10;
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 #contact-submit-box > div {
   float: left;
-  margin-top: -3px;
+  margin-top: 3px;
   margin-right: 10px;
 }
 

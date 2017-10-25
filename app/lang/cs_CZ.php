@@ -77,7 +77,7 @@ return [
   'faqRealizaceText' => 'Spolupráce nemusí končit odevzdáním projektu a následným autorským dozorem. Díky našim zkušenostem s řemeslníky a dodavateli Vám můžeme ušetřit nejen čas, peníze, ale i nervy. Během realizace se postaráme o zajištění cenových nabídek od dodavatelů, koordinaci řemeslníků, pohlídáme fakturaci a pomůžeme dotáhnout realizaci v termínu.',
   
   'faqCas' => 'Kolik je třeba času?',
-  'faqCasText' => 'Doba trvání je velmi individuální v závislosti na charakteru a velikosti projektu, často nezávisí jenom na nás, proto uvádíme příklady: TODO',
+  'faqCasText' => 'Doba trvání je velmi individuální v závislosti na charakteru a velikosti projektu, často nezávisí jenom na nás.',
   
   'kontaktPusobnostPLusMinusBezHranic' => 'působnost <span class="color-text">&plusmn;</span> bez hranic',
   'kontaktCeleJmeno' => 'jméno',
