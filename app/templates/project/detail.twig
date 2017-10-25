@@ -84,7 +84,7 @@
                         <div class="item {% if loop.first %}active{% endif %}"
                              data-slide-number="{{ loop.index0 }}">
                           <img class="img-responsive"
-                               src="{{ imagePublicSourceNameDesktop }}">
+                               src="{{ imagePublicSourceNameDesktop }}?v={{ resources_version }}">
                         </div>
                       {% endfor %}
                     </div>
@@ -99,7 +99,8 @@
                 <div class="col-sm-12">
                   <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}"
                      id="carousel-selector-{{ loop.index0 }}">
-                    <img class="img-responsive" src="{{ imageThumbnailPublicSourceNameDesktop }}">
+                    <img class="img-responsive"
+                         src="{{ imageThumbnailPublicSourceNameDesktop }}?v={{ resources_version }}">
                     <div></div>
                   </a>
                 </div>
@@ -111,7 +112,7 @@
         <div class="row visible-xs project-detail-mobile-images">
           {% for imagePublicSourceNameMobile in project.getFullImages() %}
             <div class="col-xs-12">
-              <img class="img-responsive" src="{{ imagePublicSourceNameMobile }}">
+              <img class="img-responsive" src="{{ imagePublicSourceNameMobile }}?v={{ resources_version }}">
             </div>
           {% endfor %}
         </div>

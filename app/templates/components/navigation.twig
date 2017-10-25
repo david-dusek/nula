@@ -9,7 +9,7 @@
       </button>
       {% if activeLink != 'homepage' %}
         <a class="navbar-brand" href="{{ path_for('homepage', {'lang': lang }) }}">
-          <img src="/images/logo-black.svg" alt="Logo PLUS MINUS NULA">
+          <img src="/images/logo-black.svg?v={{ resources_version }}" alt="Logo PLUS MINUS NULA">
         </a>
       {% endif %}
     </div>
