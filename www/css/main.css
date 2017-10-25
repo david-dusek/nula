@@ -103,7 +103,8 @@ p {
 }
 
 #content-including-navigation {
-  overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   padding-bottom: 45px; /* stejna hodnota jako margin top u #footer */
 }
 
