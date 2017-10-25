@@ -4,7 +4,7 @@
 {% block content %}
   <div class="container-fluid">
     <div class="row no-gutter projects-list">
-      {% for project in projects %}
+      {% for project   in projects %}
         {% if not project.isNull %}
           <div class="col-xs-4 col-sm-3">
             <a href="{{ path_for('projectDetail', {'lang': lang, 'rewrite': project.getRewrite() }) }}">
@@ -12,9 +12,9 @@
                    alt="Projekt {{ project.getName() }}" class="img-responsive project-list-image">
               <div class="project-list-overlay"></div>
               <div class="project-list-text">
-                {{ project.getName()|upper }}
+                <span class="project-list-text-name">{{ project.getName()|upper }}</span>
                 <br>
-                {{ project.getTypology() }}
+                <span class="project-list-text-typology">{{ project.getTypology() }}</span>
               </div>
             </a>
           </div>

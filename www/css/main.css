@@ -148,6 +148,7 @@ p {
   .language-switcher-links {
     font-size: 0.9em;
     padding-top: 12px;
+    padding-bottom: 25px;
   }
 }
 
@@ -249,6 +250,12 @@ p {
   color: #fff;
 }
 
+@media (max-width: 917px) {
+  .projects-list > div:hover a {
+    color: transparent;
+  }
+}
+
 .project-list-overlay:hover {
   opacity: 1;
   mix-blend-mode: multiply;
@@ -265,6 +272,10 @@ p {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   pointer-events: none;
+}
+
+.project-list-text-name {
+  font-size: 1.2em;
 }
 
 /* PROJECT */
@@ -286,10 +297,6 @@ p {
 
 .project-detail-thumbnails > div {
   min-height: 0;
-}
-
-.thumbnail-collapsed {
-  height: 0;
 }
 
 .project-description {
@@ -331,7 +338,7 @@ p {
 
 .atelier-cv-text-desktop {
   display: none;
-  padding-top: 65px;
+  padding-top: 57px;
 }
 
 .atelier-cv-desktop-col {  
@@ -536,6 +543,7 @@ p {
   padding-left: 12px;
   font-size: 0.9em;
   color: #ca1b2a;
+  width: 33%;
 }
 
 .input-group .with-errors ul li:before {
@@ -612,9 +620,4 @@ p {
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   display: inline-block;
   max-height: 78vh;
-}
-
-.carousel-control.left, .carousel-control.right {
-  background-image: none;
-  transition: height 0.6s ease-out;
 }
