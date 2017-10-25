@@ -115,6 +115,9 @@ class Provider {
     if (isset($info['Realizace'])) {
       $project->setRealization($info['Realizace']);
     }
+    if (isset($info['Ocenění'])) {
+      $project->setAward($info['Ocenění']);
+    }
     if (isset($info['Soutěž'])) {
       $project->setCompetition($info['Soutěž']);
     }
@@ -122,7 +125,7 @@ class Provider {
       $project->setPublication($info['Publikace']);
     }
     if (isset($info['Popis'])) {
-      $project->setPopis($info['Popis']);
+      $project->setDescription($info['Popis']);
     }
   }
 

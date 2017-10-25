@@ -77,7 +77,12 @@ class Project implements \Nula\NullObject {
   /**
    * @var string
    */
-  private $popis;
+  private $description;
+
+  /**
+   * @var string
+   */
+  private $award;
 
   public function isNull(): bool {
     return $this->isNull;
@@ -192,12 +197,20 @@ class Project implements \Nula\NullObject {
     $this->thumbnailImages = $thumbnailImages;
   }
 
-  public function getPopis() {
-    return $this->popis;
+  public function getDescription() {
+    return $this->description;
   }
 
-  public function setPopis(string $popis) {
-    $this->popis = $popis;
+  public function setDescription(string $description) {
+    $this->description = $description;
+  }
+
+  public function setAward(string $award) {
+    $this->award = $award;
+  }
+
+  public function getAward() {
+    return $this->award;
   }
 
 }

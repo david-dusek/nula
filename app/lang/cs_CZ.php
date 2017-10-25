@@ -16,6 +16,7 @@ return [
   'projektStudie' => 'studie',
   'projektRealizace' => 'realizace',
   'projektSoutez' => 'soutěž',
+  'projektOceneni' => 'ocenění',
   'projektPublikace' => 'publikace',
   
   'atelierCoDelameNadpis' => 'Co děláme',

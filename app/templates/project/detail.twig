@@ -57,6 +57,12 @@
               <td>{{ project.getCompetition() }}</td>
             </tr>
           {% endif %}
+          {% if project.getAward() %}
+            <tr>
+              <th>{{ 'projektOceneni'|trans|upper }}</th>
+              <td>{{ project.getAward() }}</td>
+            </tr>
+          {% endif %}
           {% if project.getPublication() %}
             <tr>
               <th>{{ 'projektPublikace'|trans|upper }}</th>
@@ -66,9 +72,9 @@
           </tbody>
         </table>
 
-        {% if project.getPopis() %}
+        {% if project.getDescription() %}
           <p class="project-description">
-            {{ project.getPopis|raw }}
+            {{ project.getDescription|raw }}
           </p>
         {% endif %}
       </div>
