@@ -424,6 +424,10 @@ p {
   height: 40px;
 }
 
+.navbar-right {
+  margin-bottom: -4px;
+}
+
 @media (max-width: 917px) {
   .container>.navbar-header {
     width: 100%;
