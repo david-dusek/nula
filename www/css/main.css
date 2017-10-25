@@ -391,6 +391,22 @@ p {
   margin-right: 10px;
 }
 
+@media (max-width: 917px) {
+  #contact-submit-box {
+    bottom: -5px;
+    right: -15px;
+    position: relative;
+  }
+
+  #contact-submit-box > div {
+    float: right;
+  }
+
+  #contact-submit-box > button {
+    float: right;
+  }
+}
+
 #contact-submit-box button:hover {
   color: #ca1b2a;
   border-color: #ca1b2a;
@@ -543,7 +559,6 @@ p {
   padding-left: 12px;
   font-size: 0.9em;
   color: #ca1b2a;
-  width: 33%;
 }
 
 .input-group .with-errors ul li:before {
