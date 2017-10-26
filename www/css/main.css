@@ -284,7 +284,7 @@ p {
   overflow: hidden;
 }
 
-.project-detail-thumbnails a.active-thumbnail:before {
+.project-detail-thumbnails .thumbnail.active:before {
   content: "";
   mix-blend-mode: multiply;
   background-color: #ca1b2a;

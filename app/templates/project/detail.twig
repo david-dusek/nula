@@ -87,7 +87,7 @@
                   <div class="carousel" id="project-detail-carousel">
                     <div class="carousel-inner" role="listbox">
                       {% for imagePublicSourceNameDesktop in project.getFullImages() %}
-                        <div class="item {% if loop.first %}active{% endif %}"
+                        <div class="item{% if loop.first %} active{% endif %}"
                              data-slide-number="{{ loop.index0 }}">
                           <img class="img-responsive"
                                src="{{ imagePublicSourceNameDesktop }}?v={{ resources_version }}">
@@ -103,8 +103,11 @@
             <div class="row no-gutter project-detail-thumbnails">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
                 <div class="col-sm-12">
-                  <a class="thumbnail {% if loop.first %}active-thumbnail{% endif %}"
-                     id="carousel-selector-{{ loop.index0 }}">
+                  <a class="thumbnail{% if loop.first %} active{% endif %}"
+                     id="carousel-selector-{{ loop.index0 }}"
+                     data-target="#project-detail-carousel"
+                     data-slide-number="{{ loop.index0 }}"
+                     data-slide-to="{{ loop.index0 }}">
                     <img class="img-responsive"
                          src="{{ imageThumbnailPublicSourceNameDesktop }}?v={{ resources_version }}">
                   </a>
@@ -130,57 +133,67 @@
   <script type="text/javascript">
     $(document).ready(function ($) {
 
-      var detailCarousel = $('#project-detail-carousel');
-      initCarousel(detailCarousel);
+      var carouselId = 'project-detail-carousel';
+      var carouselThumbnailsId = 'project-detail-thumbnails';
+      var slideNumberDataProperty = 'slide-number';
+      var slideClass = 'item';
+      var thumbnailClass = 'thumbnail';
+      var activeClass = 'active';
 
-      function initCarousel() {
-        detailCarousel.carousel({interval: false});
+      registerGeneralHandlers();
+      configureCarousel();
 
-        detailCarousel.on('slid.bs.carousel', function () {
-          var id = $('.item.active').data('slide-number');
-          $('a.active-thumbnail').removeClass('active-thumbnail');
-          $('#carousel-selector-' + id).addClass('active-thumbnail');
-        });
-
-        $('[id^=carousel-selector-]').click(handleThumbnailClick);
+      function registerGeneralHandlers() {
         $('body').keydown(handleKeyboardNavigation);
       }
 
-      function handleThumbnailClick() {
-        var id_selector = $(this).attr("id");
-        try {
-          var id = /-(\d+)$/.exec(id_selector)[1];
-          $('#project-detail-carousel').carousel(parseInt(id));
-        } catch (e) {
-          console.log('Regex failed!', e);
-        }
+      function configureCarousel() {
+        getCarouselElement().carousel({interval: false});
+        getCarouselElement().on('slid.bs.carousel', setActiveThumbnailByActiveSlide);
+      }
+
+      function setActiveThumbnailByActiveSlide() {
+        getActiveThumbnailElement().removeClass(activeClass);
+        getThumbnailElementBySlideId(getActiveSlideId()).addClass(activeClass);
       }
 
       function handleKeyboardNavigation(event) {
-        var id = parseInt($('.item.active').data('slide-number'));
+        var slideId = getActiveSlideId();
+        var keyCode = event.which;
 
-        switch (event.which) {
-          case 37:
-          case 38:
-            if (id <= 0) {
-              return;
-            }
-            detailCarousel.carousel('prev');
-            event.preventDefault();
-            break;
-
-          case 39:
-          case 40:
-            if (id >= $(".thumbnail").length - 1) {
-              return;
-            }
-            detailCarousel.carousel('next');
-            event.preventDefault();
-            break;
-          default:
-            break;
+        if ((keyCode === 37 || keyCode === 38) && slideId > 0) {
+          getCarouselElement().carousel('prev');
+          event.preventDefault();
+        } else if ((keyCode === 39 || keyCode === 40) && slideId < $('.' + thumbnailClass).length - 1) {
+          getCarouselElement().carousel('next');
+          event.preventDefault();
         }
       }
+
+      function getCarouselElement() {
+        return $('#' + carouselId);
+      }
+
+      function getThumbnailsElement() {
+        return $('#' + carouselThumbnailsId);
+      }
+
+      function getActiveSlideElement() {
+        return $('.' + slideClass + '.' + activeClass);
+      }
+
+      function getActiveSlideId() {
+        return getActiveSlideElement().data(slideNumberDataProperty);
+      }
+
+      function getActiveThumbnailElement() {
+        return $('.' + thumbnailClass + '.' + activeClass);
+      }
+
+      function getThumbnailElementBySlideId(slideId) {
+        return $('.' + thumbnailClass + '[data-' + slideNumberDataProperty + '=' + slideId + ']');
+      }
+
     });
   </script>
 {% endblock %}
