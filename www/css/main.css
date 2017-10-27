@@ -279,12 +279,12 @@ p {
 }
 
 /* PROJECT */
-.project-detail-thumbnails {
+#project-detail-thumbnails {
   height: 78vh;
   overflow: hidden;
 }
 
-.project-detail-thumbnails .thumbnail.active:before {
+#project-detail-thumbnails .thumbnail.active:before {
   content: "";
   mix-blend-mode: multiply;
   background-color: #ca1b2a;
@@ -295,7 +295,7 @@ p {
   opacity: 1;
 }
 
-.project-detail-thumbnails > div {
+#project-detail-thumbnails > div {
   min-height: 0;
 }
 

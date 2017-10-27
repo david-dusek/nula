@@ -100,7 +100,7 @@
             </div>
           </div>
           <div class="col-sm-1" id="slider-thumbs">
-            <div class="row no-gutter project-detail-thumbnails">
+            <div id="project-detail-thumbnails" class="row no-gutter">
               {% for imageThumbnailPublicSourceNameDesktop in project.getThumbnailImages() %}
                 <div class="col-sm-12">
                   <a class="thumbnail{% if loop.first %} active{% endif %}"
@@ -131,7 +131,7 @@
 {% endblock %}
 {% block bodyend %}
   <script type="text/javascript">
-    $(document).ready(function ($) {
+    $(window).on('load', function () {
 
       var carouselId = 'project-detail-carousel';
       var carouselThumbnailsId = 'project-detail-thumbnails';
@@ -140,11 +140,17 @@
       var thumbnailClass = 'thumbnail';
       var activeClass = 'active';
 
-      registerGeneralHandlers();
-      configureCarousel();
+      var maxVisibleThumbnailsCount = 0;
+      var allThumbnailsCount = 0;
 
-      function registerGeneralHandlers() {
-        $('body').keydown(handleKeyboardNavigation);
+      registerWindowHandlers();
+      configureCarousel();
+      calculateMaxVisibleThumbnailsCount();
+      calculateAllThumbnailsCount();
+
+      function registerWindowHandlers() {
+        $(window).keydown(handleKeyboardNavigation);
+        $(window).resize(calculateMaxVisibleThumbnailsCount);
       }
 
       function configureCarousel() {
@@ -153,22 +159,55 @@
       }
 
       function setActiveThumbnailByActiveSlide() {
+        var activeSlideIndex = getActiveSlideIndex();
         getActiveThumbnailElement().removeClass(activeClass);
-        getThumbnailElementBySlideId(getActiveSlideId()).addClass(activeClass);
+        getThumbnailElementBySlideIndex(activeSlideIndex).addClass(activeClass);
+        moveThumbnailOnBoundary(activeSlideIndex);
       }
 
       function handleKeyboardNavigation(event) {
-        var slideId = getActiveSlideId();
+        var slideIndex = getActiveSlideIndex();
         var keyCode = event.which;
 
-        if ((keyCode === 37 || keyCode === 38) && slideId > 0) {
+        if ((keyCode === 37 || keyCode === 38) && slideIndex > 0) {
           getCarouselElement().carousel('prev');
           event.preventDefault();
-        } else if ((keyCode === 39 || keyCode === 40) && slideId < $('.' + thumbnailClass).length - 1) {
+        } else if ((keyCode === 39 || keyCode === 40) && slideIndex < $('.' + thumbnailClass).length - 1) {
           getCarouselElement().carousel('next');
           event.preventDefault();
         }
       }
+
+      function getFirstVisibleThumbnailIndex() {
+        var visibilityHidden = $('.' + thumbnailClass + ':hidden')
+        if (visibilityHidden.length > 0) {
+          return visibilityHidden.first();
+        } else {
+          return 0;
+        }
+
+        $('.' + thumbnailClass + ':hidden').length;
+      }
+
+      function getLastVisibleThumbnailIndex() {
+        var lastVisibleThumbnailIndex = getFirstVisibleThumbnailIndex() + maxVisibleThumbnailsCount - 1;
+        if (lastVisibleThumbnailIndex >= allThumbnailsCount) {
+          return maxVisibleThumbnailsCount - 1;
+        } else {
+          return lastVisibleThumbnailIndex;
+        }
+      }
+
+      function moveThumbnailOnBoundary(activeSlideIndex) {
+        var first = getFirstVisibleThumbnailIndex();
+        var last = getLastVisibleThumbnailIndex();
+        if (activeSlideIndex <= getFirstVisibleThumbnailIndex()) {
+          console.log('nahoru');
+        } else if (activeSlideIndex >= getLastVisibleThumbnailIndex()) {
+          console.log('dolu');
+        }
+      }
+
 
       function getCarouselElement() {
         return $('#' + carouselId);
@@ -182,16 +221,24 @@
         return $('.' + slideClass + '.' + activeClass);
       }
 
-      function getActiveSlideId() {
+      function getActiveSlideIndex() {
         return getActiveSlideElement().data(slideNumberDataProperty);
+      }
+
+      function calculateMaxVisibleThumbnailsCount() {
+        maxVisibleThumbnailsCount = Math.floor(getThumbnailsElement().height() / getActiveThumbnailElement().height());
+      }
+
+      function calculateAllThumbnailsCount() {
+        allThumbnailsCount = $('.' + thumbnailClass).length;
       }
 
       function getActiveThumbnailElement() {
         return $('.' + thumbnailClass + '.' + activeClass);
       }
 
-      function getThumbnailElementBySlideId(slideId) {
-        return $('.' + thumbnailClass + '[data-' + slideNumberDataProperty + '=' + slideId + ']');
+      function getThumbnailElementBySlideIndex(slideIndex) {
+        return $('.' + thumbnailClass + '[data-' + slideNumberDataProperty + '=' + slideIndex + ']');
       }
 
     });
