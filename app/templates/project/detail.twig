@@ -199,12 +199,19 @@
       }
 
       function moveThumbnailOnBoundary(activeSlideIndex) {
-        var first = getFirstVisibleThumbnailIndex();
-        var last = getLastVisibleThumbnailIndex();
+        var slideCount = Math.floor(maxVisibleThumbnailsCount / 2);
+
         if (activeSlideIndex <= getFirstVisibleThumbnailIndex()) {
-          console.log('nahoru');
+          for (var i = 1; i <= slideCount && activeSlideIndex > 0; i++) {
+            activeSlideIndex -= i;
+            getThumbnailElementBySlideIndex(activeSlideIndex).show();
+          }
         } else if (activeSlideIndex >= getLastVisibleThumbnailIndex()) {
-          console.log('dolu');
+          var slideIndex = getLastVisibleThumbnailIndex();
+          for (var i = 1; i <= slideCount && slideIndex > maxVisibleThumbnailsCount; i++) {
+            slideIndex += i;
+            getThumbnailElementBySlideIndex(slideCount).hide();
+          }
         }
       }
 
