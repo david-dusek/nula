@@ -162,7 +162,7 @@
         var activeSlideIndex = getActiveSlideIndex();
         getActiveThumbnailElement().removeClass(activeClass);
         getThumbnailElementBySlideIndex(activeSlideIndex).addClass(activeClass);
-        moveThumbnailOnBoundary(activeSlideIndex);
+        actualizeThumbnailsIfBoundReach(activeSlideIndex);
       }
 
       function handleKeyboardNavigation(event) {
@@ -181,36 +181,36 @@
       function getFirstVisibleThumbnailIndex() {
         var visibilityHidden = $('.' + thumbnailClass + ':hidden')
         if (visibilityHidden.length > 0) {
-          return visibilityHidden.first();
+          return visibilityHidden.last().data(slideNumberDataProperty) + 1;
         } else {
           return 0;
         }
-
-        $('.' + thumbnailClass + ':hidden').length;
       }
 
       function getLastVisibleThumbnailIndex() {
         var lastVisibleThumbnailIndex = getFirstVisibleThumbnailIndex() + maxVisibleThumbnailsCount - 1;
         if (lastVisibleThumbnailIndex >= allThumbnailsCount) {
-          return maxVisibleThumbnailsCount - 1;
+          return allThumbnailsCount - 1;
         } else {
           return lastVisibleThumbnailIndex;
         }
       }
 
-      function moveThumbnailOnBoundary(activeSlideIndex) {
-        var slideCount = Math.floor(maxVisibleThumbnailsCount / 2);
+      function actualizeThumbnailsIfBoundReach(activeSlideIndex) {
+        var maxThumbnailToProcess = Math.floor(maxVisibleThumbnailsCount / 2);
+        var processedSlideIndex = getFirstVisibleThumbnailIndex();
+        var lastHideableIndex = allThumbnailsCount - maxVisibleThumbnailsCount - 1;
 
         if (activeSlideIndex <= getFirstVisibleThumbnailIndex()) {
-          for (var i = 1; i <= slideCount && activeSlideIndex > 0; i++) {
-            activeSlideIndex -= i;
-            getThumbnailElementBySlideIndex(activeSlideIndex).show();
+          for (var i = 1; i <= maxThumbnailToProcess && processedSlideIndex > 0; i++) {
+            processedSlideIndex--;
+            getThumbnailElementBySlideIndex(processedSlideIndex).show();
           }
         } else if (activeSlideIndex >= getLastVisibleThumbnailIndex()) {
-          var slideIndex = getLastVisibleThumbnailIndex();
-          for (var i = 1; i <= slideCount && slideIndex > maxVisibleThumbnailsCount; i++) {
-            slideIndex += i;
-            getThumbnailElementBySlideIndex(slideCount).hide();
+
+          for (var i = 1; i <= maxThumbnailToProcess && processedSlideIndex >= 0 && processedSlideIndex <= lastHideableIndex; i++) {
+            getThumbnailElementBySlideIndex(processedSlideIndex).hide();
+            processedSlideIndex++;
           }
         }
       }
