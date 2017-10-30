@@ -412,6 +412,10 @@ p {
   border-color: #ca1b2a;
 }
 
+.contact-options .fa {
+  width: 2em;
+}
+
 
 /* FAQ */
 .faq-desktop-questions a {
