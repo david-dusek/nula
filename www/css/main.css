@@ -640,3 +640,10 @@ p {
   display: inline-block;
   max-height: 78vh;
 }
+
+.alert-success {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+  padding-top: 0;
+}
