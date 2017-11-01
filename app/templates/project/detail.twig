@@ -36,7 +36,7 @@
           {% if project.getCooperation() is not empty %}
             <tr>
               <th>{{ 'projektSpoluprace'|trans|upper }}</th>
-              <td>{{ project.getCooperation()|join(', ') }}</td>
+              <td>{{ project.getCooperation()|join('<br>')|raw }}</td>
             </tr>
           {% endif %}
           {% if project.getStudy() %}
@@ -179,7 +179,7 @@
       }
 
       function getFirstVisibleThumbnailIndex() {
-        var visibilityHidden = $('.' + thumbnailClass + ':hidden')
+        var visibilityHidden = $('.' + thumbnailClass + ':hidden');
         if (visibilityHidden.length > 0) {
           return visibilityHidden.last().data(slideNumberDataProperty) + 1;
         } else {
@@ -208,7 +208,7 @@
           }
         } else if (activeSlideIndex >= getLastVisibleThumbnailIndex()) {
 
-          for (var i = 1; i <= maxThumbnailToProcess && processedSlideIndex >= 0 && processedSlideIndex <= lastHideableIndex; i++) {
+          for (var j = 1; j <= maxThumbnailToProcess && processedSlideIndex >= 0 && processedSlideIndex <= lastHideableIndex; j++) {
             getThumbnailElementBySlideIndex(processedSlideIndex).hide();
             processedSlideIndex++;
           }
