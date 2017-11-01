@@ -109,6 +109,9 @@ class Provider {
     if (isset($info['Spolupráce'])) {
       $project->setCooperation($info['Spolupráce']);
     }
+    if (isset($info['Investor'])) {
+      $project->setInvestor($info['Investor']);
+    }
     if (isset($info['Studie'])) {
       $project->setStudy($info['Studie']);
     }

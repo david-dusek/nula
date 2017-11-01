@@ -47,6 +47,11 @@ class Project implements \Nula\NullObject {
   /**
    * @var string
    */
+  private $investor;
+
+  /**
+   * @var string
+   */
   private $study;
 
   /**
@@ -211,6 +216,20 @@ class Project implements \Nula\NullObject {
 
   public function getAward() {
     return $this->award;
+  }
+
+  /**
+   * @return string
+   */
+  public function getInvestor(): ?string {
+    return $this->investor;
+  }
+
+  /**
+   * @param string $investor
+   */
+  public function setInvestor(string $investor) {
+    $this->investor = $investor;
   }
 
 }

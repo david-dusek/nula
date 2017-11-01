@@ -18,6 +18,7 @@ return [
   'projektSoutez' => 'Wettbewerb',
   'projektOceneni' => 'Anerkennung',
   'projektPublikace' => 'Publikationen',
+  'projektInvestor' => 'investor',
 
   'atelierCoDelameNadpis' => 'Was wir machen',
   'atelierCoDelamePrvniOdstavec' => 'Atelier PLUS MINUS NULA bietet Service im Bereich von Projekt- und Ingenieurtätigkeiten an. Wir arbeiten an Projekten verschiedener Arten und Kriterien; von Entwürfen und Umbau der Innenräume, Ausstellungswesen, über die kleine Architektur bis zur Ausführung von größeren Bauwerken und zur Stadtplanung.',

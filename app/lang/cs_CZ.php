@@ -18,6 +18,7 @@ return [
   'projektSoutez' => 'soutěž',
   'projektOceneni' => 'ocenění',
   'projektPublikace' => 'publikace',
+  'projektInvestor' => 'investor',
   
   'atelierCoDelameNadpis' => 'Co děláme',
   'atelierCoDelamePrvniOdstavec' => 'Ateliér PLUS MÍNUS NULA nabízí servis v oblasti projekční a inženýrské činnosti. Pracujeme na projektech různých druhů a měřítek; od návrhů a rekonstrukcí interiérů, výstavnictví, přes drobnou architekturu, až po větší stavby a urbanismus.',

@@ -19,6 +19,7 @@ return [
   'projektSoutez' => 'competition',
   'projektOceneni' => 'award',
   'projektPublikace' => 'publication',
+  'projektInvestor' => 'investor',
 
   'atelierCoDelameNadpis' => 'What we do',
   'atelierCoDelamePrvniOdstavec' => 'Atelier PLUS MINUS NULA offers a service in the field of building design and engineering. We work on projects of various types and scales; from design and reconstruction of interiors, exhibitions, small architecture to larger buildings and urbanism.',

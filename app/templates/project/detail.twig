@@ -39,6 +39,12 @@
               <td>{{ project.getCooperation()|join('<br>')|raw }}</td>
             </tr>
           {% endif %}
+          {% if project.getInvestor() %}
+            <tr>
+              <th>{{ 'projektInvestor'|trans|upper }}</th>
+              <td>{{ project.getInvestor() }}</td>
+            </tr>
+          {% endif %}
           {% if project.getStudy() %}
             <tr>
               <th>{{ 'projektStudie'|trans|upper }}</th>
