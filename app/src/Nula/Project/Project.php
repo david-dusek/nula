@@ -219,16 +219,16 @@ class Project implements \Nula\NullObject {
   }
 
   /**
-   * @return string
+   * @return string|null
    */
-  public function getInvestor(): ?string {
+  public function getInvestor() {
     return $this->investor;
   }
 
   /**
    * @param string $investor
    */
-  public function setInvestor(string $investor) {
+  public function setInvestor($investor) {
     $this->investor = $investor;
   }
 
