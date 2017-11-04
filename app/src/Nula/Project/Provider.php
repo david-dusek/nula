@@ -11,7 +11,8 @@ class Provider {
   const IMAGE_TYPE_FULL = 'full';
 
   /**
-   * @return \Nula\Project\Project[]
+   * @return array
+   * @throws \Exception
    */
   public function getProjectsDesc() {
     $filesystemIterator = new \Symfony\Component\Finder\Finder();
@@ -32,7 +33,12 @@ class Provider {
     return $projects;
   }
 
-  public function getProjectByRewrite(string $rewrite): \Nula\Project\Project {
+  /**
+   * @param string $rewrite
+   * @return Project
+   * @throws \Exception
+   */
+  public function getProjectByRewrite(string $rewrite): Project {
     $filesystemIterator = new \Symfony\Component\Finder\Finder();
     $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
       ->directories()
@@ -42,7 +48,7 @@ class Provider {
     if ($projectDirectoryIterator->valid()) {
       $project = $this->projectFolderToObject($projectDirectoryIterator->current());
     } else {
-      $project = new \Nula\Project\Project();
+      $project = new Project();
       $project->setNull(true);
     }
 
@@ -51,10 +57,11 @@ class Provider {
 
   /**
    * @param \SplFileInfo $projectFolder
-   * @return \Nula\Project\Project
+   * @return Project
+   * @throws \Exception
    */
-  private function projectFolderToObject(\SplFileInfo $projectFolder): \Nula\Project\Project {
-    $project = new \Nula\Project\Project();
+  private function projectFolderToObject(\SplFileInfo $projectFolder): Project {
+    $project = new Project();
     $this->mapRewrite($projectFolder, $project);
     $this->mapProjectInfo($projectFolder, $project);
     $this->mapMainPicture($projectFolder, $project);
@@ -64,7 +71,11 @@ class Provider {
     return $project;
   }
 
-  private function mapRewrite(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param Project $project
+   */
+  private function mapRewrite(\SplFileInfo $projectFolder, Project $project) {
     $projectFolderFilename = $projectFolder->getFilename();
     $firstDashPosition = \strpos($projectFolderFilename, '-');
     if ($firstDashPosition === false) {
@@ -81,7 +92,12 @@ class Provider {
     $project->setRewrite($rewrite);
   }
 
-  private function mapProjectInfo(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param Project $project
+   * @throws \Exception
+   */
+  private function mapProjectInfo(\SplFileInfo $projectFolder, Project $project) {
     $filename = $projectFolder->getPathname() . '/info.txt';
     if (\is_file($filename) === false || \is_readable($filename) === false) {
       $project->setNull(true);
@@ -94,44 +110,39 @@ class Provider {
       printf("Unable to parse the YAML string: %s", $parseException->getMessage());
     }
 
-    if (isset($info['Název'])) {
-      $project->setName($info['Název']);
-    }
-    if (isset($info['Typologie'])) {
-      $project->setTypology($info['Typologie']);
-    }
-    if (isset($info['Místo'])) {
-      $project->setPlace($info['Místo']);
-    }
-    if (isset($info['Autoři'])) {
-      $project->setAuthors($info['Autoři']);
-    }
-    if (isset($info['Spolupráce'])) {
-      $project->setCooperation($info['Spolupráce']);
-    }
-    if (isset($info['Investor'])) {
-      $project->setInvestor($info['Investor']);
-    }
-    if (isset($info['Studie'])) {
-      $project->setStudy($info['Studie']);
-    }
-    if (isset($info['Realizace'])) {
-      $project->setRealization($info['Realizace']);
-    }
-    if (isset($info['Ocenění'])) {
-      $project->setAward($info['Ocenění']);
-    }
-    if (isset($info['Soutěž'])) {
-      $project->setCompetition($info['Soutěž']);
-    }
-    if (isset($info['Publikace'])) {
-      $project->setPublication($info['Publikace']);
-    }
-    if (isset($info['Popis'])) {
-      $project->setDescription($info['Popis']);
-    }
+    $this->extractProperty($project, 'setName', $info, 'Název');
+    $this->extractProperty($project, 'setTypology', $info, 'Typologie');
+    $this->extractProperty($project, 'setPlace', $info, 'Místo');
+    $this->extractProperty($project, 'setAuthors', $info, 'Autoři');
+    $this->extractProperty($project, 'setCooperation', $info, 'Spolupráce');
+    $this->extractProperty($project, 'setInvestor', $info, 'Investor');
+    $this->extractProperty($project, 'setStudy', $info, 'Studie');
+    $this->extractProperty($project, 'setRealization', $info, 'Realizace');
+    $this->extractProperty($project, 'setAward', $info, 'Ocenění');
+    $this->extractProperty($project, 'setCompetition', $info, 'Soutěž');
+    $this->extractProperty($project, 'setPublication', $info, 'Publikace');
+    $this->extractProperty($project, 'setDescription', $info, 'Popis');
   }
 
+  /**
+   * @param Project $project
+   * @param string $projectSetterName
+   * @param array $info
+   * @param string $propertyNameInInfo
+   */
+  private function extractProperty(Project $project, string $projectSetterName, array $info, string $propertyNameInInfo) {
+    if (!isset($info[$propertyNameInInfo])) {
+      return;
+    }
+
+    $project->{$projectSetterName}($info[$propertyNameInInfo]);
+  }
+
+  /**
+   * @param string $filename
+   * @return string
+   * @throws \Exception
+   */
   private function getInfoFromFile(string $filename): string {
     $originalFileContent = file_get_contents($filename);
     if ($originalFileContent === false) {
@@ -146,7 +157,11 @@ class Provider {
     return $fileContentWithoutBOM;
   }
 
-  private function mapMainPicture(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param Project $project
+   */
+  private function mapMainPicture(\SplFileInfo $projectFolder, Project $project) {
     $mainPictureFilename = $projectFolder->getPathname() . '/' . self::MAIN_PICTURE_NAME;
     if (\is_file($mainPictureFilename) === false || \is_readable($mainPictureFilename) === false) {
       $project->setNull(true);
@@ -155,15 +170,27 @@ class Provider {
     $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTURE_NAME));
   }
 
-
-  private function mapFullImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param Project $project
+   */
+  private function mapFullImages(\SplFileInfo $projectFolder, Project $project) {
     $project->setFullImages($this->mapImages($projectFolder, self::IMAGE_TYPE_FULL));
   }
 
-  private function mapThumbnailImages(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param Project $project
+   */
+  private function mapThumbnailImages(\SplFileInfo $projectFolder, Project $project) {
     $project->setThumbnailImages($this->mapImages($projectFolder, self::IMAGE_TYPE_THUMBNAIL));
   }
 
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param string $imageType
+   * @return array
+   */
   private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {
     $filesystemIterator = new \Symfony\Component\Finder\Finder();
     $imageDirectoryIterator = $filesystemIterator->in($projectFolder->getPathname())
@@ -182,6 +209,11 @@ class Provider {
     return $images;
   }
 
+  /**
+   * @param \SplFileInfo $projectFolder
+   * @param string $imageFilename
+   * @return string
+   */
   private function createImagePublicSourceName(\SplFileInfo $projectFolder, string $imageFilename): string {
     return '/projects/' . $projectFolder->getFilename() . '/' . $imageFilename;
   }
