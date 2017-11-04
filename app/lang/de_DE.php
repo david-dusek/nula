@@ -4,7 +4,7 @@ return [
 
   'titulekUvodka' => 'Einleitung',
   'titulekProjekty' => 'Projekte',
-  'titulekAtelier' => 'Uber uns',
+  'titulekAtelier' => 'Über uns',
   'titulekFAQ' => 'FAQs',
   'titulekKontakt' => 'Kontakt',
 
