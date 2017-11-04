@@ -6,7 +6,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
 class Provider {
 
-  const MAIN_PICTUTE_NAME = 'main.jpg';
+  const MAIN_PICTURE_NAME = 'main.jpg';
   const IMAGE_TYPE_THUMBNAIL = 'thumbnail';
   const IMAGE_TYPE_FULL = 'full';
 
@@ -147,12 +147,12 @@ class Provider {
   }
 
   private function mapMainPicture(\SplFileInfo $projectFolder, \Nula\Project\Project $project) {
-    $mainPictureFilename = $projectFolder->getPathname() . '/' . self::MAIN_PICTUTE_NAME;
+    $mainPictureFilename = $projectFolder->getPathname() . '/' . self::MAIN_PICTURE_NAME;
     if (\is_file($mainPictureFilename) === false || \is_readable($mainPictureFilename) === false) {
       $project->setNull(true);
     }
 
-    $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTUTE_NAME));
+    $project->setMainImagePublicSourceName($this->createImagePublicSourceName($projectFolder, self::MAIN_PICTURE_NAME));
   }
 
 
