@@ -34,7 +34,8 @@
               {% else %}
                 &nbsp;/&nbsp;
               {% endif %}
-                <a class="language-switcher-link{% if locale.isActive() %} active-link{% endif %}" href="{{ locale.getUrl() }}">{{ locale.getAbbreviation() }}</a>
+              <a class="language-switcher-link{% if locale.isActive() %} active-link{% endif %}"
+                 href="{{ locale.getUrl() }}">{{ locale.getAbbreviation()|upper }}</a>
             {% endfor %}
           </div>
         </li>

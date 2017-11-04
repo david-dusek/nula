@@ -71,12 +71,13 @@ class LocaleManager {
 
     $locales = [];
     foreach ($this->getSupportedLocales() as $locale) {
-      $abbreviation = $this->localeToAbbreviation($locale);
+      $abbreviation = $this->extractLangCodeFromLocale($locale);
       $routeArguments[self::LOCALE_KEY] = $this->localeToRouteArgumentsFormat($locale);
       $localeUrl = $this->router->pathFor($routeName, $routeArguments);
       $isActive = $currentLocale === $locale;
-      $locales[] = new Locale($abbreviation, $localeUrl, $isActive);
+      $locales[$abbreviation] = new Locale($abbreviation, $localeUrl, $isActive);
     }
+    ksort($locales);
 
     return $locales;
   }
@@ -158,8 +159,8 @@ class LocaleManager {
    * @param $locale
    * @return string
    */
-  private function localeToAbbreviation($locale): string {
-    return substr($locale, strpos($locale, '_') + 1);
+  private function extractLangCodeFromLocale($locale): string {
+    return substr($locale, 0, strpos($locale, '_'));
   }
 
   /**
