@@ -40,7 +40,7 @@ class Application {
   }
 
   private function registerProjectProvider() {
-    $this->container['projectProvider'] = new \Nula\Project\Provider();
+    $this->container['projectProvider'] = new \Nula\Project\Provider($this->container->get('localeManager'));
   }
 
   private function registerRoutes() {

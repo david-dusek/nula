@@ -2,6 +2,8 @@
 
 namespace Nula\Project;
 
+use Nula\I18n\LocaleManager;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Exception\ParseException;
 
 class Provider {
@@ -9,13 +11,26 @@ class Provider {
   const MAIN_PICTURE_NAME = 'main.jpg';
   const IMAGE_TYPE_THUMBNAIL = 'thumbnail';
   const IMAGE_TYPE_FULL = 'full';
+  /**
+   * @var LocaleManager
+   */
+  private $localeManager;
 
   /**
+   * Provider constructor.
+   * @param LocaleManager $localeManager
+   */
+  public function __construct(LocaleManager $localeManager) {
+    $this->localeManager = $localeManager;
+  }
+
+  /**
+   * @param string $locale
    * @return array
    * @throws \Exception
    */
-  public function getProjectsDesc() {
-    $filesystemIterator = new \Symfony\Component\Finder\Finder();
+  public function getProjectsDesc(string $locale) {
+    $filesystemIterator = new Finder();
     $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
       ->directories()
       ->name('/^(\d+)((-[a-z]+)+)$/')
@@ -26,7 +41,7 @@ class Provider {
     foreach ($projectDirectoryIterator as $projectFolder) {
       $projectFolderFilename = $projectFolder->getFilename();
       $order = \substr($projectFolderFilename, 0, \strpos($projectFolderFilename, '-'));
-      $projects[$order] = $this->projectFolderToObject($projectFolder);
+      $projects[$order] = $this->projectFolderToObject($projectFolder, $locale);
     }
     \krsort($projects);
 
@@ -35,18 +50,19 @@ class Provider {
 
   /**
    * @param string $rewrite
+   * @param string $locale
    * @return Project
    * @throws \Exception
    */
-  public function getProjectByRewrite(string $rewrite): Project {
-    $filesystemIterator = new \Symfony\Component\Finder\Finder();
+  public function getProjectByRewrite(string $rewrite, string $locale): Project {
+    $filesystemIterator = new Finder();
     $projectDirectoryIterator = $filesystemIterator->in(__DIR__ . '/../../../../www/projects')
       ->directories()
       ->name('/^(\d+)-' . $rewrite . '$/')
       ->getIterator();
     $projectDirectoryIterator->rewind();
     if ($projectDirectoryIterator->valid()) {
-      $project = $this->projectFolderToObject($projectDirectoryIterator->current());
+      $project = $this->projectFolderToObject($projectDirectoryIterator->current(), $locale);
     } else {
       $project = new Project();
       $project->setNull(true);
@@ -57,13 +73,14 @@ class Provider {
 
   /**
    * @param \SplFileInfo $projectFolder
+   * @param string $locale
    * @return Project
    * @throws \Exception
    */
-  private function projectFolderToObject(\SplFileInfo $projectFolder): Project {
+  private function projectFolderToObject(\SplFileInfo $projectFolder, string $locale): Project {
     $project = new Project();
     $this->mapRewrite($projectFolder, $project);
-    $this->mapProjectInfo($projectFolder, $project);
+    $this->mapProjectInfo($projectFolder, $project, $locale);
     $this->mapMainPicture($projectFolder, $project);
     $this->mapFullImages($projectFolder, $project);
     $this->mapThumbnailImages($projectFolder, $project);
@@ -95,9 +112,10 @@ class Provider {
   /**
    * @param \SplFileInfo $projectFolder
    * @param Project $project
+   * @param string $locale
    * @throws \Exception
    */
-  private function mapProjectInfo(\SplFileInfo $projectFolder, Project $project) {
+  private function mapProjectInfo(\SplFileInfo $projectFolder, Project $project, string $locale) {
     $filename = $projectFolder->getPathname() . '/info.txt';
     if (\is_file($filename) === false || \is_readable($filename) === false) {
       $project->setNull(true);
@@ -110,18 +128,18 @@ class Provider {
       printf("Unable to parse the YAML string: %s", $parseException->getMessage());
     }
 
-    $this->extractProperty($project, 'setName', $info, 'Název');
-    $this->extractProperty($project, 'setTypology', $info, 'Typologie');
-    $this->extractProperty($project, 'setPlace', $info, 'Místo');
-    $this->extractProperty($project, 'setAuthors', $info, 'Autoři');
-    $this->extractProperty($project, 'setCooperation', $info, 'Spolupráce');
-    $this->extractProperty($project, 'setInvestor', $info, 'Investor');
-    $this->extractProperty($project, 'setStudy', $info, 'Studie');
-    $this->extractProperty($project, 'setRealization', $info, 'Realizace');
-    $this->extractProperty($project, 'setAward', $info, 'Ocenění');
-    $this->extractProperty($project, 'setCompetition', $info, 'Soutěž');
-    $this->extractProperty($project, 'setPublication', $info, 'Publikace');
-    $this->extractProperty($project, 'setDescription', $info, 'Popis');
+    $this->extractProperty($project, 'setName', $info, 'Název', $locale);
+    $this->extractProperty($project, 'setTypology', $info, 'Typologie', $locale);
+    $this->extractProperty($project, 'setPlace', $info, 'Místo', $locale);
+    $this->extractProperty($project, 'setAuthors', $info, 'Autoři', $locale);
+    $this->extractProperty($project, 'setCooperation', $info, 'Spolupráce', $locale);
+    $this->extractProperty($project, 'setInvestor', $info, 'Investor', $locale);
+    $this->extractProperty($project, 'setStudy', $info, 'Studie', $locale);
+    $this->extractProperty($project, 'setRealization', $info, 'Realizace', $locale);
+    $this->extractProperty($project, 'setAward', $info, 'Ocenění', $locale);
+    $this->extractProperty($project, 'setCompetition', $info, 'Soutěž', $locale);
+    $this->extractProperty($project, 'setPublication', $info, 'Publikace', $locale);
+    $this->extractProperty($project, 'setDescription', $info, 'Popis', $locale);
   }
 
   /**
@@ -129,13 +147,29 @@ class Provider {
    * @param string $projectSetterName
    * @param array $info
    * @param string $propertyNameInInfo
+   * @param string $lang
    */
-  private function extractProperty(Project $project, string $projectSetterName, array $info, string $propertyNameInInfo) {
+  private function extractProperty(Project $project, string $projectSetterName, array $info, string $propertyNameInInfo, string $lang) {
     if (!isset($info[$propertyNameInInfo])) {
       return;
     }
 
-    $project->{$projectSetterName}($info[$propertyNameInInfo]);
+    $lang = $this->localeManager->extractLangCodeFromLocale($lang);
+    $defaultLang = $this->localeManager->extractLangCodeFromLocale($this->localeManager::DEFAULT_LOCALE);
+
+    if (is_array($info[$propertyNameInInfo]) && array_key_exists($lang, $info[$propertyNameInInfo])) {
+      $value = $info[$propertyNameInInfo][$lang];
+    } else if (is_array($info[$propertyNameInInfo]) && array_key_exists($defaultLang, $info[$propertyNameInInfo])) {
+      $value = $info[$propertyNameInInfo][$defaultLang];
+    } else if (isset($info[$propertyNameInInfo])) {
+      $value = $info[$propertyNameInInfo];
+    } else {
+      $value = null;
+    }
+
+    if (!is_null($value)) {
+      $project->{$projectSetterName}($value);
+    }
   }
 
   /**
@@ -192,7 +226,7 @@ class Provider {
    * @return array
    */
   private function mapImages(\SplFileInfo $projectFolder, string $imageType): array {
-    $filesystemIterator = new \Symfony\Component\Finder\Finder();
+    $filesystemIterator = new Finder();
     $imageDirectoryIterator = $filesystemIterator->in($projectFolder->getPathname())
       ->files()
       ->name('/^(\d+)-' . $imageType . '.jpg$/')

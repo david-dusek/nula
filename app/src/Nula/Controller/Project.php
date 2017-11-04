@@ -2,20 +2,27 @@
 
 namespace Nula\Controller;
 
-class Project extends \Nula\Controller\Base {
+use Nula\Project\Provider;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Request;
+use Slim\Http\Response;
+
+class Project extends Base {
 
   /**
-   * @param \Slim\Http\Request $request
-   * @param \Slim\Http\Response $response
+   * @param Request $request
+   * @param Response $response
    * @param array $args
-   * @return \Psr\Http\Message\ResponseInterface
+   * @return ResponseInterface
    * @throws \Exception
-   * @throws \Psr\Container\ContainerExceptionInterface
-   * @throws \Psr\Container\NotFoundExceptionInterface
+   * @throws ContainerExceptionInterface
+   * @throws NotFoundExceptionInterface
    */
-  public function actionList(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    $projectProvider = $this->getService('projectProvider');
-    $projects = $projectProvider->getProjectsDesc();
+  public function actionList(Request $request, Response $response, array $args): ResponseInterface {
+    $projectProvider = $this->getProjectProvider();
+    $projects = $projectProvider->getProjectsDesc($this->getLocale($args));
 
     $templateData = [
       'activeLink' => 'projects',
@@ -25,20 +32,19 @@ class Project extends \Nula\Controller\Base {
   }
 
   /**
-   * @param \Slim\Http\Request $request
-   * @param \Slim\Http\Response $response
+   * @param Request $request
+   * @param Response $response
    * @param array $args
-   * @return \Psr\Http\Message\ResponseInterface
+   * @return ResponseInterface
    * @throws \Exception
-   * @throws \Psr\Container\ContainerExceptionInterface
-   * @throws \Psr\Container\NotFoundExceptionInterface
+   * @throws ContainerExceptionInterface
+   * @throws NotFoundExceptionInterface
    */
-  public function actionDetail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    $projectProvider = $this->getService('projectProvider');
-    /* @var $project \Nula\Project\Project */
-    $project = $projectProvider->getProjectByRewrite($args['rewrite']);
+  public function actionDetail(Request $request, Response $response, array $args): ResponseInterface {
+    $projectProvider = $this->getProjectProvider();
+    $project = $projectProvider->getProjectByRewrite($this->getRewrite($args), $this->getLocale($args));
     if ($project->isNull()) {
-      return new \Slim\Http\Response(404);
+      return new Response(404);
     }
 
     $templateData = [
@@ -47,6 +53,24 @@ class Project extends \Nula\Controller\Base {
     ];
 
     return $this->createTwigLocalizedResponse($request, $response, $args, 'project/detail.twig', $templateData);
+  }
+
+  /**
+   * @return Provider
+   * @throws ContainerExceptionInterface
+   * @throws NotFoundExceptionInterface
+   */
+  private function getProjectProvider(): Provider {
+    $projectProvider = $this->getService('projectProvider');
+    return $projectProvider;
+  }
+
+  /**
+   * @param array $args
+   * @return string
+   */
+  public function getRewrite(array $args): string {
+    return $args['rewrite'];
   }
 
 }

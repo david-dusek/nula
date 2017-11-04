@@ -58,4 +58,12 @@ class Base {
     return $view->render($response, $template, array_merge($templateParameters, $localizedViewParameters));
   }
 
+  /**
+   * @param array $routerArgs
+   * @return string
+   */
+  protected function getLocale(array $routerArgs) {
+    return $this->localeManager->getLocaleCodeFromRouteArguments($routerArgs);
+  }
+
 }

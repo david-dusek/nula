@@ -86,7 +86,7 @@ class LocaleManager {
    * @param array $routeArguments
    * @return string
    */
-  private function getLocaleCodeFromRouteArguments(array $routeArguments): string {
+  public function getLocaleCodeFromRouteArguments(array $routeArguments): string {
     if (isset($routeArguments[self::LOCALE_KEY])) {
       $localeCode = $this->localeToFilenameFormat($routeArguments[self::LOCALE_KEY]);
       $this->checkLocaleSupported($localeCode);
@@ -159,7 +159,7 @@ class LocaleManager {
    * @param $locale
    * @return string
    */
-  private function extractLangCodeFromLocale($locale): string {
+  public function extractLangCodeFromLocale($locale): string {
     return substr($locale, 0, strpos($locale, '_'));
   }
 
