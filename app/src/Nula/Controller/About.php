@@ -32,8 +32,8 @@ class About extends \Nula\Controller\Base {
    * @return \Psr\Http\Message\ResponseInterface
    */
   public function actionContactEmail(\Slim\Http\Request $request, \Slim\Http\Response $response, array $args): \Psr\Http\Message\ResponseInterface {
-    $fullname = $request->getParam('fullname');
-    $emailBody = $request->getParam('email-body');
+    $fullname = htmlspecialchars($request->getParam('fullname'));
+    $emailBody = htmlspecialchars($request->getParam('email-body'));
     $emailFrom = $request->getParam('email-from');
 
     if (!isset($fullname) || !isset($emailBody) || !isset($emailFrom)) {
