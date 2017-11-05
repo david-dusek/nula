@@ -3,6 +3,7 @@
 namespace Nula\I18n;
 
 use Slim\Http\Request;
+use Slim\Http\Response;
 use Symfony\Component\Finder\Iterator\FilenameFilterIterator;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -52,10 +53,10 @@ class LocaleManager {
    * @param array $routeArguments
    * @return array
    */
-  public function getLocalizedTwigViewTemplateParameters(\Slim\Http\Request $request, array $routeArguments): array {
+  public function getLocalizedTwigViewTemplateParameters(\Slim\Http\Request $request, array $routeArguments, Response $response): array {
     return [
       'lang' => $this->localeToRouteArgumentsFormat($this->getLocaleCodeFromRouteArguments($routeArguments)),
-      'locales' => $this->getLocales($request, $routeArguments),
+      'locales' => $response->isOk() ? $this->getLocales($request, $routeArguments) : [],
     ];
   }
 

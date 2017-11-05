@@ -6,6 +6,7 @@ use Nula\Project\Provider;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Exception\NotFoundException;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -44,7 +45,7 @@ class Project extends Base {
     $projectProvider = $this->getProjectProvider();
     $project = $projectProvider->getProjectByRewrite($this->getRewrite($args), $this->getLocale($args));
     if ($project->isNull()) {
-      return new Response(404);
+      throw new NotFoundException($request, $response);
     }
 
     $templateData = [
