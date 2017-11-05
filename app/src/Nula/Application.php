@@ -2,22 +2,26 @@
 
 namespace Nula;
 
+use Interop\Container\ContainerInterface;
+use Nula\Controller\ErrorNotFound;
+use Slim\App;
+
 class Application {
 
   /**
-   * @var \Slim\App
+   * @var App
    */
   private $slimApplication;
 
   /**
-   * @var \Interop\Container\ContainerInterface
+   * @var ContainerInterface
    */
   private $container;
 
   /**
-   * @param \Slim\App $slimApplication
+   * @param App $slimApplication
    */
-  public function __construct(\Slim\App $slimApplication) {
+  public function __construct(App $slimApplication) {
     $this->slimApplication = $slimApplication;
     $this->container = $this->slimApplication->getContainer();
   }
@@ -27,6 +31,7 @@ class Application {
     $this->registerViewFactory();
     $this->registerLanguagesManager();
     $this->registerProjectProvider();
+    $this->registerErrorNotFoundController();
     $this->slimApplication->run();
   }
 
@@ -55,6 +60,12 @@ class Application {
     $router->map(['get'], '/{lang:[a-z]{2}-[A-Z]{2}}/kontakt[/{' . \Nula\Controller\About::EMAIL_SENT_STATUS_KEY . '}]', \Nula\Controller\About::class . ':actionContact')->setName('contact');
     $router->map(['post'], '/{lang:[a-z]{2}-[A-Z]{2}}/kontakt/email', \Nula\Controller\About::class . ':actionContactEmail')->setName('contactEmail');
     $router->map(['get'], '/{lang:[a-z]{2}-[A-Z]{2}}/faq', \Nula\Controller\Help::class . ':actionFaq')->setName('faq');
+  }
+
+  private function registerErrorNotFoundController() {
+    $this->container['notFoundHandler'] = function (ContainerInterface $container) {
+      return new ErrorNotFound($container);
+    };
   }
 
 }

@@ -2,6 +2,7 @@
 
 namespace Nula\I18n;
 
+use Slim\Http\Request;
 use Symfony\Component\Finder\Iterator\FilenameFilterIterator;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -65,6 +66,9 @@ class LocaleManager {
    */
   private function getLocales(\Slim\Http\Request $request, array $routeArguments) {
     $route = $request->getAttribute('route');
+    if (is_null($route)) {
+      return [];
+    }
     /* @var $route \Slim\Route */
     $routeName = $route->getName() ?? 'homepage';
     $currentLocale = $this->getLocaleCodeFromRouteArguments($routeArguments);
@@ -95,6 +99,21 @@ class LocaleManager {
     }
 
     return $localeCode;
+  }
+
+  /**
+   * @param Request $request
+   * @return string
+   */
+  public function getLocaleCodeFromPath(Request $request): string {
+    $matches = [];
+    if (preg_match('%^/([a-z]{2}-[A-Z]{2})/?.*%', $request->getUri()->getPath(), $matches)) {
+      $locale = $matches[1];
+    } else {
+      $locale = self::DEFAULT_LOCALE;
+    }
+
+    return $locale;
   }
 
   /**
