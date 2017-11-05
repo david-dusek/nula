@@ -107,7 +107,7 @@ class LocaleManager {
    */
   public function getLocaleCodeFromPath(Request $request): string {
     $matches = [];
-    if (preg_match('%^/([a-z]{2}-[A-Z]{2})/?.*%', $request->getUri()->getPath(), $matches)) {
+    if (preg_match('%^/([a-z]{2}-[A-Z]{2})/?.*%', $request->getUri()->getPath(), $matches) && $this->isLocaleSupported($matches[1])) {
       $locale = $matches[1];
     } else {
       $locale = self::DEFAULT_LOCALE;
@@ -150,11 +150,18 @@ class LocaleManager {
    * @param string $locale
    */
   private function checkLocaleSupported(string $locale) {
-    $supportedLocales = $this->getSupportedLocales();
-
-    if (!array_key_exists($locale, $supportedLocales)) {
+    if (!$this->isLocaleSupported($locale)) {
       throw new \InvalidArgumentException("Locale '$locale' is not supported yet.");
     }
+  }
+
+  /**
+   * @param string $locale
+   * @return bool
+   */
+  private function isLocaleSupported(string $locale) {
+    $supportedLocales = $this->getSupportedLocales();
+    return array_key_exists($locale, $supportedLocales);
   }
 
   /**

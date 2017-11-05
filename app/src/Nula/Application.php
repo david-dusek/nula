@@ -3,6 +3,7 @@
 namespace Nula;
 
 use Interop\Container\ContainerInterface;
+use Nula\Controller\ErrorApplication;
 use Nula\Controller\ErrorNotFound;
 use Slim\App;
 
@@ -32,6 +33,7 @@ class Application {
     $this->registerLanguagesManager();
     $this->registerProjectProvider();
     $this->registerErrorNotFoundController();
+    $this->registerApplicationErrorController();
     $this->slimApplication->run();
   }
 
@@ -65,6 +67,12 @@ class Application {
   private function registerErrorNotFoundController() {
     $this->container['notFoundHandler'] = function (ContainerInterface $container) {
       return new ErrorNotFound($container);
+    };
+  }
+
+  private function registerApplicationErrorController() {
+    $this->container['errorHandler'] = function (ContainerInterface $container) {
+      return new ErrorApplication($container);
     };
   }
 
