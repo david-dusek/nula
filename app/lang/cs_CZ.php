@@ -63,10 +63,10 @@ return [
 
   'faqInterier' => 'Co nabízíme v oblasti interiérů?',
   'faqInterierKonzultace' => '<strong>Konzultace záměru</strong> (Vaše představy a možnosti x naše zkušenosti a postřehy)',
-  'faqInterierZamereni' => '<strong>Zaměření stávajícího stavu</strong> (zajištění potřebných podkladů - zaměření a průzkumy, foto-dokumentace,etc.)',
-  'faqInterierStudie' => '<strong>Návrh ve formě studie</strong> (prezentace konceptu - schemata, 2D výkresy, vizualizace, etc.)',
+  'faqInterierZamereni' => '<strong>Zaměření stávajícího stavu</strong> (zajištění potřebných podkladů - zaměření a průzkumy, foto-dokumentace atd.)',
+  'faqInterierStudie' => '<strong>Návrh ve formě studie</strong> (prezentace konceptu - schemata, 2D výkresy, vizualizace atd.)',
   'faqInterierPodklady' => '<strong>Vypracování podkladů pro realizaci atypických prvků</strong> (technické výkresy atypického vybavení, konzultace s dodavateli, řešení detailů)',
-  'faqInterierVyberPrvku' => '<strong>Výběr typových prvků a materiálů</strong> (výpisy typových prvků - nábytek, svítidla, textilie, doplňky etc.)',
+  'faqInterierVyberPrvku' => '<strong>Výběr typových prvků a materiálů</strong> (výpisy typových prvků - nábytek, svítidla, textilie, doplňky atd.)',
   'faqInterierDozor' => '<strong>Autorský dozor</strong> (dohled nad realizací projektu dle schválené dokumentace)',
   'faqInterierSpoluprace' => '<strong>Spolupráce při realizaci</strong> (viz bod spolupráce při realizaci)',
   
