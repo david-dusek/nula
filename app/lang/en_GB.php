@@ -46,7 +46,7 @@ return [
   'atelierLenaGalerieArchitekturyADesignu' => 'TOP 6 Award “Gallery of architecture and design”',
 
   'faqCimZacit' => 'What to start with?',
-  'faqCimZacitKontakt' => '<strong>Contact us</strong> via our contact form or email us at <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> with your requirements, ideally along with backgrounds (floor plans, photos or video of a current situation).',
+  'faqCimZacitKontakt' => '<strong>Contact us</strong> via our contact form or e-mail us at <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> with your requirements, ideally along with backgrounds (floor plans, photos or video of a current situation).',
   'faqCimZacitUvodniSchuzka' => 'In response to your request we will propose <strong>a date of the introductory meeting</strong>, where we will discuss your ideas and consider options. Together we will go through the scope and approach of a collaboration.',
   'faqCimZacitKontaktCenovaNabidka' => 'Subsequently we will prepare <strong>a quote</strong>, that we will send you for a approval.',
   'faqCimZacitKontaktTerminZahajeni' => '<strong>The start date</strong> of the project may be within a few weeks, depending on the actual occupation.',
@@ -86,9 +86,9 @@ return [
   'kontaktPusobnostPLusMinusBezHranic' => 'scope of activity <span class="color-text">&plusmn;</span> borderless',
   'kontaktCeleJmeno' => 'name',
   'kontaktTextEmailu' => 'message',
-  'kontaktEmailovaAdresa' => 'email',
+  'kontaktEmailovaAdresa' => 'e-mail',
   'kontakOdeslat' => 'send',
   'kontaktPovinnaPolozka' => 'Required field',
-  'kontaktChybnyEmail' => 'Enter an email address containing @',
-  'kontaktEmailUspesneOdeslan' => '<strong>The message was sent.</strong><br><br> A copy of the message was sent to the specified email address. Thank you for your interest. We&apos;ll get back soon.',
+  'kontaktChybnyEmail' => 'Enter an e-mail address containing @',
+  'kontaktEmailUspesneOdeslan' => '<strong>The message was sent.</strong><br><br> A copy of the message was sent to the specified e-mail address. Thank you for your interest. We&apos;ll get back soon.',
 ];

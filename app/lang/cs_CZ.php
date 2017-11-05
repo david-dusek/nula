@@ -45,7 +45,7 @@ return [
   'atelierLenaGalerieArchitekturyADesignu' => 'umístění v TOP 6 v soutěži “Galerie architektury a designu”',
   
   'faqCimZacit' => 'Čím začít?',
-  'faqCimZacitKontakt' => '<strong>Kontaktujete nás</strong> přes kontaktní formulář nebo prostřednictvím emailu na <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> s Vašimi požadavky, ideálně spolu s podklady (půdorysy, fotky nebo video stávajícího stavu).',
+  'faqCimZacitKontakt' => '<strong>Kontaktujete nás</strong> přes kontaktní formulář nebo prostřednictvím e-mailu na <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> s Vašimi požadavky, ideálně spolu s podklady (půdorysy, fotky nebo video stávajícího stavu).',
   'faqCimZacitUvodniSchuzka' => 'V odpovědi na Vaši poptávku navrhneme <strong>datum úvodní schůzky</strong>, kde probereme Vaše představy a zvážíme možnosti. Společně projdeme rozsah a postup spolupráce.',
   'faqCimZacitKontaktCenovaNabidka' => 'Následně vypracujeme <strong>cenovou nabídku</strong>, kterou zašleme k odsouhlasení.',
   'faqCimZacitKontaktTerminZahajeni' => '<strong>Termín zahájení</strong> práce na projektu může být v rozmezí několika týdnů dle aktuální vytíženosti.',
@@ -85,7 +85,7 @@ return [
   'kontaktPusobnostPLusMinusBezHranic' => 'působnost <span class="color-text">&plusmn;</span> bez hranic',
   'kontaktCeleJmeno' => 'jméno',
   'kontaktTextEmailu' => 'zpráva',
-  'kontaktEmailovaAdresa' => 'email',
+  'kontaktEmailovaAdresa' => 'e-mail',
   'kontakOdeslat' => 'poslat',
   'kontaktPovinnaPolozka' => 'Povinná položka',
   'kontaktChybnyEmail' => 'Zadejte e-mailovou adresu obsahující @',

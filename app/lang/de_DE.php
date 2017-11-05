@@ -45,7 +45,7 @@ return [
   'atelierLenaGalerieArchitekturyADesignu' => 'TOP 6 Platzierung im Wettbewerb "Galerie der Architektur und des Designs"',
 
   'faqCimZacit' => 'Womit beginnen?',
-  'faqCimZacitKontakt' => '<strong> Kontaktieren Sie uns</strong> über unser Kontaktformular oder Email <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a>  und teilen Sie uns Ihre Forderungen mit (idealerweise auch mit Unterlagen: Grundrisse, Fotos oder Videoaufzeichnung des Ist-Zustandes).',
+  'faqCimZacitKontakt' => '<strong> Kontaktieren Sie uns</strong> über unser Kontaktformular oder E-mail <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a>  und teilen Sie uns Ihre Forderungen mit (idealerweise auch mit Unterlagen: Grundrisse, Fotos oder Videoaufzeichnung des Ist-Zustandes).',
   'faqCimZacitUvodniSchuzka' => ' Wir beantworten gerne Ihre Nachfrage und schlagen <strong> einen Termin für unser erstes Treffen</strong> vor,  in dem wir Ihre Vorstellungen besprechen und alle Möglichkeiten erwägen. Wir besprechen ebenfalls gemeinsam den Umfang und Fortgang unserer Mitarbeit.',
   'faqCimZacitKontaktCenovaNabidka' => 'Nachfolgend erstellen wir <strong>ein Preisangebot</strong>, das wir Ihnen zur Genehmigung zusenden.',
   'faqCimZacitKontaktTerminZahajeni' => '<strong>Der Start des Projekts</strong> kann sich binnen einiger Wochen (je nach Auslastung) erstrecken.',
@@ -86,11 +86,11 @@ return [
   'kontaktPusobnostPLusMinusBezHranic' => 'Wir sind <span class="color-text">&plusmn;</span> ohne Grenzen für Sie da!',
   'kontaktCeleJmeno' => 'Name',
   'kontaktTextEmailu' => 'Nachricht',
-  'kontaktEmailovaAdresa' => 'Email',
+  'kontaktEmailovaAdresa' => 'E-mail',
   'kontakOdeslat' => 'versenden',
   'kontaktPovinnaPolozka' => 'Pflichtfeld',
-  'kontaktChybnyEmail' => 'Geben Sie Ihre Email-Adresse mit @ ein.',
-  'kontaktEmailUspesneOdeslan' => '<strong>Ihre Nachricht wurde gesendet.</strong><br><br> Eine Kopie Ihrer Nachricht wurde an die angegebene Email-Adresse versendet. Vielen Dank für Ihr Interesse. Wir melden uns umgehend bei Ihnen.',
+  'kontaktChybnyEmail' => 'Geben Sie Ihre E-mail-Adresse mit @ ein.',
+  'kontaktEmailUspesneOdeslan' => '<strong>Ihre Nachricht wurde gesendet.</strong><br><br> Eine Kopie Ihrer Nachricht wurde an die angegebene E-mail-Adresse versendet. Vielen Dank für Ihr Interesse. Wir melden uns umgehend bei Ihnen.',
 
   'kontaktOdeslaniEmailuSelhalo' => '<strong>Fehler beim Senden der Nachricht.</strong><br><br> Es tut uns leid, aber etwas ist schiefgelaufen. Versuchen Sie es erneut oder kontaktieren Sie uns auf eine andere Art und Weise.',
 
