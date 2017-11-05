@@ -1,12 +1,13 @@
 <?php
 
-namespace Nula\Controller;
+namespace Nula\Controller\Error;
 
 
+use Nula\Controller\Base;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class ErrorNotFound extends Base {
+class NotFound extends Base {
 
   /**
    * @param Request $request

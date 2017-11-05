@@ -1,12 +1,13 @@
 <?php
 
-namespace Nula\Controller;
+namespace Nula\Controller\Error;
 
 
+use Nula\Controller\Base;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class ErrorApplication extends Base {
+class ApplicationError extends Base {
 
   public function __invoke(Request $request, Response $response, \Exception $exception) {
     $routeArguments = [];
