@@ -91,7 +91,11 @@ return [
   'kontaktPovinnaPolozka' => 'Pflichtfeld',
   'kontaktChybnyEmail' => 'Geben Sie Ihre E-mail-Adresse mit @ ein.',
   'kontaktEmailUspesneOdeslan' => '<strong>Ihre Nachricht wurde gesendet.</strong><br><br> Eine Kopie Ihrer Nachricht wurde an die angegebene E-mail-Adresse versendet. Vielen Dank für Ihr Interesse. Wir melden uns umgehend bei Ihnen.',
-
   'kontaktOdeslaniEmailuSelhalo' => '<strong>Fehler beim Senden der Nachricht.</strong><br><br> Es tut uns leid, aber etwas ist schiefgelaufen. Versuchen Sie es erneut oder kontaktieren Sie uns auf eine andere Art und Weise.',
 
+  'chybaStrankaNenalezena' => 'Seite nicht gefunden',
+  'chybaStrankaNenalezenaPopis' => 'Entschuldigung, die angeforderte Seite existiert nicht.',
+  'chybaAplikace' => 'Anwendungsfehler',
+  'chybaAplikacePopis' => 'Es tut uns leid, aber beim Anzeigen der Seite ist ein Fehler aufgetreten.',
+  'chybaZpetNa' => 'Zurück zur',
 ];

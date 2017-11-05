@@ -91,4 +91,10 @@ return [
   'kontaktPovinnaPolozka' => 'Required field',
   'kontaktChybnyEmail' => 'Enter an e-mail address containing @',
   'kontaktEmailUspesneOdeslan' => '<strong>The message was sent.</strong><br><br> A copy of the message was sent to the specified e-mail address. Thank you for your interest. We&apos;ll get back soon.',
+
+  'chybaStrankaNenalezena' => 'Page not found',
+  'chybaStrankaNenalezenaPopis' => 'We are sorry, the requested page does not exist.',
+  'chybaAplikace' => 'Application Error',
+  'chybaAplikacePopis' => 'We are sorry, but there was an error while loading the page.',
+  'chybaZpetNa' => 'Go back to',
 ];

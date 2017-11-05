@@ -107,8 +107,14 @@ class LocaleManager {
    */
   public function getLocaleCodeFromPath(Request $request): string {
     $matches = [];
-    if (preg_match('%^/([a-z]{2}-[A-Z]{2})/?.*%', $request->getUri()->getPath(), $matches) && $this->isLocaleSupported($matches[1])) {
-      $locale = $matches[1];
+    if (preg_match('%^/([a-z]{2}-[A-Z]{2})/?.*%', $request->getUri()->getPath(), $matches)) {
+      $localeFromPath = $this->localeToFilenameFormat($matches[1]);
+
+      if ($this->isLocaleSupported($localeFromPath)) {
+        $locale = $localeFromPath;
+      } else {
+        $locale = self::DEFAULT_LOCALE;
+      }
     } else {
       $locale = self::DEFAULT_LOCALE;
     }

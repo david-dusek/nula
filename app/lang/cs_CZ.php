@@ -91,4 +91,10 @@ return [
   'kontaktChybnyEmail' => 'Zadejte e-mailovou adresu obsahující @',
   'kontaktEmailUspesneOdeslan' => '<strong>Zpráva byla odeslána.</strong><br><br> Kopie zprávy byla odeslána na zadanou e-mailovou adresu. Děkujeme za Váš zájem. Brzy se ozveme.',
   'kontaktOdeslaniEmailuSelhalo' => '<strong>Odeslání zprávy selhalo.</strong><br><br> Omlouváme se, ale někde se stala chyba. Zkuste to znovu nebo nás kontaktujte jiným způsobem.',
+
+  'chybaStrankaNenalezena' => 'Stránka nenalezena',
+  'chybaStrankaNenalezenaPopis' => 'Omlouváme se, ale požadovaná stránka neexistuje.',
+  'chybaAplikace' => 'Chyba aplikace',
+  'chybaAplikacePopis' => 'Omlouváme se, ale při zobrazení stránky došlo k chybě.',
+  'chybaZpetNa' => 'Vrátit se na',
 ];

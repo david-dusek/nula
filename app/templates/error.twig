@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}{% endblock %} - {{ 'jmenoAtelieru'|trans|upper }}</title>
+  <title>{{ errorTitleTransKey|trans }} - {{ 'jmenoAtelieru'|trans|upper }}</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Webová prezentace ateliéru {{ 'jmenoAtelieru'|trans|upper }}">
   <meta name="author" content="David Dušek">
   <link href="/css/bootstrap.min.css?v={{ resources_version }}" rel="stylesheet">
+  <link href="/css/error.css?v={{ resources_version }}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Roboto:300" rel="stylesheet">
   <link rel="shortcut icon" href="/images/favicon.png?v={{ resources_version }}" type="image/x-icon">
 </head>
 <body>
-{% block body %}{% endblock %}
+<div class="error-content-wrapper">
+  <div class="error-content">
+    <h1>{{ errorTitleTransKey|trans }}</h1>
+    <p>{{ errorDescriptionTransKey|trans }} {{ 'chybaZpetNa'|trans }}
+      <a href="{{ path_for('homepage', {'lang': lang }) }}">
+        {{ 'titulekUvodka'|trans }}.
+      </a>
+    </p>
+  </div>
+</div>
+</div>
 </body>
 </html>
