@@ -37,7 +37,7 @@ return [
   'atelierBrandstetr' => 'Ateliér Brandštetr',
   'atelierTerezkaTugendhat' => 'spolupráce s Obecní dům Brno na publikaci “Vila Tugendhat v Brně”',
   'atelierTerezkaMunz' => 'spolupráce s Atelier RAW na rekonstrukci a publikaci “Vila Münz”',
-  'atelierTerezka10Domu' => 'spolupráce se spolkem Obecní dům Brno na publikaci “Asnošt Wiesner 10 domů”',
+  'atelierTerezka10Domu' => 'spolupráce se spolkem Obecní dům Brno na publikaci “Arnošt Wiesner 10 domů”',
   'atelierTerezkaTerminalJihlava' => 'spolupráce s Atelier RAW na soutěži “Centrální dopravní terminál Jihlava” 1. místo',
   'atelierLenaKlasterCheb' => '1. místo v soutěži “Revitalizace dominikánského kláštera v Chebu”',
   'atelierLenaSoucastnyDum' => '1. místo v soutěži “Současný dům očima mladých architektů”',
