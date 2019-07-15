@@ -57,6 +57,16 @@ class Project implements \Nula\NullObject {
   /**
    * @var string
    */
+  private $volumetricStudy;
+
+  /**
+   * @var string
+   */
+  private $project;
+
+  /**
+   * @var string
+   */
   private $realization;
 
   /**
@@ -160,6 +170,22 @@ class Project implements \Nula\NullObject {
 
   public function setStudy(string $study) {
     $this->study = $study;
+  }
+
+  public function getVolumetricStudy() {
+    return $this->volumetricStudy;
+  }
+
+  public function setVolumetricStudy(string $volumetricStudy) {
+    $this->volumetricStudy = $volumetricStudy;
+  }
+
+  public function getProject() {
+    return $this->project;
+  }
+
+  public function setProject(string $project) {
+    $this->project = $project;
   }
 
   public function getRealization() {

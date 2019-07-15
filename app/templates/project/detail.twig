@@ -51,6 +51,18 @@
               <td>{{ project.getStudy() }}</td>
             </tr>
           {% endif %}
+          {% if project.getVolumetricStudy() %}
+            <tr>
+              <th>{{ 'projektObjemovaStudie'|trans|upper }}</th>
+              <td>{{ project.getVolumetricStudy() }}</td>
+            </tr>
+          {% endif %}
+          {% if project.getProject() %}
+            <tr>
+              <th>{{ 'projektProjekt'|trans|upper }}</th>
+              <td>{{ project.getProject() }}</td>
+            </tr>
+          {% endif %}
           {% if project.getRealization() %}
             <tr>
               <th>{{ 'projektRealizace'|trans|upper }}</th>

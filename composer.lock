@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "1fc0464fd5c4c21f151799dea322b43a",
@@ -39,16 +39,16 @@
         },
         {
             "name": "dg/ftp-deployment",
-            "version": "v2.7",
+            "version": "v2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/ftp-deployment.git",
-                "reference": "89d0123008fc3b695af6881253013dc96ee49b7a"
+                "reference": "0f7650d041a629a8a7c295f3025a532491d8cd73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/ftp-deployment/zipball/89d0123008fc3b695af6881253013dc96ee49b7a",
-                "reference": "89d0123008fc3b695af6881253013dc96ee49b7a",
+                "url": "https://api.github.com/repos/dg/ftp-deployment/zipball/0f7650d041a629a8a7c295f3025a532491d8cd73",
+                "reference": "0f7650d041a629a8a7c295f3025a532491d8cd73",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 "ftp",
                 "ssh"
             ],
-            "time": "2016-12-22T20:37:08+00:00"
+            "time": "2018-04-16T12:23:47+00:00"
         },
         {
             "name": "nikic/fast-route",

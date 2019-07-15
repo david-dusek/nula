@@ -59,7 +59,7 @@ class Base {
                                                  array $routerArgs, string $template, array $templateParameters = []): \Psr\Http\Message\ResponseInterface {
     $view = $this->localeManager->createLocalizedTwigView($request, $routerArgs);
     $localizedViewParameters = $this->localeManager->getLocalizedTwigViewTemplateParameters($request, $routerArgs, $response);
-    $localizedViewParameters['resources_version'] = 27;
+    $localizedViewParameters['resources_version'] = 28;
 
     return $view->render($response, $template, array_merge($templateParameters, $localizedViewParameters));
   }

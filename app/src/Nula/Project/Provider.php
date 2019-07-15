@@ -135,7 +135,9 @@ class Provider {
     $this->extractProperty($project, 'setCooperation', $info, 'Spolupráce', $locale);
     $this->extractProperty($project, 'setInvestor', $info, 'Investor', $locale);
     $this->extractProperty($project, 'setStudy', $info, 'Studie', $locale);
+    $this->extractProperty($project, 'setVolumetricStudy', $info, 'Objemová studie', $locale);
     $this->extractProperty($project, 'setRealization', $info, 'Realizace', $locale);
+    $this->extractProperty($project, 'setProject', $info, 'Projekt', $locale);
     $this->extractProperty($project, 'setAward', $info, 'Ocenění', $locale);
     $this->extractProperty($project, 'setCompetition', $info, 'Soutěž', $locale);
     $this->extractProperty($project, 'setPublication', $info, 'Publikace', $locale);

@@ -14,6 +14,8 @@ return [
   'projektAutori' => 'autoři',
   'projektSpoluprace' => 'spolupráce',
   'projektStudie' => 'studie',
+  'projektObjemovaStudie' => 'objemová studie',
+  'projektProjekt' => 'projekt',
   'projektRealizace' => 'realizace',
   'projektSoutez' => 'soutěž',
   'projektOceneni' => 'ocenění',
