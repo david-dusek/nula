@@ -4,11 +4,11 @@
 {% block content %}
   <div class="hidden-xs container-fluid atelier-cv-desktop atelier-container-under-navbar">
     <div class="container atelier-cv-text-desktop">
-      <div class="atelier-cv-desktop-tereza atelier-cv-desktop-col">
-        {% include "components/atelier-cv-tereza.twig" %}
+      <div class="atelier-desktop-left-panel atelier-cv-desktop-col">
+        {% include "components/atelier-left-panel.twig" %}
       </div>
-      <div class="atelier-cv-desktop-lena atelier-cv-desktop-col">
-        {% include "components/atelier-cv-lena.twig" %}
+      <div class="atelier-desktop-right-panel atelier-cv-desktop-col">
+        {% include "components/atelier-right-panel.twig" %}
       </div>
     </div>
   </div>
@@ -16,10 +16,10 @@
   <div class="visible-xs container-fluid atelier-image-desktop atelier-container-under-navbar">
   </div>
   <div class="visible-xs container">
-    {% include "components/atelier-cv-lena.twig" %}
+    {% include "components/atelier-left-panel.twig" %}
   </div>
   <div class="visible-xs container">
-    {% include "components/atelier-cv-tereza.twig" %}
+    {% include "components/atelier-right-panel.twig" %}
   </div>
 
   <div class="hidden-xs container">

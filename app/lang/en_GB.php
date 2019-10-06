@@ -42,6 +42,11 @@ return [
   'atelierLenaSoucastnyDum' => '1. prize Award “The contemporary house by young architects”',
   'atelierLenaDumNaMiru' => 'Special Award “House to proportion”',
   'atelierLenaGalerieArchitekturyADesignu' => 'TOP 6 Award “Gallery of architecture and design”',
+  'atelierClen' => 'member',
+  'atelierUniversidadPolitecnicaMadrid' => 'Universidad Politécnica Madrid, Madrid, ES',
+  'atelierLtProject' => 'LT Projekt a.s., Brno',
+  'atelierKolegove' => 'COLLEAGUES',
+
   'faqCimZacit' => 'What to start with?',
   'faqCimZacitKontakt' => '<strong>Contact us</strong> via our contact form or e-mail us at <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> with your requirements, ideally along with backgrounds (floor plans, photos or video of a current situation).',
   'faqCimZacitUvodniSchuzka' => 'In response to your request we will propose <strong>a date for the introductory meeting</strong>, where we will discuss your ideas and consider all possible options. Together we will go through the scope and approach of a collaboration.',

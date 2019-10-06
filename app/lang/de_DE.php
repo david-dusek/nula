@@ -45,6 +45,10 @@ return [
   'atelierLenaSoucastnyDum' => '1. Platz im Wettbewerb " Ein zeitgenössisches Haus durch die Augen junger Architekten"',
   'atelierLenaDumNaMiru' => 'TOP 4 Platzierung und ein besonderer Preis im Wettbewerb "Haus auf Maß"',
   'atelierLenaGalerieArchitekturyADesignu' => 'TOP 6 Platzierung im Wettbewerb "Galerie der Architektur und des Designs"',
+  'atelierClen' => 'Mitglied',
+  'atelierUniversidadPolitecnicaMadrid' => 'Universidad Politécnica Madrid, Madrid, ES',
+  'atelierLtProject' => 'LT Projekt a.s., Brünn, CZ',
+  'atelierKolegove' => 'KOLLEGEN',
 
   'faqCimZacit' => 'Womit beginnen?',
   'faqCimZacitKontakt' => '<strong> Kontaktieren Sie uns</strong> über unser Kontaktformular oder E-mail <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a>  und teilen Sie uns Ihre Forderungen mit (idealerweise auch mit Unterlagen: Grundrisse, Fotos oder Videoaufzeichnung des Ist-Zustandes).',

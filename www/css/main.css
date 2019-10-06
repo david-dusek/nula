@@ -321,11 +321,11 @@ p {
   color: #fff;
   font-size: 0.85em;
   height: 460px;
-  background: url('/images/atelier_background.jpg') no-repeat center top;
+  background: url('/images/atelier_background.jpg?v=2') no-repeat center top;
 }
 
 .atelier-cv-desktop:hover {
-  background-image: url('/images/atelier_background_red.jpg');
+  background-image: url('/images/atelier_background_red.jpg?v=2');
 }
 
 .atelier-cv-desktop:hover .atelier-cv-text-desktop {
@@ -338,19 +338,20 @@ p {
 
 .atelier-cv-text-desktop {
   display: none;
-  padding-top: 57px;
+  padding-top: 35px;
 }
 
 .atelier-cv-desktop-col {  
   width: 340px;
 }
 
-.atelier-cv-desktop-lena {
-  float: left;
+.atelier-desktop-right-panel {
+  width: 245px;
+  float: right;
 }
 
-.atelier-cv-desktop-tereza {
-  float: right;
+.atelier-desktop-left-panel {
+  float: left;
 }
 
 .atelier-container-under-navbar {
@@ -358,8 +359,8 @@ p {
 }
 
 .atelier-image-desktop {
-  height: 460px;
-  background: url('/images/atelier_background_mobile.jpg') no-repeat right top; 
+  height: 309px;
+  background: url('/images/atelier_background_mobile.jpg?v=6') no-repeat right top; 
 }
 
 /* KONTAKT */

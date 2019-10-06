@@ -45,6 +45,10 @@ return [
   'atelierLenaSoucastnyDum' => '1. místo v soutěži “Současný dům očima mladých architektů”',
   'atelierLenaDumNaMiru' => 'umístění v TOP 4 a zvláštní ocenění v soutěži “Dům na míru”',
   'atelierLenaGalerieArchitekturyADesignu' => 'umístění v TOP 6 v soutěži “Galerie architektury a designu”',
+  'atelierClen' => 'člen',
+  'atelierUniversidadPolitecnicaMadrid' => 'Universidad Politécnica Madrid, Madrid, ES',
+  'atelierLtProject' => 'LT Projekt a.s., Brno',
+  'atelierKolegove' => 'KOLEGOVÉ',
   
   'faqCimZacit' => 'Čím začít?',
   'faqCimZacitKontakt' => '<strong>Kontaktujete nás</strong> přes kontaktní formulář nebo prostřednictvím e-mailu na <a href="mailto:info@plusminusnula.cz" target="_blank">info@plusminusnula.cz</a> s Vašimi požadavky, ideálně spolu s podklady (půdorysy, fotky nebo video stávajícího stavu).',
